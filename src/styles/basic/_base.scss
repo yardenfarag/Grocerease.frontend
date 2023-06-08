@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Heebo', sans-serif;
+  font-weight: 500;
+}
+
+html {
+  color: $clr6;
+}
+
+body {
+  min-height: 100vh;
+  direction: rtl;
+  background: linear-gradient(-45deg, #fdfaf0, #f9efcf, #f7eab9, #f1db93);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+a {
+  text-decoration: none;
+  color: $clr6;
+}
+
+button {
+  color: $clr6;
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: $clr1 transparent;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  scroll-margin-inline-end: 4px;
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: $clr2;
+  border-radius: 10px;
+  border: 0;
+}
+
+// .rtl {
+//   direction: rtl;
+// }
+
+input {
+  border-radius: 8px;
+  border: 0;
+  padding: 4px;
+  border: 0;
+}
+
+.btn-call-to-action {
+  cursor: pointer;
+  border: 0;
+  padding: 20px 24px;
+  height: 64px;
+  background-color: $call-to-action;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: filter .2s ease-in-out;
+  color: $clr1;
+
+  &:hover {
+    filter: brightness(120%);
+  }
+}

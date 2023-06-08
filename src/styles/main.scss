@@ -1,0 +1,31 @@
+// Setup
+@import "./setup/variables";
+@import "./setup/functions";
+@import "./setup/mixins";
+@import "./setup/typography";
+@import "./setup/animations";
+
+// Basic
+@import "./basic/helpers";
+@import "./basic/layout";
+@import "./basic/base";
+
+// Views
+@import './views/home-page';
+@import './views/store-details-page';
+@import './views/stores-page';
+@import './views/login-page';
+
+// Components
+@import "./cmps/app-header";
+@import "./cmps/store-preview";
+@import "./cmps/item-list";
+@import "./cmps/item-preview";
+@import "./cmps/shopping-list";
+@import "./cmps/places-list";
+@import "./cmps/item-filter";
+@import "./cmps/homepage-header";
+@import "./cmps/login";
+@import "./cmps/product-list";
+@import "./cmps/product-preview";
+

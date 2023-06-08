@@ -1,0 +1,378 @@
+[
+  {
+    "product_id": "9091",
+    "product_name": "מלח שולחן מעולה סלית - 1 ק\"ג",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798824/7290004063016_sgtguw.jpg",
+    "product_description": "מלח שולחן",
+    "product_barcode": "7290004063016",
+    "manufacturer_name": "מלח הארץ"
+  },
+  {
+    "product_id": "605894",
+    "product_name": "משקה סויה קפה קרמל 250מל",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798821/5411188133490_ccfrgz.jpg",
+    "product_description": "משקה סויה קפה",
+    "product_barcode": "5411188133490",
+    "manufacturer_name": "אלפרו C.V.A"
+  },
+  {
+    "product_id": "470374",
+    "product_name": "קפה מיובש ערביקה 200 גרם",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798831/7296073393115_ir8h20.jpg",
+    "product_description": "קפה מיובש ערביקה",
+    "product_barcode": "7296073393115",
+    "manufacturer_name": "SOLUBLES PRODUCTOS"
+  },
+  {
+    "product_id": "49550",
+    "product_name": "ספגטי לה פסטה פרפר 4",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798826/7290014534674_i7shjj.jpg",
+    "product_description": "ספגטי לה פסטה פרפר 400גר",
+    "product_barcode": "7290014534674",
+    "manufacturer_name": "תומר יבוא ושיווק מוצרי מזון (1"
+  },
+  {
+    "product_id": "3268",
+    "product_name": "סבון נוזלי פנינה כחול 1ל",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798824/7290006185518_clxsnm.jpg",
+    "product_description": "סבון נוזלי פנינה",
+    "product_barcode": "7290006185518",
+    "manufacturer_name": "סאסא קוסמטיקס"
+  },
+  {
+    "product_id": "446653",
+    "product_name": "שמן חמניות פלוס 1 ליטר אומגה 3 עץ הזית",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798827/7290017142388_wvngux.jpg",
+    "product_description": "",
+    "product_barcode": "7290017142388",
+    "manufacturer_name": "שמן תעשיות בעמ"
+  },
+  {
+    "product_id": "466640",
+    "product_name": "כריות נוגט  686ג  בדץ",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798830/7290112495006_zl19ay.jpg",
+    "product_description": "",
+    "product_barcode": "7290112495006",
+    "manufacturer_name": "יוניליוור ישראל שיווק בעמ"
+  },
+  {
+    "product_id": "558237",
+    "product_name": "חטיף ירקות שורש ומלח  ים( 120 גר`)",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798829/7290111353451_lqrtgc.jpg",
+    "product_description": "",
+    "product_barcode": "7290111353451",
+    "manufacturer_name": "ליימן שליסל בעמ"
+  },
+  {
+    "product_id": "2197",
+    "product_name": "סוכר חום קלאסי סוגת - 1 ק\"ג",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798824/7290001990094_gtpvws.jpg",
+    "product_description": "סוכר חום קלאסי",
+    "product_barcode": "7290001990094",
+    "manufacturer_name": "סוגת"
+  },
+  {
+    "product_id": "2896",
+    "product_name": "שמנת חמוצה מופחתת שומן 9% תנובה - 200 מ\"ל",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798824/7290004125370_stkdub.jpg",
+    "product_description": "שמנת חמוצה 9%",
+    "product_barcode": "7290004125370",
+    "manufacturer_name": "תנובה"
+  },
+  {
+    "product_id": "355832",
+    "product_name": "גרנולה פירות 1 קג",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798828/7290017390390_y2ktik.jpg",
+    "product_description": ", ,       ,0",
+    "product_barcode": "7290017390390",
+    "manufacturer_name": "לא ידוע"
+  },
+  {
+    "product_id": "1415",
+    "product_name": "פריכוז תרכיז עגבניות 28% יכין - 580 גרם",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798823/7290000209722_bv0vcp.jpg",
+    "product_description": "רוטב עגבניות",
+    "product_barcode": "7290000209722",
+    "manufacturer_name": "יכין"
+  },
+  {
+    "product_id": "584046",
+    "product_name": "פרי ניב תפוז 2 ליטר",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798827/7290016682250_xe94oc.jpg",
+    "product_description": "פרי ניב תפוז 2 ליטר",
+    "product_barcode": "7290016682250",
+    "manufacturer_name": "לא ידוע"
+  },
+  {
+    "product_id": "418444",
+    "product_name": "פטרוזיליה עם שורשים",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798828/7290017487441_ozomoy.jpg",
+    "product_description": "",
+    "product_barcode": "7290017487441",
+    "manufacturer_name": "שדות בעמק"
+  },
+  {
+    "product_id": "8829",
+    "product_name": "קינואה",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798825/7290011254032_m4mgdj.jpg",
+    "product_description": "קינואה 500 גרם",
+    "product_barcode": "7290011254032",
+    "manufacturer_name": "מיה תעשיות מזון בע\"מ"
+  },
+  {
+    "product_id": "5332",
+    "product_name": "קפה נמס מוקה עלית - 200 גרם",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798829/7290104065187_yhxzx1.jpg",
+    "product_description": "קפה נמס מוקה",
+    "product_barcode": "7290104065187",
+    "manufacturer_name": "עלית"
+  },
+  {
+    "product_id": "182490",
+    "product_name": "טחינה גולמית מעודנת בבקבוק לחיץ בארכה - 310 גרם",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798823/7290001407936_fkflto.jpg",
+    "product_description": "טחינה מעודנת",
+    "product_barcode": "7290001407936",
+    "manufacturer_name": "רושדי תעשיות מזון"
+  },
+  {
+    "product_id": "2894",
+    "product_name": "קצפת צמחית במתיקות מעודנת השף הלבן - 500 מ\"ל",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798824/7290004124847_nzsyqk.jpg",
+    "product_description": "קצפת צמחית",
+    "product_barcode": "7290004124847",
+    "manufacturer_name": "תנובה"
+  },
+  {
+    "product_id": "577070",
+    "product_name": "שקדימון 650 גרם",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798826/7290011426859_zdgcv2.jpg",
+    "product_description": "שקדימון",
+    "product_barcode": "7290011426859",
+    "manufacturer_name": "טבע מהדרין"
+  },
+  {
+    "product_id": "8726",
+    "product_name": "קמח חיטה מלא סוגת - 1 ק\"ג",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798823/7290000211374_gvg2bb.jpg",
+    "product_description": "קמח חיטה מלא",
+    "product_barcode": "7290000211374",
+    "manufacturer_name": "סוגת"
+  },
+  {
+    "product_id": "28838",
+    "product_name": "טימין הררי 50 ג\"ר",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798825/7290010002405_ciktgs.jpg",
+    "product_description": "טימין הררי 50 ג\"ר",
+    "product_barcode": "7290010002405",
+    "manufacturer_name": "א.ל.ייצור ושיווק תבלינים בעמ"
+  },
+  {
+    "product_id": "537618",
+    "product_name": "משקה סויה גו מועשר בחלבון 1ל",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798829/7290110327033_d7epv3.jpg",
+    "product_description": "",
+    "product_barcode": "7290110327033",
+    "manufacturer_name": "תנובה"
+  },
+  {
+    "product_id": "1315",
+    "product_name": "שוקולית אבקת שוקו עלית - 500 גרם",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798823/110572532_ji4xwj.jpg",
+    "product_description": "שוקולית",
+    "product_barcode": "7290000174723",
+    "manufacturer_name": "עלית"
+  },
+  {
+    "product_id": "8537",
+    "product_name": "תפוציפס בטעם טבעי200גרם",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798822/7290000178721_pif5aq.jpg",
+    "product_description": "חטיף תפוצ'יפס",
+    "product_barcode": "7290000178721",
+    "manufacturer_name": "שטראוס"
+  },
+  {
+    "product_id": "423862",
+    "product_name": "עוג.שוק.ציפס חלב כשלפ160",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798830/7290112331953_biy8xq.jpg",
+    "product_description": "עוגיות שוקוצ'יפס",
+    "product_barcode": "7290112331953",
+    "manufacturer_name": "שטראוס"
+  },
+  {
+    "product_id": "177957",
+    "product_name": "מיני פיצה מרגריטה  6יח",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798830/7296073254263_wdbz22.png",
+    "product_description": "פיצות אישיות",
+    "product_barcode": "7296073254263",
+    "manufacturer_name": "שופרסל"
+  },
+  {
+    "product_id": "107942",
+    "product_name": "כמון צנצנת 300 גרם",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798825/7290008636193_xeqba9.jpg",
+    "product_description": "כמון צנצנת",
+    "product_barcode": "7290008636193",
+    "manufacturer_name": "מיה תעשיות מזון בע\"מ"
+  },
+  {
+    "product_id": "21418",
+    "product_name": "פפריקה מתוקה שקית 80 גרם",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798826/7290011254117_i5hnkf.jpg",
+    "product_description": "פפריקה מתוקה",
+    "product_barcode": "7290011254117",
+    "manufacturer_name": "מיה תעשיות מזון בע\"מ"
+  },
+  {
+    "product_id": "1207",
+    "product_name": "קימל שלם 40 גרם",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798821/7290000134680_hkx0s8.jpg",
+    "product_description": "קימל שלם",
+    "product_barcode": "7290000134680",
+    "manufacturer_name": "תבליני טעם וריח"
+  },
+  {
+    "product_id": "552103",
+    "product_name": "צ`לי גרוס חריף אש 70 גר`",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798827/7290015324663_z4q4wi.jpg",
+    "product_description": "",
+    "product_barcode": "7290015324663",
+    "manufacturer_name": "תבליני טעם וריח בעמ"
+  },
+  {
+    "product_id": "418184",
+    "product_name": "פירורי לחם תיבו.איטלק350",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798831/7296073266594_qeqx5i.jpg",
+    "product_description": "פירורי לחם",
+    "product_barcode": "7296073266594",
+    "manufacturer_name": "חטיפים מין הטבע בע\"מ"
+  },
+  {
+    "product_id": "875",
+    "product_name": "גבינה בולגרית עיזים 16% פיראוס - 250 גרם",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798822/7290000049458_d0pia2.jpg",
+    "product_description": "פטה עיזים פיראוס",
+    "product_barcode": "7290000049458",
+    "manufacturer_name": "תנובה"
+  },
+  {
+    "product_id": "5233",
+    "product_name": "יוגורט ביו סימפלי פרוט אפרסק 3% מולר - 150 גרם",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798829/7290102393176_yebojh.jpg",
+    "product_description": "יוגורט אפרסק",
+    "product_barcode": "7290102393176",
+    "manufacturer_name": "טרה"
+  },
+  {
+    "product_id": "870",
+    "product_name": "גבינה לבנה 5% תנובה - 250 גרם",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798821/7290000048185_yryulf.jpg",
+    "product_description": "גבינה לבנה 5%",
+    "product_barcode": "7290000048185",
+    "manufacturer_name": "תנובה"
+  },
+  {
+    "product_id": "472112",
+    "product_name": "בלבנד בלי מלח 200 גרם",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798832/8719200998001_piuzq8.jpg",
+    "product_description": "",
+    "product_barcode": "8719200998001",
+    "manufacturer_name": "יוניליוור ישראל שיווק בעמ"
+  },
+  {
+    "product_id": "511368",
+    "product_name": "שניצל עוף ביתי עדין ן עוף טוב 700גר",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798826/7290014749764_irfvys.jpg",
+    "product_description": "",
+    "product_barcode": "7290014749764",
+    "manufacturer_name": "קבוצת אוסם סחר-שות.מוגבלת"
+  },
+  {
+    "product_id": "3552",
+    "product_name": "סלמון הילטון",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798825/7290008347730_me1imt.jpg",
+    "product_description": "סלמון הילטון",
+    "product_barcode": "7290008347730",
+    "manufacturer_name": "דלידג ק.מלאכי"
+  },
+  {
+    "product_id": "3645",
+    "product_name": "לחם שיפון כהה פרוס אחדות - 750 גרם",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798825/7290008713917_wi1d0q.jpg",
+    "product_description": "לחם שיפון כהה",
+    "product_barcode": "7290008713917",
+    "manufacturer_name": "מאפיית שלמה א. אנג'ל"
+  },
+  {
+    "product_id": "563072",
+    "product_name": "פיתות 10 יח",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798832/7296073415862_y8vifc.png",
+    "product_description": "פיתות 10 יח",
+    "product_barcode": "7296073415862",
+    "manufacturer_name": "דגנית עין בר"
+  },
+  {
+    "product_id": "505963",
+    "product_name": "שוקולד 70% שברי שקד ללח 100  גר`כשר לפסח",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798828/7290017641720_jnpfyj.jpg",
+    "product_description": "",
+    "product_barcode": "7290017641720",
+    "manufacturer_name": "כרמית תעשיות ממתקים בעמ"
+  },
+  {
+    "product_id": "6785",
+    "product_name": "שוקולד חלב עם קרמל מילקה - 100 גרם",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798832/7622201050757_bm8ypd.jpg",
+    "product_description": "שוקולד מילקה",
+    "product_barcode": "7622201050757",
+    "manufacturer_name": "מונדלייז"
+  },
+  {
+    "product_id": "11882",
+    "product_name": "שוקולד פרה חלב במילוי קרם תות מגדים עלית - 100 גרם",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798825/7290008750677_peer4l.jpg",
+    "product_description": "שוקולד במילוי תות מגדים 100 ג",
+    "product_barcode": "7290008750677",
+    "manufacturer_name": "שטראוס"
+  },
+  {
+    "product_id": "624889",
+    "product_name": "מיץ תפוח עץ צלול 2 ליטר",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798827/7290016682366_ppjvg5.jpg",
+    "product_description": "מיץ תפוח עץ",
+    "product_barcode": "7290016682366",
+    "manufacturer_name": "תנובה"
+  },
+  {
+    "product_id": "4501",
+    "product_name": "קולה זירו 1 ליטר",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798826/7290013585387_dkcuqe.jpg",
+    "product_description": "קולה זירו",
+    "product_barcode": "7290013585387",
+    "manufacturer_name": "החברה המרכזית"
+  },
+  {
+    "product_id": "20079",
+    "product_name": "קפה לוואצה מאטינו",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798831/8000070032835_k1trzn.jpg",
+    "product_description": "קפה לוואצה מאטינו",
+    "product_barcode": "8000070032835",
+    "manufacturer_name": "לווצה"
+  },
+  {
+    "product_id": "624914",
+    "product_name": "תפוזים מתקתק 100% 2 ליטר",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798829/7290110114954_mxefqd.jpg",
+    "product_description": "מיץ תפוזים מת",
+    "product_barcode": "7290110114954",
+    "manufacturer_name": "פריגת"
+  },
+  {
+    "product_id": "2157",
+    "product_name": "קוקה קולה בפלסטיק500 מ\"ל",
+    "product_image": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798823/7290001594155_h9xv6i.jpg",
+    "product_description": "קוקה קולה",
+    "product_barcode": "7290001594155",
+    "manufacturer_name": "החברה המרכזית"
+  }
+]

@@ -1,0 +1,31 @@
+.homepage-header {
+    height: rem(43px);
+    margin-block-start: rem(40px);
+    z-index: 1;
+    .logo {
+        img {
+            height: rem(32px);
+        }
+    }
+
+    nav {
+        ul {
+
+            li {
+                margin-inline-start: rem(40px);
+                font-size: rem(18px);
+                letter-spacing: rem(1px);
+
+                
+                &.btn-login {
+                    cursor: pointer;
+                    font-weight: 500;
+                    transition: color .2s ease-in-out;
+                    &:hover {
+                        color: $call-to-action;
+                    }
+                }
+            }
+        }
+    }
+}

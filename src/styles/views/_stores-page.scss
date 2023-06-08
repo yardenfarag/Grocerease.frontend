@@ -1,0 +1,107 @@
+.store-page {
+    height: calc(100vh - 55px);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+
+    .stores {
+        gap: 25px;
+    }
+
+    .add-store {
+        position: relative;
+        width: 150px;
+        height: 150px;
+        margin: 32px;
+        transition: 250ms;
+        perspective: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        .add-store-back {
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            width: 210px;
+            height: 210px;
+            border-radius: 32px;
+            transform-style: preserve-3d;
+            transform-origin: bottom right;
+            transform: rotateZ(15deg);
+            box-shadow: 16px 0 40px #e4e4e4;
+            transition: all .3s ease-in-out;
+        }
+
+        .add-store-front {
+            width: 210px;
+            height: 210px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: $clr1;
+            flex-direction: row;
+            flex-wrap: wrap;
+            inset: 0;
+            z-index: 1;
+            border-radius: 32px;
+            background-color: #ffffff33;
+            backdrop-filter: blur(20px);
+            position: absolute;
+            overflow: hidden;
+
+            input {
+                border: 0;
+
+            }
+
+            button {
+                cursor: pointer;
+                border: 0;
+                border-radius: 50%;
+                background-color: $clr1;
+                width: 40px;
+                height: 40px;
+                font-size: 1.8rem;
+                font-weight: 300;
+                transition: filter .3s ease-in-out;
+                color: $clr2;
+
+                &:hover {
+                    filter: brightness(80%);
+                }
+            }
+        }
+
+        .colors {
+            gap: 16px;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            
+            div {
+                box-shadow: 16px 0 40px #e4e4e4;
+                width: 35px;
+                height: 35px;
+                cursor: pointer;
+                border-radius: 50%;
+                transition: scale .2s ease-in-out;
+
+                &.selected {
+                    scale: 1.2;
+                    border: 1px solid $clr1;
+                }
+
+                &:hover {
+                    scale: 1.2;
+                    border: 1px solid $clr1;
+                }
+            }
+        }
+
+
+    }
+}

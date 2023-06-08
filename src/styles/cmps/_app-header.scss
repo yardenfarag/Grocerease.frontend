@@ -1,0 +1,44 @@
+.app-header{
+    box-shadow: 0 4px 2px -2px $clr2;
+    div {
+        padding: 5px;
+        padding-inline: 7px;
+        .user-avatar {
+            .user-letter {
+                max-width: 30px;
+                max-height: 30px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                filter: brightness(80%);
+                color: $clr2;
+            }
+        }
+        
+         li {
+            margin-left: 8px;
+            margin-right: 8px;
+        }
+        
+        .login-signup li a{
+            padding: 8px;
+            margin-left: 10px;
+            &.login {
+                text-decoration: underline;
+            }
+            &.get-started {
+                cursor: pointer;
+                padding-inline: 26px;
+                padding-block: 10px;
+                color: $clr1;
+                background-color: $call-to-action;
+                border-radius: 2rem;
+                transition: filter 0.3s ease-in-out;
+                &:hover {
+                    filter:brightness(120%)
+                }
+            }
+        }
+    }
+}

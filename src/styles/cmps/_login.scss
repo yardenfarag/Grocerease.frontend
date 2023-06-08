@@ -1,0 +1,64 @@
+.login-form {
+    height: 520px;
+    width: 400px;
+    // background-color: rgba(255,255,255,0.13);
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(3px);
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+    padding: 50px 35px;
+    letter-spacing: 0.5px;
+    h3 {
+        font-size: 32px;
+        font-weight: 500;
+        line-height: 42px;
+        text-align: center;
+        color: $clr2;
+        margin-block-end: 20px;
+        font-weight: 400;
+    }
+    label {
+        display: block;
+        margin-top: 30px;
+        font-size: 16px;
+        font-weight: 500;
+    }
+    input {
+        display: block;
+        height: 50px;
+        width: 100%;
+        border-radius: 3px;
+        padding: 0 10px;
+        margin-top: 8px;
+        font-size: 14px;
+        font-weight: 300;
+        border: none;
+        &::placeholder {
+            letter-spacing: 1px;
+            color: $clr2;
+            font-weight: 100;
+        }
+        &:focus {
+            outline: 1px solid $clr4;
+        }
+    }
+    button {
+        margin-block: 20px;
+        width: 100%;
+        font-size: 1.2rem;
+    }
+    .social {
+        margin-top: 30px;
+        display: flex;
+    }
+    
+    .social div {
+        width: 150px;
+        border-radius: 3px;
+        padding: 5px 10px 10px 5px;
+        text-align: center;
+    }
+}
