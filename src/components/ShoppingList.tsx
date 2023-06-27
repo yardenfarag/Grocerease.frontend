@@ -1,34 +1,44 @@
 import React, { FormEvent, useEffect, useState } from 'react'
 import { Grocery } from '../models/grocery'
-import { GroceryItemPreview } from './GroceryItemPreview'
+import { GroceryItem } from './GroceryItem'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootState } from '../store'
+import { Product } from '../models/product'
+import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit'
+import { storeActions } from '../store/store'
+import { ProductSuggestions } from './ProductSuggestions'
+import { getProducts } from '../store/product'
 
-const API_KEY = 'AIzaSyA70GiVeyzjJ00yQA7RYG3W82AWiX6J_6g'
+type AppDispatch = ThunkDispatch<RootState, undefined, AnyAction>;
 
-export const ShoppingList = (props: any) => {
-    const [groceryTitle, setGroceryTitle] = useState('')
-    const [position, setPosition] = useState({ lat: 0, lng: 0 })
-    const [curLoc, setCurLoc] = useState('')
-    const getLocation = async () => {
-        const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${position.lat},${position.lng}&key=${API_KEY}`
-        await fetch(url).then(res => res.json().then(res => setCurLoc(res.results[0].formatted_address)))
-        console.log(position);
-    }
+interface Props {
+    color: string | undefined
+}
+
+export const ShoppingList: React.FC<Props> = (props: any) => {
+    const dispatch: AppDispatch = useDispatch()
+    const [groceryToAdd, setGroceryToAdd] = useState({ title: '', quantity: 1, imgUrl: '', barcode: '' })
+    const [productDetails, setProductDetails] = useState({ title: '', imgUrl: '', barcode: '' })
+    const products: Product[] | null = useSelector((state: RootState) => state.product.products)
+
     useEffect(() => {
-        navigator.geolocation.getCurrentPosition((pos) => setPosition({ lat: pos.coords.latitude, lng: pos.coords.longitude }))
-        getLocation()
+        let { title, imgUrl, barcode } = productDetails
+        setGroceryToAdd({ ...groceryToAdd, title, imgUrl, barcode })
+    }, [productDetails])
 
-    }, [])
-    const deleteGroceryHandler = (groceryId: string) => {
-        props.onDeleteGrocery(groceryId)
+    const chooseProductHandler = (title: string, imgUrl: string, barcode: string) => {
+        setProductDetails({ title, imgUrl, barcode })
     }
+
     const addItemToShoppingListHandler = (ev: FormEvent) => {
         ev.preventDefault()
-        if (!groceryTitle) return
-        props.onAddGroceryToShoppingList(groceryTitle)
-        setGroceryTitle('')
+        if (!groceryToAdd.title || !groceryToAdd.barcode) return
+        dispatch(storeActions.addGroceryToShoppingList(groceryToAdd))
+        setGroceryToAdd({ title: '', quantity: 1, imgUrl: '', barcode: '' })
     }
     const setGroceryTitleHandler = (ev: React.ChangeEvent<HTMLInputElement>) => {
-        setGroceryTitle(ev.target.value)
+        setGroceryToAdd({ ...groceryToAdd, title: ev.target.value })
+        dispatch(getProducts({ txt: ev.target.value }))
     }
     return (
         <div className="shopping-list">
@@ -37,15 +47,14 @@ export const ShoppingList = (props: any) => {
                 <span className='close-shopping-list'>X</span>
             </div>
             <ul className='clean-list flex column'>
-                {props.shoppingList?.map((item: Grocery) => <GroceryItemPreview key={item.barcode} onDeleteGrocery={deleteGroceryHandler} item={item} />)}
+                {props.shoppingList?.map((item: Grocery) => <GroceryItem key={item.barcode} item={item} />)}
             </ul>
             <form onSubmit={addItemToShoppingListHandler} className='flex'>
-                <input value={groceryTitle} onChange={setGroceryTitleHandler} type="text" placeholder='הוסף פריט לרשימה' />
-                <button className='add-grocery-btn' type='submit'>הוסף</button>
+                <input value={groceryToAdd.title} onChange={setGroceryTitleHandler} type="text" placeholder='הוסף פריט לרשימה' />
+                <button className='add-grocery-btn' type='submit'>+</button>
             </form>
+                {groceryToAdd.title && products?.length && <ProductSuggestions onChooseProduct={chooseProductHandler} products={products}/>}
             <button className='compare-btn'>השווה מחירים (בקרוב...)</button>
-            <p>מיקום:</p>
-            {curLoc && <p>{JSON.stringify(curLoc)}</p>}
         </div>
     )
 }

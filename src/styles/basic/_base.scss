@@ -13,7 +13,7 @@ html {
 body {
   min-height: 100vh;
   direction: rtl;
-  background: linear-gradient(-45deg, #fdfaf0, #f9efcf, #f7eab9, #f1db93);
+  background: linear-gradient(-45deg, #ffffff, #f9efcf, #f7eab9, #f1db93);
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
 }
@@ -77,6 +77,10 @@ input {
   border: 0;
   padding: 4px;
   border: 0;
+  transition: all .2s ease-in-out;
+  &:focus {
+    outline: 1px solid $clr4;
+  }
 }
 
 .btn-call-to-action {

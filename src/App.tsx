@@ -9,10 +9,13 @@ import { LoginPage } from './views/LoginPage'
 import { useSelector } from 'react-redux'
 import { RootState } from './store'
 import { User } from './models/user'
+import useAuthentication from './customHooks/useAuthentication'
+import { useEffect } from 'react'
 
 function App() {
+  useAuthentication()
   function PrivateRoute({ children }: { children: React.ReactNode }) {
-    const loggedInUser = useSelector<RootState, User | null>(state => state.user.loggedInUser)
+    const loggedInUser = useSelector<RootState, User | null>(state => state.auth.user)
     return loggedInUser ? (
       <>{[children]}</>
     ) : (
@@ -28,6 +31,7 @@ function App() {
         <Route path='/store/:id' element={<PrivateRoute><StoreDetailsPage /></PrivateRoute>} />
         {/* <Route path='/store/:id' element={<StoreDetailsPage />} /> */}
         <Route path='/login' element={<LoginPage/>}/>
+        <Route path='/signup' element={<LoginPage/>}/>
       </Routes>
     </Router>
   )

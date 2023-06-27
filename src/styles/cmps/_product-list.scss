@@ -1,12 +1,16 @@
 .product-list {
-    margin-inline-start: -4px;
-    width:220px;
+    // margin-inline-start: -4px;
+    width:100%;
     padding-inline: 8px;
-    max-height: 25vh;
+    padding-inline-start: 14px;
+    max-height: 200px;
     overflow-y: scroll;
     background-color: $clr1;
     border-radius: 4px;
-    position: absolute;
+    // position: absolute;
+    z-index: 90;
+    top: 100%;
+    transition: all .2s ease-in-out;
 
 
     h6 {
@@ -14,5 +18,8 @@
         padding: 2px;
         // font-size: .6rem;
         border-bottom: 1px solid $clr2;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
 }

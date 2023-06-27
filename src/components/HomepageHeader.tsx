@@ -2,20 +2,11 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 interface Props {
-    onSetIsLoginModal: () => void
-    onSetIsSignupModal: () => void
+    
 }
 
-const HomepageHeader:React.FC<Props> = (props) => {
-    const [isLoginModal, setIsLoginModal] = useState(false)
-    const [isSignupModal, setIsSignupModal] = useState(false)
+const HomepageHeader: React.FC<Props> = (props) => {
 
-    const setIsLoginModalHandler = () => {
-        props.onSetIsLoginModal()
-    }
-    const setIsSignupModalHandler = () => {
-        props.onSetIsSignupModal()
-    }
     return (
         <header className='homepage-header flex between container'>
             <div className="logo">
@@ -23,11 +14,11 @@ const HomepageHeader:React.FC<Props> = (props) => {
             </div>
             <nav>
                 <ul className='clean-list flex items-center'>
-                    <Link to='/login'><li onClick={setIsLoginModalHandler} className='btn-login'>
-                            התחברות
+                    <Link to='/login'><li className='btn-login'>
+                        התחברות
                     </li></Link>
-                    <li onClick={setIsSignupModalHandler} className='btn-signup btn-call-to-action'>
-                            הרשמה
+                    <li className='btn-signup btn-call-to-action'>
+                        הרשמה
                     </li>
                 </ul>
             </nav>

@@ -1,19 +1,17 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { ItemFilter } from './ItemFilter'
 import { useSelector } from 'react-redux'
 import { RootState } from '../store'
+import { FormatListNumberedRtl , Settings } from '@mui/icons-material'
 
 interface Props {
     onToggleShoppingListHandler: () => void
 }
 
 export const AppHeader: React.FC<Props> = (props) => {
-    const user = useSelector((state: RootState) => state.user.loggedInUser)
-    const store = useSelector((state: RootState) =>state.store.curStore)
-    // const changeLngHandler = (ev: any) => {
-    //     props.onChangeLng(ev.target.value)
-    // }
+    const user = useSelector((state: RootState) => state.auth.user)
+    const store = useSelector((state: RootState) => state.store.curStore)
+
     const toggleShoppingListHandler = () => {
         props.onToggleShoppingListHandler()
     }
@@ -21,22 +19,13 @@ export const AppHeader: React.FC<Props> = (props) => {
         <header className='app-header'>
             <div className='flex flex-column between items-center'>
                 <div className="user-avatar">
-                    <div style={{width: '30px', backgroundColor: store?.color}} className="user-letter">{user.fullName[0]}</div>
+                    <div style={{ width: '30px', backgroundColor: store?.color }} className="user-letter">{user?.fullName && user.fullName[0].toLocaleUpperCase()}</div>
                 </div>
-                {/* <div className="logo">
-                    <img className='logo-img' src="https://res.cloudinary.com/dfz8mxb4f/image/upload/v1680119258/Group_1_nhbrcc.svg" alt="logo" />
-                </div> */}
                 <ItemFilter />
                 <nav>
                     <ul className='clean-list flex'>
-                        {/* <select onChange={changeLngHandler}>
-                            <option value="he">Hebrew</option>
-                            <option value="en">English</option>
-                        </select> */}
-                        {/* <li>⚙️</li> */}
-                        {/* <li><Link to="/stock">Stock</Link></li> */}
-                    <li onClick={toggleShoppingListHandler}>רשימת קניות</li> |
-                    <li>הגדרות</li>
+                        <li onClick={toggleShoppingListHandler}><FormatListNumberedRtl/></li> |
+                        <li><Settings/></li>
                     </ul>
                 </nav>
             </div>

@@ -1,56 +1,48 @@
+import { httpService } from './http.service'
+import { loginCreds, signupCreds } from '../models/auth'
+import Cookies from "js-cookie"
 import { User } from '../models/user'
-import { storageService } from './storage.service'
-import { utilService } from './util.service'
+
 
 export const userService = {
-    getUser,
+    getLoggedInUser,
     signup,
     login,
-    logout,
-    getUsers
+    logout
 }
 
-const USERS = [
-    {
-        _id: 'u1',
-        fullName: 'Snail',
-        email: 'snail@gmail.com',
-        password: 'password'
-    },
-    {
-        _id: 'u2',
-        fullName: 'Panda',
-        email: 'panda@gmail.com',
-        password: 'password'
-    }
-]
+export const USER_KEY = 'loggedInUser'
 
-const USER_KEY = 'user_db'
-
-function getUsers() {
-    return USERS
+async function getLoggedInUser(): Promise<{_id:string, fullName: string}> {
+    const loginToken = Cookies.get('loginToken')
+    const user = await httpService.get('auth/loggedinuser', loginToken)
+    _saveUser(user)
+    return user
 }
 
-function getUser() {
-    return storageService.load(USER_KEY)
+async function signup(credentials: signupCreds): Promise<{_id:string, fullName: string}> {
+    const user = await httpService.post('auth/signup', credentials)
+    _saveUser(user)
+    return user
 }
 
-function signup(user:User) {
-    user._id = utilService.makeId()
-    storageService.store(USER_KEY, user)
+async function login(credentials: loginCreds): Promise<{_id:string, fullName: string}> {
+    console.log('hi');
+    
+    const user = await httpService.post('auth/login', credentials)
+    console.log('user', user);
+    
+    _saveUser(user)
+    return user
 }
 
-function login(email:string, password:string) {
-    const user = USERS.find((user:User) => user.email === email && user.password === password)
-    if (!user) {
-        console.log('error: user not found')
-        return
-    }
-    storageService.store(USER_KEY, user)
-}
-
-function logout() {
+async function logout(): Promise<void> {
     localStorage.removeItem(USER_KEY)
+    return await httpService.post('auth/logout')
+}
+
+function _saveUser(user:User) {
+    localStorage.setItem(USER_KEY, JSON.stringify(user))
 }
 
 

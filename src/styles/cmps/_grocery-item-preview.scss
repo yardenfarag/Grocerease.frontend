@@ -1,0 +1,87 @@
+.grocery-item {
+    .grocery-item-title {
+        p {
+            padding: 1px;
+            margin-inline-start: 5px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            width: 60%;
+            min-width: 200px;
+            max-width: 450px;
+
+            &.hovered {
+                // width: 130px;
+            }
+        }
+
+        .delete-grocery {
+            overflow: hidden;
+            margin-inline-start: -30px;
+            transition: all .2s ease-in-out;
+
+            &.hovered {
+                cursor: pointer;
+                margin-inline-start: 0px;
+                color: red;
+            }
+
+            &:hover {
+                color: $clr1;
+                filter: brightness(80%);
+            }
+        }
+    }
+
+    .grocery-item-actions {
+        display: flex;
+        gap: 3px;
+        overflow: hidden;
+
+        button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: none;
+            background-color: $clr1;
+            color: $clr2;
+            transition: all .2s ease-in-out;
+            border-radius: 50%;
+
+            &:hover {
+                filter: brightness(80%);
+            }
+        }
+
+        .item-quantity {
+            padding-inline: 5px;
+        }
+
+        .decrease-quantity {
+            overflow: hidden;
+            opacity: 0;
+            transition: all .2s ease-in-out;
+
+            &.hovered {
+                opacity: 1;
+                cursor: pointer;
+                margin-inline-start: 0px;
+            }
+        }
+
+        .increase-quantity {
+            overflow: hidden;
+            opacity: 0;
+            margin-inline-end: -28px;
+            transition: all .2s ease-in-out;
+
+            &.hovered {
+                opacity: 1;
+                cursor: pointer;
+                margin-inline-end: 0px;
+                margin-inline-start: 0px;
+            }
+        }
+    }
+}
