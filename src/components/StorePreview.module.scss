@@ -1,3 +1,6 @@
+@use '../styles/setup/variables' as variables;
+@use '../styles/setup/functions' as functions;
+
 .store-preview {
     cursor: pointer;
     position: relative;
@@ -11,10 +14,10 @@
     justify-content: center;
     flex-direction: column;
 
-    h3 {
+    .h3 {
         position: relative;
         text-align: center;
-        color: $clr2;
+        color: var(--clr2);
         font-size: 1.9rem;
         // text-shadow: 0px 0px 3px black;
         z-index: 10;
@@ -32,7 +35,7 @@
         transform-origin: bottom right;
         transform: rotateZ(15deg);
         will-change: transform;
-        box-shadow: 16px 0 40px #e4e4e4;
+        box-shadow: 16px 0 40px var(--clr-glass);
     }
 
     .store-front {
@@ -42,7 +45,7 @@
         width: inherit;
         height: inherit;
         border-radius: 32px;
-        background-color: #ffffff33;
+        background-color: var(--clr-glass);
         backdrop-filter: blur(20px);
         transition: 250ms;
         transform-style: preserve-3d;

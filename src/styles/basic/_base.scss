@@ -3,19 +3,22 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Heebo', sans-serif;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 html {
-  color: $clr6;
+  color: #300282;
 }
 
 body {
   min-height: 100vh;
   direction: rtl;
-  background: linear-gradient(-45deg, #ffffff, #f9efcf, #f7eab9, #f1db93);
-	background-size: 400% 400%;
-	animation: gradient 15s ease infinite;
+  // background: linear-gradient(-45deg, #ffffff, #f9efcf, #f7eab9, #f1db93);
+	// background-size: 400% 400%;
+	// animation: gradient 15s ease infinite;
+  background: #e4e7e9;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 @keyframes gradient {
@@ -38,18 +41,18 @@ img {
 
 a {
   text-decoration: none;
-  color: $clr6;
+  color: var(--clr6);
 }
 
 button {
-  color: $clr6;
+  color: var(--clr6);
 }
 
 /* ===== Scrollbar CSS ===== */
 /* Firefox */
 * {
   scrollbar-width: auto;
-  scrollbar-color: $clr1 transparent;
+  scrollbar-color: var(--clr1) transparent;
 }
 
 /* Chrome, Edge, and Safari */
@@ -63,7 +66,7 @@ button {
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: $clr2;
+  background-color: var(--clr2);
   border-radius: 10px;
   border: 0;
 }
@@ -78,23 +81,16 @@ input {
   padding: 4px;
   border: 0;
   transition: all .2s ease-in-out;
+  color: #300282;
+  &::placeholder {
+    color: #300282;
+  }
   &:focus {
-    outline: 1px solid $clr4;
+    outline: 1px solid var(--clr4);
   }
 }
 
-.btn-call-to-action {
-  cursor: pointer;
-  border: 0;
-  padding: 20px 24px;
-  height: 64px;
-  background-color: $call-to-action;
-  border-radius: 8px;
-  font-weight: 500;
-  transition: filter .2s ease-in-out;
-  color: $clr1;
-
-  &:hover {
-    filter: brightness(120%);
-  }
+button {
+  color: #300282;
 }
+

@@ -1,11 +1,12 @@
 import React, { FormEvent, useEffect, useState } from 'react'
-import { ProductList } from './ProductSuggestions'
+import { ProductSuggestions } from './ProductSuggestions'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../store'
 import { Product } from '../models/product'
 import { getProducts } from '../store/product'
 import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit'
 import { storeActions } from '../store/store'
+import styles from './AddItemForm.module.scss'
 
 type AppDispatch = ThunkDispatch<RootState, undefined, AnyAction>;
 
@@ -52,14 +53,14 @@ export const AddItemForm: React.FC<Props> = (props) => {
     }
 
     return (
-        <div className='add-item flex between column'>
-            <form onSubmit={addItemHandler} className="add-item-form flex items-center">
-                <div className='inputs flex column'>
-                    <div className="title-quantity flex">
+        <section className={styles['add-item']}>
+            <form onSubmit={addItemHandler} className={styles['add-item-form']}>
+                <div className={styles.inputs}>
+                    <div className={styles['item-date-quantity']}>
                         <input
                             onChange={setItemExpiryHandler}
                             value={itemToAdd.expiry}
-                            className='new-item-date'
+                            className={styles['item-date']}
                             type="date"
                             placeholder='Expiration'
                         />
@@ -67,20 +68,20 @@ export const AddItemForm: React.FC<Props> = (props) => {
                         <input
                             onChange={setItemQuantityHandler}
                             value={itemToAdd.quantity}
-                            className='new-item-quantity'
+                            className={styles['item-quantity']}
                             type="number"
                             placeholder='Quantity'
                         />
                     </div>
                     <input
                         onChange={setItemTitleHandler}
-                        value={itemToAdd.title} className='new-item-title'
+                        value={itemToAdd.title} className={styles['item-title']}
                         type="text" placeholder='הוסף מוצר'
                     />
                 </div>
-                <button type='submit'>+</button>
+                <button className={styles.button} type='submit'>+</button>
             </form>
-            {itemToAdd.title && products?.length && <ProductList onChooseProduct={chooseProductHandler} products={products} />}
-        </div>
+            {itemToAdd.title && products?.length && <ProductSuggestions onChooseProduct={chooseProductHandler} products={products} />}
+        </section>
     )
 }

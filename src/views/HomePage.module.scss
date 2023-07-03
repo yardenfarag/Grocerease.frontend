@@ -1,0 +1,63 @@
+@use '../styles/setup/variables' as variables;
+@use '../styles/setup/functions' as functions;
+
+.home-page {
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    // justify-content: center;
+
+    .home-page-content {
+        display: flex;
+        align-items: center;
+        // flex-direction: column;
+        width: 80%;
+        justify-content: center;
+
+        // margin-block-start: rem(-600px);
+        .img {
+            // max-width: rem(940px);
+            width: 50%;
+            margin-inline-end: functions.rem(-8px);
+        }
+
+        .text {
+            max-width: functions.rem(608px);
+
+            .h1 {
+                font-weight: bold;
+                font-size: functions.rem(44px);
+                line-height: functions.rem(60px);
+                margin-block-end: functions.rem(24px);
+            }
+
+            .p {
+                margin-block-end: functions.rem(28px);
+                font-size: functions.rem(16px);
+                line-height: functions.rem(32px);
+                color: var(--clr2);
+            }
+
+            .button {
+                font-size: functions.rem(20px);
+                cursor: pointer;
+                border: 0;
+                padding: 20px 24px;
+                height: 64px;
+                background-color: var(--clr-call-to-action);
+                border-radius: 8px;
+                font-weight: 500;
+                transition: filter .2s ease-in-out;
+                color: var(--clr1);
+
+                &:hover {
+                    filter: brightness(120%);
+                }
+            }
+        }
+    }
+}

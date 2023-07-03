@@ -1,0 +1,38 @@
+@use '../styles/setup/variables.scss' as variables;
+
+.app-header {
+    box-shadow: 0 2px 1px -2px #300282;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    padding-inline: 7px;
+
+    .user-avatar {
+        .user-letter {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            filter: brightness(80%);
+            color: var(--clr2);
+        }
+    }
+
+    .ul {
+        display: flex;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        padding-block-start: 6px;
+
+        .li {
+            margin-left: 8px;
+            margin-right: 8px;
+        }
+    }
+
+}

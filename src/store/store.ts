@@ -25,7 +25,7 @@ const storeSlice = createSlice({
   reducers: {
     addPlace: (state, action: PayloadAction<string>) => {
       const newPlace = { id: makeId(), title: action.payload, items: [] as Item[] }
-      state.curStore?.places.unshift(newPlace)
+      state.curStore?.places.push(newPlace)
       storeService.saveStore(state.curStore!)
     },
     addItem: (state, action: PayloadAction<{ itemToAdd: Item, placeId: string }>) => {
@@ -39,74 +39,67 @@ const storeSlice = createSlice({
     deleteItem: (state, action: PayloadAction<{ itemId: string, placeId: string }>) => {
       const place = state.curStore?.places.find((p: Place) => p.id === action.payload.placeId)
       const itemToDeleteIdx = place?.items.findIndex((item: Item) => item.id === action.payload.itemId)
-      if (itemToDeleteIdx === undefined) { 
-        return state
+      if (itemToDeleteIdx !== undefined) {
+        place?.items.splice(itemToDeleteIdx, 1)
+        storeService.saveStore(state.curStore!)
       }
-      if (itemToDeleteIdx < 0) {
-        return state
-      }
-      place?.items.splice(itemToDeleteIdx, 1)
-      storeService.saveStore(state.curStore!)
     },
     updateItem: (state, action: PayloadAction<{ itemToUpdate: Item, placeId: string }>) => {
       const place = state.curStore?.places.find((p: Place) => p.id === action.payload.placeId)
       const placeIdx = state.curStore?.places.findIndex((p: Place) => p.id === action.payload.placeId)
-      if (placeIdx === undefined) {
-        return state;
+      if (placeIdx !== undefined) {
+        const itemToUpdateIdx = place?.items.findIndex((item: Item) => item.barcode === action.payload.itemToUpdate.barcode)
+        if (itemToUpdateIdx !== undefined) {
+          state.curStore!.places[placeIdx]?.items.splice(itemToUpdateIdx, 1, action.payload.itemToUpdate)
+          storeService.saveStore(state.curStore!)
+        }
       }
-      const itemToUpdateIdx = place?.items.findIndex((item: Item) => item.barcode === action.payload.itemToUpdate.barcode) 
-      if (itemToUpdateIdx === undefined) { 
-        return state
-      }
-      if (itemToUpdateIdx < 0) {
-        return state
-      }
-      state.curStore!.places[placeIdx]?.items.splice(itemToUpdateIdx, 1, action.payload.itemToUpdate)      
-      storeService.saveStore(state.curStore!)
     },
     deleteGroceryFromShoppingList: (state, action: PayloadAction<string>) => {
       const groceryIdx = state.curStore?.shoppingList.findIndex((g: Grocery) => g.barcode === action.payload)
-      if (groceryIdx === undefined) { 
-        return state
+      if (groceryIdx !== undefined) {
+        state.curStore?.shoppingList.splice(groceryIdx, 1)
+        storeService.saveStore(state.curStore!)
       }
-      state.curStore?.shoppingList.splice(groceryIdx, 1)
-      storeService.saveStore(state.curStore!)
     },
     addItemToShoppingList: (state, action: PayloadAction<{ barcode: string, title: string, quantity: number, imgUrl: string | undefined }>) => {
       const groceryIdx = state.curStore?.shoppingList.findIndex((g: Grocery) => g.barcode === action.payload.barcode)
-      if (groceryIdx === undefined) { 
-        return state
+      if (groceryIdx !== undefined) {
+        state.curStore?.shoppingList.push(action.payload)
+        storeService.saveStore(state.curStore!)
       }
-      if (groceryIdx > -1) return state
-      state.curStore?.shoppingList.push(action.payload)
-      storeService.saveStore(state.curStore!)
     },
     setFilterBy: (state, action: PayloadAction<string>) => {
       state.filterBy.txt = action.payload
     },
-    addStore: (state, action: PayloadAction<{ newStoreTitle: string, selectedColor: string}>) => {
+    addStore: (state, action: PayloadAction<{ newStoreTitle: string, selectedColor: string }>) => {
       const newStore = storeService.getEmptyStore()
       newStore.title = action.payload.newStoreTitle
       newStore.color = action.payload.selectedColor
-      // newStore.userIds.push(action.payload.userId)
       storeService.saveStore(newStore)
       getStores()
-      // state.stores = storeService.getStoresWithUserId(action.payload.userId)
     },
     updateGrocery: (state, action: PayloadAction<Grocery>) => {
-      const groceryIdx = state.curStore?.shoppingList.findIndex((g:Grocery) => g.barcode === action.payload.barcode)
-      if (groceryIdx === undefined) { 
-        return state
+      const groceryIdx = state.curStore?.shoppingList.findIndex((g: Grocery) => g.barcode === action.payload.barcode)
+      if (groceryIdx !== undefined) {
+        state.curStore?.shoppingList.splice(groceryIdx, 1, action.payload)
+        storeService.saveStore(state.curStore!)
       }
-      if (groceryIdx < 0) {
-        return state
-      }
-      state.curStore?.shoppingList.splice(groceryIdx, 1, action.payload)
-      storeService.saveStore(state.curStore!)
     },
     addGroceryToShoppingList: (state, action: PayloadAction<Grocery>) => {
       state.curStore?.shoppingList.push(action.payload)
       storeService.saveStore(state.curStore!)
+    },
+    updatePlaceTitle: (state, action: PayloadAction<{ placeId: string, placeTitle: string }>) => {
+      const placeIdx = state.curStore?.places.findIndex((p: Place) => p.id === action.payload.placeId)
+      if (placeIdx !== undefined) {
+        state.curStore!.places[placeIdx].title = action.payload.placeTitle
+        storeService.saveStore(state.curStore!)
+      }
+    },
+    saveStore: (state, action: PayloadAction<Store>) => {
+      state.curStore = action.payload
+      storeService.saveStore(action.payload)
     }
   },
   extraReducers: (builder) => {

@@ -1,4 +1,7 @@
-main {
+@use '../styles/setup/variables' as variables;
+@use '../styles/setup/functions' as functions;
+
+.main {
     display: flex;
     height: calc(100vh - 50px);
     .places-container {
@@ -6,30 +9,30 @@ main {
         flex-wrap: wrap;
         gap:6px;
         margin-top: 10px;
-        padding: 5px;
+        padding: 8px;
         width: 100%;
-        justify-content: center;
+        // justify-content: center;
         // align-items: center;
         transition: all .2s ease-in-out;
 
-        &.disable-interactions {
-            pointer-events: none;
-            filter:blur(3px) brightness(110%);
-        }
+    }
+    &.disable-interactions {
+        pointer-events: none;
+        filter:blur(3px) brightness(110%);
     }
     .add-place {
-        width: 350px;
+        width: 250px;
         height: calc(45vh - 25px);
-        background-color: $clr2;
+        background-color: var(--clr2);
         // color: $clr1;
         border-radius: 6px;
         padding:6px;
         display: flex;
         gap:28px;
         flex-direction: column;
-        background-color: rgba(255,255,255,0.13);
+        background-color: var(--clr-glass);
         backdrop-filter: blur(3px);
-        box-shadow: 0 0 40px rgba(146, 146, 146, 0.6);
+        box-shadow: 0 0 40px var(--clr-bs);
         @media (max-width: 971px) {
             width: 250px;
         }
@@ -38,19 +41,19 @@ main {
             width: 83%;
         }
     
-        input {
+        .input {
             border-radius: 12px;
             border:0;
             padding:8px;
         }
-        button {
+        .button {
             cursor: pointer;
             border: 0;
-            background-color: $clr1;
+            background-color: var(--clr1);
             border-radius: 12px;
             height: 340px;
             font-size: 5rem;
-            color: $clr2;
+            color: var(--clr2);
             transition: filter .3s ease-in-out;
             &:hover {
                 filter: brightness(80%);

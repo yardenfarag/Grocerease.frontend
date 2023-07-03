@@ -1,3 +1,6 @@
+@use '../styles/setup/variables' as variables;
+@use '../styles/setup/functions' as functions;
+
 @mixin item-action {
     cursor: pointer;
     font-size: 6px;
@@ -7,7 +10,7 @@
     padding: 2px;
     text-align: center;
     width: 24px;
-    color: $clr2;
+    color: var(--clr2);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -17,7 +20,7 @@
     transition: all .2s ease-in-out;
 
     &:hover {
-        color: $clr1;
+        color: var(--clr1);
         filter: brightness(80%);
     }
 
@@ -32,10 +35,12 @@
     border-radius: 5px;
     padding: 4px;
     margin-inline-start: 4px;
-    background-color: $clr1;
+    background-color: var(--clr1);
     height: 28px;
     overflow: hidden;
     transition: all .3s ease-in-out;
+    display: flex;
+    flex-direction: column;
 
     &:hover {
         height: 70px;
@@ -44,8 +49,13 @@
     .item-actions {
         gap: 2px;
         width: 100%;
+        display: flex;
+        justify-content: space-between;
 
         .item-title {
+            display: flex;
+            align-items: center;
+
             .item-name {
                 width: 180px;
                 height: 17px;
@@ -66,6 +76,10 @@
         }
 
         .actions {
+            display: flex;
+            align-items: center;
+            justify-content: end;
+
             .item-quantity {
                 // margin-inline: 3px;
                 font-size: .8rem;
@@ -77,6 +91,9 @@
 
     .item-expiry {
         transition: all .5s ease-in-out;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
 
         .add-item-to-shopping-list {
             @include item-action;

@@ -23,17 +23,19 @@ function App() {
     )
   }
   return (
-    <Router>
-      <Routes>
-        <Route path='/' element={<HomePage />} />
-        <Route path='/store' element={<PrivateRoute><StoresPage /></PrivateRoute>} />
-        {/* <Route path='/store' element={<StoresPage />} /> */}
-        <Route path='/store/:id' element={<PrivateRoute><StoreDetailsPage /></PrivateRoute>} />
-        {/* <Route path='/store/:id' element={<StoreDetailsPage />} /> */}
-        <Route path='/login' element={<LoginPage/>}/>
-        <Route path='/signup' element={<LoginPage/>}/>
-      </Routes>
-    </Router>
+    <div className=''>
+      <Router>
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+          <Route path='/store' element={<PrivateRoute><StoresPage /></PrivateRoute>} />
+          {/* <Route path='/store' element={<StoresPage />} /> */}
+          <Route path='/store/:id' element={<PrivateRoute><StoreDetailsPage /></PrivateRoute>} />
+          {/* <Route path='/store/:id' element={<StoreDetailsPage />} /> */}
+          <Route path='/login' element={<LoginPage />} />
+          <Route path='/signup' element={<LoginPage />} />
+        </Routes>
+      </Router>
+    </div>
   )
 }
 

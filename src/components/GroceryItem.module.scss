@@ -1,17 +1,27 @@
+@use '../styles/setup/variables' as variables;
+
 .grocery-item {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--clr1);
+    // filter: brightness(99%);
+    border-radius: 4px;
     .grocery-item-title {
-        p {
-            padding: 1px;
+        display: flex;
+        align-items: center;
+        .p {
+            padding: 4px;
             margin-inline-start: 5px;
             overflow: hidden;
             white-space: nowrap;
             text-overflow: ellipsis;
-            width: 60%;
-            min-width: 200px;
-            max-width: 450px;
+            width: 300px;
+            // min-width: 200px;
+            // max-width: 450px;
+            transition: all .2s ease-in-out;
 
             &.hovered {
-                // width: 130px;
+                width: 270px;
             }
         }
 
@@ -27,7 +37,7 @@
             }
 
             &:hover {
-                color: $clr1;
+                color: var(--clr1);
                 filter: brightness(80%);
             }
         }
@@ -37,6 +47,8 @@
         display: flex;
         gap: 3px;
         overflow: hidden;
+        align-items: center;
+        justify-content: end;
 
         button {
             display: flex;
@@ -44,8 +56,8 @@
             justify-content: center;
             cursor: pointer;
             border: none;
-            background-color: $clr1;
-            color: $clr2;
+            background-color: var(--clr1);
+            color: var(--clr2);
             transition: all .2s ease-in-out;
             border-radius: 50%;
 
@@ -55,7 +67,7 @@
         }
 
         .item-quantity {
-            padding-inline: 5px;
+            padding-inline: 4px;
         }
 
         .decrease-quantity {

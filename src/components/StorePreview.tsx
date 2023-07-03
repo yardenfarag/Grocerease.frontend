@@ -1,15 +1,19 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import styles from './StorePreview.module.scss'
 
-export const StorePreview = (props:any) => {
-  const setCurStoreHandler = () => {
-    props.setCurStore(props.id)
-  }
+interface Props {
+  id: string
+  color: string
+  title: string
+}
+
+export const StorePreview: React.FC<Props> = (props) => {
   return (
-    <Link onClick={setCurStoreHandler} to={props.id} className="store-preview">
-      <div style={{backgroundColor: props.color}} className='store-back'></div>
-      <div className="store-front"></div>
-        <h3 className='store-front'>{props.title}</h3>
+    <Link to={props.id} className={styles['store-preview']}>
+      <div style={{backgroundColor: props.color}} className={styles['store-back']}></div>
+      <div className={styles['store-front']}></div>
+        <h3 className={styles['store-front']}>{props.title}</h3>
     </Link>
   )
 }

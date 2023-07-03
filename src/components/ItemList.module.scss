@@ -1,7 +1,7 @@
 .items {
-    // color: $clr2;
+    display: flex;
     gap: 5px;
     padding-inline: 4px;
-    // height: 39vh;
+    flex-direction: column;
     // overflow: auto;
 }

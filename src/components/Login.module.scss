@@ -1,3 +1,6 @@
+@use '../styles/setup/variables' as variables;
+@use '../styles/setup/functions' as functions;
+
 .login-form {
     height: 520px;
     width: 400px;
@@ -11,22 +14,25 @@
     box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
     padding: 50px 35px;
     letter-spacing: 0.5px;
-    h3 {
+
+    .h3 {
         font-size: 32px;
         font-weight: 500;
         line-height: 42px;
         text-align: center;
-        color: $clr2;
+        color: var(--clr2);
         margin-block-end: 20px;
         font-weight: 400;
     }
-    label {
+
+    .label {
         display: block;
         margin-top: 30px;
         font-size: 16px;
         font-weight: 500;
     }
-    input {
+
+    .input {
         display: block;
         height: 50px;
         width: 100%;
@@ -36,29 +42,34 @@
         font-size: 14px;
         font-weight: 300;
         border: none;
+
         &::placeholder {
             letter-spacing: 1px;
-            color: $clr2;
+            color: var(--clr2);
             font-weight: 100;
         }
+
         &:focus {
-            outline: 1px solid $clr4;
+            outline: 1px solid var(--clr4);
         }
     }
-    button {
+
+    .button {
         margin-block: 20px;
         width: 100%;
         font-size: 1.2rem;
-    }
-    .social {
-        margin-top: 30px;
-        display: flex;
-    }
-    
-    .social div {
-        width: 150px;
-        border-radius: 3px;
-        padding: 5px 10px 10px 5px;
-        text-align: center;
+        cursor: pointer;
+        border: 0;
+        padding: 20px 24px;
+        height: 64px;
+        background-color: var(--clr-call-to-action);
+        border-radius: 8px;
+        font-weight: 500;
+        transition: filter .2s ease-in-out;
+        color: var(--clr1);
+
+        &:hover {
+            filter: brightness(120%);
+        }
     }
 }

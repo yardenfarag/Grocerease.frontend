@@ -5,12 +5,15 @@ import { storeActions } from '../store/store'
 import { useDispatch } from 'react-redux'
 import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit'
 import { RootState } from '../store'
+import styles from './ItemPreview.module.scss'
+import { Draggable } from 'react-beautiful-dnd'
 
 type AppDispatch = ThunkDispatch<RootState, undefined, AnyAction>;
 
 interface Props {
     item: Item
     placeId: string
+    index: number
 }
 
 export const ItemPreview: React.FC<Props> = (props) => {
@@ -90,26 +93,31 @@ export const ItemPreview: React.FC<Props> = (props) => {
 
     return (
         <>
-            <div style={{ backgroundColor: getColorForDate(item.expiry) }} className={`item flex column ${isHovered ? 'hovered' : ''}`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-                <div className="item-actions flex between">
-                    <div className="item-title flex items-center">
-                        <p onClick={deleteItemHandler} className={`delete-item ${isHovered ? 'hovered' : ''}`} title='הסר'><RemoveCircleOutline /></p>
-                        <p title={item.title} className={`item-name ${isHovered ? 'hovered' : ''}`}>{item.title}</p>
-                    </div>
-                    <div className="actions flex items-center justify-end">
-                        <button onClick={decreaseQuantityHandler} className={`decrease-quantity ${isHovered ? 'hovered' : ''}`} title='להפחית כמות'><ArrowDownward /></button>
-                        {/* <p style={{marginInlineEnd: item.quantity > 9 ? '7px' : ''}} className='item-quantity'>{item.quantity} </p> */}
-                        <p style={{ marginInlineEnd: item.quantity > 9 ? '0px' : '' }} className='item-quantity'>{item.quantity} </p>
+        <Draggable draggableId={item.id!} index={props.index}>
+            {(provided) => (
 
-                        <button onClick={increaseQuantityHandler} className={`increase-quantity ${isHovered ? 'hovered' : ''}`} title='להוסיף כמות'><ArrowUpward /></button>
+                <div {...provided.dragHandleProps} {...provided.draggableProps} ref={provided.innerRef} style={{ backgroundColor: getColorForDate(item.expiry) }} className={`${styles.item} ${isHovered ? styles['hovered'] : ''}`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                <div className={styles['item-actions']}>
+                    <div className={styles['item-title']}>
+                        <p onClick={deleteItemHandler} className={`${styles['delete-item']} ${isHovered ? styles['hovered'] : ''}`} title='הסר'><RemoveCircleOutline /></p>
+                        <p title={item.title} className={`${styles['item-name']} ${isHovered ? styles['hovered'] : ''}`}>{item.title}</p>
+                    </div>
+                    <div className={styles.actions}>
+                        <button onClick={decreaseQuantityHandler} className={`${styles['decrease-quantity']} ${isHovered ? styles['hovered'] : ''}`} title='להפחית כמות'><ArrowDownward /></button>
+                        {/* <p style={{marginInlineEnd: item.quantity > 9 ? '7px' : ''}} className='item-quantity'>{item.quantity} </p> */}
+                        <p style={{ marginInlineEnd: item.quantity > 9 ? '0px' : '' }} className={styles['item-quantity']}>{item.quantity} </p>
+
+                        <button onClick={increaseQuantityHandler} className={`${styles['increase-quantity']} ${isHovered ? styles['hovered'] : ''}`} title='להוסיף כמות'><ArrowUpward /></button>
                     </div>
                 </div>
-                <div className={`item-expiry flex items-center between`}>
+                <div className={styles['item-expiry']}>
 
-                    <p className={`expiry ${isHovered ? 'hovered' : ''}`}>תפוגה: <input onChange={expiryHandler} type="date" value={item.expiry} /></p>
-                    <p onClick={addItemToShoppingListHandler} className={`add-item-to-shopping-list ${isHovered ? 'hovered' : ''} `} title='הוסף לרשימת קניות'><PlaylistAdd /></p>
+                    <p className={`${styles.expiry} ${isHovered ? styles['hovered'] : ''}`}>תפוגה: <input onChange={expiryHandler} type="date" value={item.expiry} /></p>
+                    <p onClick={addItemToShoppingListHandler} className={`${styles['add-item-to-shopping-list']} ${isHovered ? styles['hovered'] : ''} `} title='הוסף לרשימת קניות'><PlaylistAdd /></p>
                 </div>
             </div >
+                )}
+        </Draggable>
         </>
     )
 }

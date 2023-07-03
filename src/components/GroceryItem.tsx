@@ -5,6 +5,7 @@ import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit'
 import { useDispatch } from 'react-redux'
 import { RootState } from '../store'
 import { storeActions } from '../store/store'
+import styles from './GroceryItem.module.scss'
 
 type AppDispatch = ThunkDispatch<RootState, undefined, AnyAction>;
 
@@ -43,15 +44,18 @@ export const GroceryItem: React.FC<Props> = (props: any) => {
         setIsHovered(false)
     }
     return (
-        <li className='grocery-item flex between' key={barcode} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-            <div className='grocery-item-title flex items-center'>
-                <RemoveCircleOutline className={`delete-grocery ${isHovered ? 'hovered' : ''}`} onClick={deleteGroceryHandler} />
-                <p>{title}</p>
+        <li className={styles['grocery-item']} key={barcode} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+            <div className={styles['grocery-item-title']}>
+                <RemoveCircleOutline
+                    className={`${styles['delete-grocery']} ${isHovered ? styles['hovered'] : ''}`}
+                    onClick={deleteGroceryHandler}
+                />
+                <p className={`${styles.p} ${isHovered ? styles['hovered'] : ''}`}>{title}</p>
             </div>
-            <div className="grocery-item-actions flex items-center justify-end">
-                <button onClick={decreaseQuantityHandler} className={`decrease-quantity ${isHovered ? 'hovered' : ''}`} title='להפחית כמות'><ArrowDownward /></button>
-                <p style={{ marginInlineEnd: quantity > 9 ? '7px' : '' }} className='item-quantity'>{quantity} </p>
-                <button onClick={increaseQuantityHandler} className={`increase-quantity ${isHovered ? 'hovered' : ''}`} title='להוסיף כמות'><ArrowUpward /></button>
+            <div className={styles['grocery-item-actions']}>
+                <button onClick={decreaseQuantityHandler} className={`${styles['decrease-quantity']} ${isHovered ? styles['hovered'] : ''}`} title='להפחית כמות'><ArrowDownward /></button>
+                <p style={{ marginInlineEnd: quantity > 9 ? '0px' : '' }} className={styles['item-quantity']}>{quantity} </p>
+                <button onClick={increaseQuantityHandler} className={`${styles['increase-quantity']} ${isHovered ? styles['hovered'] : ''}`} title='להוסיף כמות'><ArrowUpward /></button>
             </div>
         </li>
     )
