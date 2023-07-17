@@ -1,0 +1,248 @@
+@use '../styles/setup/variables' as variables;
+
+.tr {
+  font-size: .6rem;
+  text-align: start;
+  background-color: var(--clr5);
+  transition: all .2s ease-in-out;
+  // height: 10px;
+
+  @media (min-width: variables.$tablet) {
+    font-size: .7rem;
+  }
+
+  @media (min-width: variables.$smallDesktop) {
+    font-size: .8rem;
+  }
+
+  &:not(:nth-child(odd)) {
+    background-color: var(--clr2)
+  }
+
+  &:hover {
+    background-color: var(--clr6)
+  }
+}
+
+.title-img {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  .title {
+    font-size: .6rem;
+
+    @media (min-width: variables.$tablet) {
+      font-size: .7rem;
+    }
+
+    @media (min-width: variables.$laptop) {
+      font-size: .8rem;
+    }
+
+    @media (min-width: variables.$smallDesktop) {
+      font-size: 1rem;
+    }
+  }
+
+  img {
+    border-radius: 25%;
+    width: 33px;
+    height: 33px;
+    display: none;
+
+    transition: all .3s ease-in-out;
+
+    &:hover {
+      scale: 2
+    }
+
+    @media (min-width: variables.$laptop) {
+      display: block;
+    }
+  }
+}
+
+.td {
+  text-align: start;
+  padding-inline: 10px;
+  padding-block: 4px;
+  // font-size: .9rem;
+  font-weight: 500;
+
+  .expiry {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+  }
+
+  .item-expiry {
+    display: flex;
+    width: 90px;
+    align-items: center;
+    // gap: 2px;
+    justify-content: space-between;
+    color: var(--clr1);
+
+    @media (min-width: variables.$tablet) {
+      width: 110px;
+    }
+
+  }
+
+  .input {
+    font-size: 18px;
+    border-radius: 5px;
+    padding: 4px;
+    width: 30px;
+    font-size: .7rem;
+    background-color: var(--clr1);
+
+    @media (min-width: variables.$tablet) {
+      width: 35px;
+      font-size: 1rem;
+    }
+
+    &:hover {
+      scale: 1.2;
+    }
+  }
+
+  ::-webkit-calendar-picker-indicator {
+    // width: 30px;
+    // background-color:  #fff;
+    // color-scheme: dark;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+  }
+
+  .item-place {
+    // padding: 6px;
+    border-radius: 4px;
+
+    &[contenteditable="true"]:hover {
+      background-color: var(--clr2);
+      filter: brightness(70%);
+
+    }
+
+    &[contenteditable="true"]:focus {
+      outline: 0;
+      background-color: var(--clr2);
+    }
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @media (min-width: variables.$tablet) {
+      justify-content: space-evenly;
+    }
+
+    button {
+      border-radius: 4px;
+      background-color: transparent;
+      width: 20px;
+      height: 20px;
+      transition: all .3s ease-in-out;
+
+      @media (min-width: variables.$tablet) {
+        width: 30px;
+        height: 30px;
+      }
+
+      &:hover {
+        // background-color: var(--clr2);
+        scale: 1.2
+      }
+
+      &.add {
+        color: green;
+      }
+
+      &.remove {
+        color: var(--clr-call-to-action);
+      }
+    }
+  }
+
+
+  span {
+    font-weight: 500;
+  }
+  
+  
+  .quantity {
+    display: inline-block;
+  }
+  
+  .quantity .input-text.qty {
+    width: 25px;
+    height: 39px;
+    padding: 0 5px;
+    text-align: center;
+    background-color: transparent;
+    font-weight: 500;
+    font-size: .7rem;
+    @media (min-width: variables.$tablet) {
+      font-size: 1rem;
+      width: 35px;
+    }
+  }
+
+  .quantity.buttons_added {
+    text-align: left;
+    position: relative;
+    white-space: nowrap;
+    vertical-align: top;
+  }
+
+  .quantity.buttons_added input {
+    display: inline-block;
+    margin: 0;
+    vertical-align: top;
+    box-shadow: none;
+  }
+
+  .quantity.buttons_added .minus,
+  .quantity.buttons_added .plus {
+    font-size: .8rem;
+    font-weight: 600;
+    padding: 10px;
+    width: 30px;
+    background-color: var(--clr6);
+    cursor: pointer;
+    @media (min-width: variables.$tablet) {
+      font-size: 1rem;
+    }
+  }
+
+  .quantity.buttons_added .minus {
+    border-right: 0;
+  }
+
+  .quantity.buttons_added .plus {
+    border-left: 0;
+  }
+
+  .quantity.buttons_added .minus:hover,
+  .quantity.buttons_added .plus:hover {
+    background: var(--clr2);
+  }
+
+  .quantity input::-webkit-outer-spin-button,
+  .quantity input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin: 0;
+  }
+
+  .quantity.buttons_added .minus:focus,
+  .quantity.buttons_added .plus:focus {
+    outline: none;
+  }
+
+}

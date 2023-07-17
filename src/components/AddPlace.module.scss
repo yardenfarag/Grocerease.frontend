@@ -1,0 +1,34 @@
+@use '../styles/setup/variables' as variables;
+@use '../styles/setup/functions' as functions;
+
+.add-place {
+    width: 280px;
+    border-radius: 6px;
+    padding:6px;
+    display: flex;
+    justify-content: space-between;
+    gap: 6px;
+    background-color: var(--clr-glass);
+    backdrop-filter: blur(3px);
+    height: 50px;
+
+    .input {
+        border-radius: 12px;
+        border:0;
+        padding:8px;
+        width: 85%;
+    }
+    .button {
+        width: 14%;
+        cursor: pointer;
+        border: 0;
+        background-color: var(--clr1);
+        border-radius: 12px;
+        font-size: 1.5rem;
+        color: var(--clr2);
+        transition: filter .3s ease-in-out;
+        &:hover {
+            filter: brightness(80%);
+        }
+    }
+}

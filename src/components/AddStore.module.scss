@@ -23,7 +23,7 @@
         transform-style: preserve-3d;
         transform-origin: bottom right;
         transform: rotateZ(15deg);
-        box-shadow: 16px 0 40px var(--clr1);
+        // box-shadow: 16px 0 40px var(--clr1);
         transition: all .3s ease-in-out;
     }
 
@@ -39,7 +39,7 @@
         inset: 0;
         z-index: 1;
         border-radius: 32px;
-        background-color: var(--clr-glass);
+        background-color: var(--clr7);
         backdrop-filter: blur(20px);
         position: absolute;
         overflow: hidden;
@@ -51,18 +51,18 @@
 
         .button {
             cursor: pointer;
-            border: 0;
-            border-radius: 50%;
-            background-color:  var(--clr1);
             width: 40px;
             height: 40px;
             font-size: 1.8rem;
-            font-weight: 300;
             transition: filter .3s ease-in-out;
-            color:  var(--clr2);
+            padding-bottom: 43px;
 
             &:hover {
                 filter: brightness(80%);
+            }
+            &:disabled {
+                cursor: not-allowed;
+                filter: brightness(100%);
             }
         }
     }
@@ -74,22 +74,20 @@
         align-items: center;
         justify-content: center;
         
-        div {
-            box-shadow: 16px 0 40px var(--clr-glass);
+        .div {
             width: 35px;
             height: 35px;
             cursor: pointer;
             border-radius: 50%;
             transition: scale .2s ease-in-out;
+            border: 1px solid var(--clr1);
 
             &.selected {
                 scale: 1.2;
-                border: 1px solid var(--clr1);
             }
 
             &:hover {
                 scale: 1.2;
-                border: 1px solid var(--clr1);
             }
         }
     }

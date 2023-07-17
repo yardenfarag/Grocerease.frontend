@@ -1,17 +1,21 @@
 @use '../styles/setup/variables' as variables;
 @use '../styles/setup/functions' as functions;
 
-.store-page {
-    height: calc(100vh - 55px);
+.main {
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    position: relative;
+    @media (min-width: variables.$mobile) {
+        height: 100vh;
+    }
 
     .stores {
+        flex-wrap: wrap;
         gap: 25px;
         display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
    

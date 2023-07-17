@@ -1,0 +1,18 @@
+@use '../styles/setup/variables' as variables;
+@use '../styles/setup/functions' as functions;
+
+.main {
+    display: flex;
+    justify-content: stretch;
+    align-items: stretch;
+    height: 100vh;
+    // gap: 20px;
+    overflow: hidden;
+    width: 100%;
+
+    .container{
+        width: 100%;
+        padding: 20px;
+        // height: 90vh;
+    }
+}

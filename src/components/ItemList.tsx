@@ -1,43 +1,29 @@
-import React, { FormEvent, useEffect, useState } from 'react'
+import React from 'react'
 import { ItemPreview } from './ItemPreview'
 import { Item } from '../models/item'
 import { useSelector } from 'react-redux'
 import styles from './ItemList.module.scss'
-import { Droppable, Draggable } from 'react-beautiful-dnd'
+import { RootState } from '../store'
 
 interface Props {
-    items: Item[]
-    placeId: string
+    items?: Item[]
 }
 
-export const ItemList: React.FC<Props> = (props: any) => {
-    let filterBy: { txt: string } = useSelector((state: any) => state.store.filterBy)
-    let items = props.items
-    useEffect(() => {
-        items = props.items.filter((item: Item) => filterBy.txt ? item.title.includes(filterBy.txt) : true)
-    }, [filterBy.txt])
+export const ItemList: React.FC<Props> = (props) => {
+    let itemsView = useSelector((state: RootState) => state.settings.view)
+    let filterBy: { txt: string } = useSelector((state: RootState) => state.store.filterBy)
 
-    // return (
-    //     <>
-    //         <Droppable droppableId={props.placeId}>
-    //             {(provided) => (
-    //                 <div ref={provided.innerRef} {...provided.droppableProps} className={styles.items}>
-    //                     {items.map((item: Item, index: number) => {
-    //                         return <ItemPreview index={index} placeId={props.placeId} key={item.id} item={item} />
-    //                     })}
-    //                     {provided.placeholder}
-    //                 </div>
-    //             )}
-    //         </Droppable>
-    //     </>
-    // )
+    const filteredItems = !filterBy.txt
+  ? props.items
+  : props.items?.filter((item: Item) => item.title.includes(filterBy.txt) || item.place?.includes(filterBy.txt))
+
     return (
         <>
-            <div className={styles.items}>
-                {items.map((item: Item, index: number) => {
-                    return <ItemPreview index={index} placeId={props.placeId} key={item.id} item={item} />
+            <ul className={itemsView === 'list' ? styles.items : styles.cards}>
+                {filteredItems?.map((item: Item, index: number) => {
+                    return <ItemPreview index={index} key={item.id} item={item} />
                 })}
-            </div>
+            </ul>
         </>
     )
 }

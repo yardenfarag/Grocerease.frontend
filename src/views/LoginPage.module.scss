@@ -1,6 +1,66 @@
 @use '../styles/setup/variables' as variables;
 @use '../styles/setup/functions' as functions;
 
-.login-page {
+.login-signup {
     height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    @media (min-width: 960px) {
+        padding: 10px;
+        flex-direction: row;
+    }
+    @media (min-width: 1500px) {
+        padding:20px;
+    }
+
+    .hero {
+        display: none;
+        width: 90%;
+        background-color: var(--clr2);
+        border-radius: 25px;
+        height: 40vh;
+        align-items: center;
+        justify-content: center;
+        @media (min-width: 960px) {
+            display: flex;
+            height: 80vh;
+            width: 40%;
+        }
+        .img {
+            width: 70%;
+            @media (min-width: 960px) {
+                width: 70%;
+            }
+            @media (min-width: 1500px) {
+                width: 50%;
+            }
+        }
+    }
+    .content {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        width: 90vw;
+        gap: 5px;
+        padding: 20px;
+        @media (min-width: 960px) {
+            width: 50vw;
+        }
+        .h1 {
+            width: 100%;
+            text-align: center;
+            margin-block-end: 50px;
+            font-size: 1.2rem;
+            @media (min-width: 1500px) {
+                width: 80%;
+            }
+        }
+        
+    }
+
 }

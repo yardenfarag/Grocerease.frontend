@@ -1,37 +1,59 @@
 @use '../styles/setup/variables.scss' as variables;
 
 .app-header {
-    box-shadow: 0 2px 1px -2px #300282;
-    height: 50px;
+    background-color: rgb(40 40 40);
+    color:rgb(229 229 229);
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 5px;
+    flex-direction: column;
+    padding: 15px;
     padding-inline: 7px;
-
-    .user-avatar {
-        .user-letter {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            filter: brightness(80%);
-            color: var(--clr2);
-        }
+    border-end-end-radius: 12px;
+    border-start-end-radius: 12px;
+    height: 100vh;
+    width: 200px;
+    // position: fixed;
+    .user{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap:4px;
+        margin-block-end: 35px;
+        padding-inline: 9px;
+        font-size: .7rem;
     }
 
     .ul {
         display: flex;
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-        padding-block-start: 6px;
+        flex-direction: column;
 
         .li {
-            margin-left: 8px;
-            margin-right: 8px;
+            cursor: pointer;
+            font-size: .8rem;
+            align-items: center;
+            gap: 8px;
+            display: flex;
+            padding: 8px;
+            transition: all .2s ease-in-out;
+            &:hover{
+                background-color: #000;
+                border-radius: 2rem;
+            }
+        }
+    }
+    .button {
+        cursor: pointer;
+        top: 72%;
+        position: relative;
+        background-color: transparent;
+        padding: 12px;
+        color: #7c7c7c;
+        border: 1px solid #7c7c7c;
+        border-radius: 2rem;
+        transition: all .2s ease-in-out;
+        font-weight: 700;
+        &:hover {
+            color: #fff;
+            box-shadow: inset 0px -20px 6px 20px #ff0021;
         }
     }
 

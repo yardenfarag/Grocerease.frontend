@@ -11,9 +11,9 @@ interface Props {
 export const StorePreview: React.FC<Props> = (props) => {
   return (
     <Link to={props.id} className={styles['store-preview']}>
-      <div style={{backgroundColor: props.color}} className={styles['store-back']}></div>
+      <div style={{backgroundColor: props.color, filter: 'brightness(110%)'}} className={styles['store-back']}></div>
       <div className={styles['store-front']}></div>
-        <h3 className={styles['store-front']}>{props.title}</h3>
+        <h3 className={styles.h3}>{props.title}</h3>
     </Link>
   )
 }

@@ -1,21 +1,19 @@
+import { Link } from 'react-router-dom'
 import HomepageHeader from '../components/HomepageHeader'
 import styles from './HomePage.module.scss'
 
 export const HomePage = () => {
     return (
-        <div className={styles['home-page']}>
-            <HomepageHeader />
-            <main className={styles['home-page-content']}>
-                <div className={styles.text}>
-                    {/* <h1>בלה בלהבלה בלה בלה בלה.</h1> */}
-                    <h1 className={styles.h1}>לורם איפסום דולור סיט אמט</h1>
-                    {/* <p>ברוכים הבאים לגרושריז, האפליקציה המושלמת לכל מי שרוצה לפשט את חווית קניית המצרכים שלו. המערכת החכמה שלנו מאפשרת מעקב אחר מצרכים, ניהול מלאי ביתי והשוואת מחירים. הצטרפו עוד היום!</p> */}
-                    <p className={styles.p}>לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית קולהע צופעט למרקוח איבן איף, ברומץ כלרשט מיחוצים. קלאצי קוואזי במר מודוף. </p>
-                    <button className={styles.button}>הרשמה</button>
-                    {/* <button className='btn-call-to-action'><Link to='/store'>יש לי חשבון</Link></button> */}
-                </div>
-                <img className={styles.img} src="https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685284044/My_project_yyaa5h.png" alt="hero" />
-            </main>
-        </div>
-    )
+        <main className={styles.main}>
+            <div className={styles.hero}>
+                <img className={styles['hero-img']} src="https://res.cloudinary.com/dfz8mxb4f/image/upload/v1689093575/Untitled_design_2_ztbyji.png" alt="hero" />
+            </div>
+            <div className={styles.content}>
+                <img className={styles['logo-img']} src="https://res.cloudinary.com/dfz8mxb4f/image/upload/v1689094135/logo-removebg-preview_ybcmb7.png" alt="logo" />
+                <img className={styles['title-img']} src="https://res.cloudinary.com/dfz8mxb4f/image/upload/v1689094062/logo-white-removebg-preview_perjdr.png" alt="" />
+                <h2 className={styles.h2}>לפניך כלי חכם המאפשר מעקב אחר מלאי המצרכים בביתך, הרכבת רשימת קניות והשוואת מחירים.</h2>
+                <Link className={styles.button} to='/signup'>אני רוצה להתחיל!</Link>
+            </div>
+        </main>
+        )  
 }

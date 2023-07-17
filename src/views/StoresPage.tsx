@@ -18,16 +18,16 @@ export const StoresPage = () => {
 
   useEffect(() => {
     dispatch(getStores())
-  }, [])
+  }, [stores])
 
   return (
-    <div className={styles['store-page']}>
+    <main className={styles.main}>
       <div className={styles.stores}>
         {Array.isArray(stores) && stores.map((store: any) => {
           return <StorePreview key={store._id} id={store._id} color={store.color} title={store.title} />
         })}
       </div>
       <AddStore/>
-    </div>
+    </main>
   )
 }

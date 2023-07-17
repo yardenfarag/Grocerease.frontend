@@ -1,80 +1,59 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { PlaceDetails } from '../components/PlaceDetails'
-import { getStoreById, storeActions } from '../store/store'
+import { getStoreById } from '../store/store'
 import { useParams } from 'react-router-dom'
 import { Store } from '../models/store'
-import { ShoppingList } from '../components/ShoppingList'
-import { AppHeader } from '../components/AppHeader'
 import { RootState } from '../store'
 import { AnyAction } from 'redux'
 import { ThunkDispatch } from '@reduxjs/toolkit'
 import styles from './StoreDetailsPage.module.scss'
-import { DragDropContext, DropResult, Droppable } from 'react-beautiful-dnd'
-import { Place } from '../models/place'
+import { ItemList } from '../components/ItemList'
+import { SideNav } from '../components/SideNav'
+import { AddItemForm } from '../components/AddItemForm'
+import { Close, Reorder, Apps } from '@mui/icons-material'
+import { ItemFilter } from '../components/ItemFilter'
+import { settingsActions } from '../store/settings'
+import { ItemTable } from '../components/ItemTable'
+import { BasicTable } from '../components/BasicTable'
 
 type AppDispatch = ThunkDispatch<RootState, undefined, AnyAction>;
 
 export const StoreDetailsPage = () => {
   const dispatch: AppDispatch = useDispatch()
+  const [isAddItemForm, setIsAddItemForm] = useState(false)
+  let itemsView = useSelector((state: RootState) => state.settings.view)
   const { id } = useParams()
-  const [isShoppingListModal, setIsShoppingListModal] = useState(false)
-  
   useEffect(() => {
     if (!id) return
     dispatch(getStoreById(id))
   }, [id])
-  let store: Store | null = useSelector((state: RootState) => state.store.curStore)
-  // const [store, setStore] = useState(currStore)
-  
-  const addPlaceHandler = (ev: any) => {
-    ev.preventDefault()
-    if (!ev.target[0].value) return
-    dispatch(storeActions.addPlace(ev.target[0].value))
-    ev.target[0].value = ''
+  let store: Store | null = useSelector((state: RootState) => state.store?.curStore)
+
+  const setItemsViewHandler = (view:string) => {
+    dispatch(settingsActions.toggleView(view))
   }
-  const toggleShoppingListHandler = () => {
-    setIsShoppingListModal(!isShoppingListModal)
-  }
-  const dragEndHandler = (result: DropResult) => {
-    const storeCopy: Store = JSON.parse(JSON.stringify(store))
-    let places: Place[] | undefined = storeCopy?.places
-    const dropIdx: number | undefined = result.destination?.index
-    const dragIdx = result.source.index
-    let placeToInsert: Place | undefined = places?.find(
-      (place: Place) => place.id === result.draggableId
-    )
-    places?.splice(dragIdx, 1)
-    places?.splice(dropIdx!, 0, placeToInsert!)
-    // setStore(storeCopy)
-    dispatch(storeActions.saveStore(storeCopy!))
-  }
-  
   return (
-    // <div style={{ background: `linear-gradient(to bottom right, #fff 20%, ${store?.color} 80%)` }}>
     <div>
-      <AppHeader onToggleShoppingListHandler={toggleShoppingListHandler} />
-      <main className={`${styles.main} ${isShoppingListModal ? styles['disable-interactions'] : ''}`}>
-        <DragDropContext onDragEnd={dragEndHandler}>
-          <Droppable droppableId={id!}>
-            {(provided) => (
-              <div ref={provided.innerRef} {...provided.droppableProps} className={styles['places-container']}>
-                {store && store.places?.map((place: any, index: number) => {
-                  return (
-                    <PlaceDetails index={index} key={place.id} id={place.id} title={place.title} items={place.items} />
-                  )
-                })}
-                {provided.placeholder}
-                <form onSubmit={addPlaceHandler} className={styles['add-place']}>
-                  <input className={styles.input} type="text" placeholder='הוסף מיקום' />
-                  <button className={styles.button} type='submit'>+</button>
-                </form>
-              </div>
-            )}
-          </Droppable>
-        </DragDropContext>
+      <main className={styles.main}>
+        <SideNav />
+        <div className={styles.container}>
+            <h1 className={styles.h1}>{store?.title}</h1>
+          <div className={styles['form-container']}>
+            <div className={styles.div}>
+              {!isAddItemForm && <button onClick={() => setIsAddItemForm(!isAddItemForm)} className={styles.button}><span className={styles.span}>+</span>הוסף מוצר</button>}
+              {isAddItemForm && <AddItemForm onSetIsAddItemForm={() => setIsAddItemForm(!isAddItemForm)} />}
+            </div>
+            <div className={styles['view-picker']}>
+                <Reorder onClick={() => setItemsViewHandler('list')} className={`${styles.icon} ${itemsView==='list'? styles.selected : ''}`}/>
+                <span className={styles.barrier}>|</span>
+                <Apps onClick={() => setItemsViewHandler('cards')} className={`${styles.icon} ${itemsView==='cards'? styles.selected : ''}`}/>
+            </div>
+          </div>
+          {/* <ItemList items={store?.items} /> */}
+          {store?.items && <ItemTable items={store!.items!}/>}
+          {/* {<BasicTable/>} */}
+        </div>
       </main>
-      {isShoppingListModal && <ShoppingList onToggleShoppingListModal={toggleShoppingListHandler} />}
     </div>
   )
 }

@@ -1,7 +1,53 @@
+@use '../styles/setup/variables.scss' as variables;
+
 .items {
     display: flex;
-    gap: 5px;
-    padding-inline: 4px;
     flex-direction: column;
-    // overflow: auto;
+    border: 1px solid var(--clr5);
+    border-radius: 12px;
+    align-items: center;
+    list-style: none;
+    overflow-y: auto;
+    height: 85vh;
+    width: 70vw;
+    @media(min-width: variables.$mobile) {
+        justify-content: space-between;
+        width: 82vw;
+    }
+    @media(min-width: variables.$tablet) {
+        justify-content: start;
+        width: 88vw;
+    }
+    @media(min-width: variables.$smallDesktop) {
+        width: 92vw;
+    }
+    @media(min-width: variables.$desktop) {
+        width: 94vw;
+    }
+}
+
+.cards {
+    padding: 8px;
+    border-radius: 12px;
+    list-style: none;
+    overflow-y: auto;
+    height: 80vh;
+    width: 70vw;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 190px);
+    justify-content: center;
+    grid-gap: 12px;
+    @media(min-width: variables.$mobile) {
+        justify-content: space-between;
+        width: 82vw;
+    }
+    @media(min-width: variables.$tablet) {
+        width: 90vw;
+    }
+    @media(min-width: variables.$smallDesktop) {
+        width: 92vw;
+    }
+    @media(min-width: variables.$desktop) {
+        width: 94vw;
+    }
 }

@@ -1,110 +1,31 @@
 @use '../styles/setup/variables' as variables;
 @use '../styles/setup/functions' as functions;
 
-.shopping-list {
-    width: 60%;
-    min-width: 300px;
-    max-width: 450px;
-    border-radius: 8px;
-    margin-top: 10px;
-    padding: 8px;
-    position: absolute;
-    background-color: var(--clr-glass);
-    backdrop-filter: blur(15px);
-    box-shadow: 0 0 40px var(--clr-bs);
-    filter: blur(0px);
-    // box-shadow: 0 0 40px rgba(37, 37, 37, 0.6);
-    margin-inline-start: 7rem;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transition: transform .2s ease-in-out;
-    height: 75vh;
-    z-index: 8;
-
-    .shopping-list-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 3px;
-        margin-block-start: -8px;
-        .close-shopping-list {
-            cursor: pointer;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 10px;
-            border-radius: 50%;
-            background-color: var(--clr1);
-            color: var(--clr2);
-            transition: all .2s ease-in-out;
-
-            &:hover {
-                filter: brightness(80%);
-            }
-        }
-    }
-
-    .form {
-        gap: 5px;
-        padding: 5px;
-        display: flex;
-
-        .input {
-            width: 100%;
-            transition: all .2s ease-in-out;
-            &:focus {
-                border: 1px solid var(--clr3);
-                outline: 0;
-            }
-        }
-    }
-
-    .compare-btn,
-    .add-grocery-btn {
-        cursor: pointer;
-        font-size: 1.1rem;
-        border: 1px solid var(--clr2);
-        background-color: var(--clr1);
-        border-radius: 8px;
-        padding: 2px;
-        text-align: center;
-        color: var(--clr2);
-        transition: filter .2s ease-in-out;
-
-        &:hover {
-            filter: brightness(80%);
-        }
-    }
-
-    .add-grocery-btn {
-        width: 40px;
-        font-size: 1.5rem;
-        border: none;
-    }
-
-    .ul {
+.main {
+    height: 100%;
+    border: 1px solid var(--clr5);
+    border-radius: 12px;
+    // padding: 10px;
+    width: 520px;
+    // overflow: auto;
+    
+    .container {
         display: flex;
         flex-direction: column;
-        list-style-type: none;
-        margin: 0;
-        padding: 4px;
-        gap: 4px;
-        overflow: auto;
-        height: 280px;
-        border: 1px solid var(--clr1);
-        border-radius: 8px;
+        padding: 16px;
+        gap: 12px;
+        height: 100%;
+        // overflow: auto;
 
-        .li {
-            font-size: 1rem;
-            border-radius: 5px;
-            padding: 4px;
-            background-color: var(--clr1);
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
+        
+        .ul {
+            height: 100%;
+            border-radius: 12px;
+            overflow: auto;
+            border: 1px solid var(--clr5);
+            display: flex;
+            flex-direction: column; 
+            padding-inline: 12px;
         }
     }
 }

@@ -2,37 +2,22 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Heebo', sans-serif;
-  font-weight: 400;
+  // font-family: 'Heebo', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Noto Sans, Ubuntu, Droid Sans, Helvetica Neue, sans-serif;
+  // font-family:fantasy;
+  font-weight: 300;
 }
 
 html {
-  color: #300282;
+  color: var(--clr1);
+  scroll-behavior: smooth;
 }
 
 body {
   min-height: 100vh;
   direction: rtl;
-  // background: linear-gradient(-45deg, #ffffff, #f9efcf, #f7eab9, #f1db93);
-	// background-size: 400% 400%;
-	// animation: gradient 15s ease infinite;
-  background: #e4e7e9;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: var(--clr6);
 }
-
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-}
-
 img {
   width: 100%;
   height: 100%;
@@ -45,7 +30,12 @@ a {
 }
 
 button {
-  color: var(--clr6);
+  cursor: pointer;
+  font-weight: 500;
+  border: none;
+  background-color: var(--clr1);
+  color: var(--clr4);
+  border-radius: 2rem;
 }
 
 /* ===== Scrollbar CSS ===== */
@@ -66,7 +56,7 @@ button {
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: var(--clr2);
+  background-color: var(--clr3);
   border-radius: 10px;
   border: 0;
 }
@@ -81,16 +71,13 @@ input {
   padding: 4px;
   border: 0;
   transition: all .2s ease-in-out;
-  color: #300282;
+  background-color: var(--clr2);
+  color: var(--clr1);
   &::placeholder {
-    color: #300282;
+    color: var(--clr3);
   }
   &:focus {
-    outline: 1px solid var(--clr4);
+    outline: 0;
   }
-}
-
-button {
-  color: #300282;
 }
 

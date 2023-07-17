@@ -5,4 +5,5 @@ export interface Item {
     quantity:number
     imgUrl?: string
     barcode: string
+    place?: string
 }

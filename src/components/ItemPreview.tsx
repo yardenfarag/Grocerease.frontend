@@ -1,29 +1,37 @@
 import React, { ChangeEvent, useState } from 'react'
 import { Item } from '../models/item'
-import { RemoveCircleOutline, ArrowUpward, ArrowDownward, PlaylistAdd } from '@mui/icons-material'
+import { RemoveCircleOutline, ArrowUpward, ArrowDownward, PlaylistAdd, Delete, DeleteOutline, DeleteSweep, Remove, Add } from '@mui/icons-material'
 import { storeActions } from '../store/store'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit'
 import { RootState } from '../store'
 import styles from './ItemPreview.module.scss'
-import { Draggable } from 'react-beautiful-dnd'
+import { Draggable } from './Draggable'
+import { useDraggable } from '@dnd-kit/core';
 
 type AppDispatch = ThunkDispatch<RootState, undefined, AnyAction>;
 
 interface Props {
     item: Item
-    placeId: string
+    placeId?: string
     index: number
 }
 
 export const ItemPreview: React.FC<Props> = (props) => {
     const dispatch: AppDispatch = useDispatch()
+    let itemsView = useSelector((state: RootState) => state.settings.view)
     const [item, setItem] = useState({ ...props.item })
     const [isHovered, setIsHovered] = useState(false)
+    const { attributes, listeners, setNodeRef, transform } = useDraggable({
+        id: 'draggable',
+    });
+    const style = transform ? {
+        transform: `translate3d(${transform.x}px, ${transform.y}px, 0)`,
+    } : undefined;
     const decreaseQuantityHandler = () => {
         if (item.id) {
             if (item.quantity === 0) {
-                dispatch(storeActions.deleteItem({ itemId: item.id, placeId: props.placeId }))
+                dispatch(storeActions.deleteItem(item.id))
                 return
             }
             if (item.quantity >= 2) {
@@ -32,17 +40,17 @@ export const ItemPreview: React.FC<Props> = (props) => {
             }
             const updatedItem = { ...item, quantity: item.quantity - 1 }
             setItem(updatedItem)
-            dispatch(storeActions.updateItem({ itemToUpdate: updatedItem, placeId: props.placeId }))
+            dispatch(storeActions.updateItem(updatedItem))
         }
     }
     const increaseQuantityHandler = () => {
         const updatedItem = { ...item, quantity: item.quantity + 1 }
         setItem(updatedItem)
-        dispatch(storeActions.updateItem({ itemToUpdate: updatedItem, placeId: props.placeId }))
+        dispatch(storeActions.updateItem(updatedItem))
     }
     const deleteItemHandler = () => {
         if (item.id) {
-            dispatch(storeActions.deleteItem({ itemId: item.id, placeId: props.placeId }))
+            dispatch(storeActions.deleteItem(item.id))
         }
     }
     const addItemToShoppingListHandler = () => {
@@ -60,11 +68,11 @@ export const ItemPreview: React.FC<Props> = (props) => {
     const expiryHandler = (ev: ChangeEvent<HTMLInputElement>) => {
         const updatedItem = { ...item, expiry: ev.target.value }
         setItem(updatedItem)
-        dispatch(storeActions.updateItem({ itemToUpdate: updatedItem, placeId: props.placeId }))
+        dispatch(storeActions.updateItem(updatedItem))
     }
-    const getColorForDate = (dateString: string | undefined): string => {
+    const getColorForDate = (dateString: string | undefined): { color: string } => {
         if (!dateString) {
-            return 'white'
+            return { color: '' }
         }
         const currentDate = new Date()
         const givenDate = new Date(dateString)
@@ -81,43 +89,129 @@ export const ItemPreview: React.FC<Props> = (props) => {
         const givenDateOnly = new Date(givenYear, givenMonth, givenDay)
 
         if (givenDateOnly.getTime() === currentDateOnly.getTime()) {
-            return '#ff9d5c' // Date is today
+            return { color: '#fc8309' }
         } else if (givenDateOnly.getTime() < currentDateOnly.getTime()) {
-            return '#fe2f06ac' // Date has passed
+            return { color: '#f73711' }
         } else if (givenDateOnly.getTime() - currentDateOnly.getTime() <= 2 * 24 * 60 * 60 * 1000) {
-            return '#fff59e' // Date is within two days or less
+            return { color: '#ffed50' }
         } else {
-            return 'white' // Default color
+            return { color: '' }
         }
+    }
+    const generateRandomColor = (input?: string): string => {
+        let hash = 0;
+        if (input) {
+
+            for (let i = 0; i < input.length; i++) {
+                const charCode = input.charCodeAt(i);
+                hash = (hash << 5) - hash + charCode;
+                hash &= hash; // Convert to 32-bit integer
+            }
+
+            const color = '#' + ((hash >>> 0) % 0xFFFFFF).toString(16).padStart(6, '0');
+            return color;
+        }
+        else return 'transparent'
+    }
+    const isColorDark = (color: string): boolean => {
+        const hexColor = color.replace('#', '')
+        const red = parseInt(hexColor.substr(0, 2), 16)
+        const green = parseInt(hexColor.substr(2, 2), 16)
+        const blue = parseInt(hexColor.substr(4, 2), 16)
+        const relativeLuminance = (red * 0.299 + green * 0.587 + blue * 0.114) / 255
+
+        return relativeLuminance <= 0.5
+    }
+
+    const convertDateFormat = (dateString: string): string => {
+        const [year, month, day] = dateString.split('-');
+        return `${day}-${month}-${year}`;
+    }
+    const blurHandler: React.FocusEventHandler<HTMLHeadingElement> = (ev) => {
+        let updatedItem = { ...item }
+        if (!ev.target.innerText || ev.target.innerText === 'הזן מיקום') {
+            updatedItem = { ...item, place: '' }
+        } else {
+            updatedItem = { ...item, place: ev.target.innerText.slice(0, 20) }
+        }
+        setItem(updatedItem)
+        dispatch(storeActions.updateItem(updatedItem))
     }
 
     return (
         <>
-        <Draggable draggableId={item.id!} index={props.index}>
-            {(provided) => (
-
-                <div {...provided.dragHandleProps} {...provided.draggableProps} ref={provided.innerRef} style={{ backgroundColor: getColorForDate(item.expiry) }} className={`${styles.item} ${isHovered ? styles['hovered'] : ''}`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-                <div className={styles['item-actions']}>
-                    <div className={styles['item-title']}>
-                        <p onClick={deleteItemHandler} className={`${styles['delete-item']} ${isHovered ? styles['hovered'] : ''}`} title='הסר'><RemoveCircleOutline /></p>
-                        <p title={item.title} className={`${styles['item-name']} ${isHovered ? styles['hovered'] : ''}`}>{item.title}</p>
-                    </div>
-                    <div className={styles.actions}>
-                        <button onClick={decreaseQuantityHandler} className={`${styles['decrease-quantity']} ${isHovered ? styles['hovered'] : ''}`} title='להפחית כמות'><ArrowDownward /></button>
-                        {/* <p style={{marginInlineEnd: item.quantity > 9 ? '7px' : ''}} className='item-quantity'>{item.quantity} </p> */}
-                        <p style={{ marginInlineEnd: item.quantity > 9 ? '0px' : '' }} className={styles['item-quantity']}>{item.quantity} </p>
-
-                        <button onClick={increaseQuantityHandler} className={`${styles['increase-quantity']} ${isHovered ? styles['hovered'] : ''}`} title='להוסיף כמות'><ArrowUpward /></button>
-                    </div>
+            <li className={itemsView === 'list' ? styles.item : styles['item-card']} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                <div className={styles['item-title-img']}>
+                    <img className={styles.img} src={item.imgUrl ? item.imgUrl : 'https://res.cloudinary.com/dfz8mxb4f/image/upload/v1680119258/Group_1_nhbrcc.svg'} />
+                    <p title={item.title} className={styles['item-title']}>{item.title}</p>
                 </div>
-                <div className={styles['item-expiry']}>
+                <div className={styles.quantity}>
+                    <button onClick={deleteItemHandler} className={`${styles['delete-item']} ${isHovered ? styles['hovered'] : ''}`} title='הסר'><DeleteOutline /></button>
+                    {/* <button onClick={decreaseQuantityHandler} className={`${styles['decrease-quantity']} ${isHovered ? styles['hovered'] : ''}`} title='להפחית כמות'><ArrowDownward /></button> */}
+                    <button onClick={decreaseQuantityHandler} className={`${styles['decrease-quantity']} ${isHovered ? styles['hovered'] : ''}`} title='להפחית כמות'><Remove /></button>
 
-                    <p className={`${styles.expiry} ${isHovered ? styles['hovered'] : ''}`}>תפוגה: <input onChange={expiryHandler} type="date" value={item.expiry} /></p>
-                    <p onClick={addItemToShoppingListHandler} className={`${styles['add-item-to-shopping-list']} ${isHovered ? styles['hovered'] : ''} `} title='הוסף לרשימת קניות'><PlaylistAdd /></p>
+                    <p style={{ marginInlineEnd: item.quantity > 9 ? '0px' : '' }} className={styles['item-quantity']}>{item.quantity} </p>
+                    <button onClick={increaseQuantityHandler} className={`${styles['increase-quantity']} ${isHovered ? styles['hovered'] : ''}`} title='להוסיף כמות'><Add /></button>
+
+                    {/* <button onClick={increaseQuantityHandler} className={`${styles['increase-quantity']} ${isHovered ? styles['hovered'] : ''}`} title='להוסיף כמות'><ArrowUpward /></button> */}
                 </div>
-            </div >
-                )}
-        </Draggable>
+                {/* <div className={styles['item-date-place']}> */}
+                <button style={getColorForDate(item.expiry)} className={styles['date-button']}>{item.expiry ? convertDateFormat(item.expiry) : 'הזן ת.תפוגה'}<input style={getColorForDate(item.expiry)} className={styles.input} onChange={expiryHandler} type="date" id='datePicker' value={item.expiry} /></button>
+                {/* <p suppressContentEditableWarning={true} contentEditable onBlur={blurHandler}
+                    style={{ background: generateRandomColor(item?.place), color: !item?.place ? '' : isColorDark(generateRandomColor(item?.place)) ? 'white' : 'black' }} className={styles['item-place']}>
+                    {item.place ? item.place : 'הזן מיקום'}
+                </p> */}
+                <p suppressContentEditableWarning={true} contentEditable onBlur={blurHandler}
+                    className={styles['item-place']}>
+                    {item.place ? item.place : 'הזן מיקום'}
+                </p>
+                        {/* </div> */}
+                <button onClick={addItemToShoppingListHandler} className={styles['add-item-to-shopping-list']} title='הוסף לרשימת קניות'><span className={styles.span}>+</span><p className={styles.p}>הוסף לרשימת קניות</p></button>
+            </li>
         </>
+        // <>
+        //     <li className={itemsView === 'list' ? styles.item : styles['item-card']} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+        //         <div className={styles['item-title-img']}>
+        //             <img className={styles.img} src={item.imgUrl ? item.imgUrl : 'https://res.cloudinary.com/dfz8mxb4f/image/upload/v1680119258/Group_1_nhbrcc.svg'} />
+        //             <p title={item.title} className={styles['item-title']}>{item.title}</p>
+        //         </div>
+        //         <div className={styles.quantity}>
+        //             <button onClick={deleteItemHandler} className={`${styles['delete-item']} ${isHovered ? styles['hovered'] : ''}`} title='הסר'><DeleteOutline /></button>
+        //             <button onClick={decreaseQuantityHandler} className={`${styles['decrease-quantity']} ${isHovered ? styles['hovered'] : ''}`} title='להפחית כמות'><ArrowDownward /></button>
+        //             <p style={{ marginInlineEnd: item.quantity > 9 ? '0px' : '' }} className={styles['item-quantity']}>{item.quantity} </p>
+        //             <button onClick={increaseQuantityHandler} className={`${styles['increase-quantity']} ${isHovered ? styles['hovered'] : ''}`} title='להוסיף כמות'><ArrowUpward /></button>
+        //         </div>
+        //         <div className={styles['item-date-place']}>
+        //         <button style={getColorForDate(item.expiry)} className={styles['date-button']}>{item.expiry ? convertDateFormat(item.expiry) : 'הזן ת.תפוגה'}<input style={getColorForDate(item.expiry)} className={styles.input} onChange={expiryHandler} type="date" id='datePicker' value={item.expiry} /></button>
+        //         <p suppressContentEditableWarning={true} contentEditable onBlur={blurHandler}
+        //             style={{ background: generateRandomColor(item?.place), color: !item?.place ? '' : isColorDark(generateRandomColor(item?.place)) ? 'white' : 'black' }} className={styles['item-place']}>
+        //             {item.place ? item.place : 'הזן מיקום'}
+        //         </p>
+        //                 </div>
+        //         <button onClick={addItemToShoppingListHandler} className={styles['add-item-to-shopping-list']} title='הוסף לרשימת קניות'><span className={styles.span}>+</span><p className={styles.p}>הוסף לרשימת קניות</p></button>
+        //     </li>
+        // </>
+        // <>
+        //     <li className={itemsView === 'list' ? styles.item : styles['item-card']} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+        //         <img className={styles.img} src={item.imgUrl ? item.imgUrl : 'https://res.cloudinary.com/dfz8mxb4f/image/upload/v1680119258/Group_1_nhbrcc.svg'} />
+        //         <div className={styles['item-title-img']}>
+        //             <p title={item.title} className={styles['item-title']}>{item.title}</p>
+        //             <div className={styles['item-date-place']}>
+        //                 <button style={getColorForDate(item.expiry)} className={styles['date-button']}>{item.expiry ? convertDateFormat(item.expiry) : 'הזן ת.תפוגה'}<input style={getColorForDate(item.expiry)} className={styles.input} onChange={expiryHandler} type="date" id='datePicker' value={item.expiry} /></button>
+        //                 <p suppressContentEditableWarning={true} contentEditable onBlur={blurHandler}
+        //                     style={{ background: generateRandomColor(item?.place), color: !item?.place ? '' : isColorDark(generateRandomColor(item?.place)) ? 'white' : 'black' }} className={styles['item-place']}>
+        //                     {item.place ? item.place : 'הזן מיקום'}
+        //                 </p>
+        //             </div>
+        //             <div className={styles.quantity}>
+        //                 <button onClick={deleteItemHandler} className={`${styles['delete-item']} ${isHovered ? styles['hovered'] : ''}`} title='הסר'><DeleteOutline /></button>
+        //                 <button onClick={decreaseQuantityHandler} className={`${styles['decrease-quantity']} ${isHovered ? styles['hovered'] : ''}`} title='להפחית כמות'><ArrowDownward /></button>
+        //                 <p style={{ marginInlineEnd: item.quantity > 9 ? '0px' : '' }} className={styles['item-quantity']}>{item.quantity} </p>
+        //                 <button onClick={increaseQuantityHandler} className={`${styles['increase-quantity']} ${isHovered ? styles['hovered'] : ''}`} title='להוסיף כמות'><ArrowUpward /></button>
+        //                 <button onClick={addItemToShoppingListHandler} className={styles['add-item-to-shopping-list']} title='הוסף לרשימת קניות'><span className={styles.span}>+</span><p className={styles.p}>הוסף לרשימת קניות</p></button>
+        //             </div>
+        //         </div>
+        //     </li>
+        // </>
     )
 }

@@ -2,17 +2,31 @@
 @use '../styles/setup/functions' as functions;
 
 .item-filter {
+    display: flex;
+    align-items: center;
+    .icon {
+        height: 25px;
+        background-color: var(--clr2);
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+        color: var(--clr3);
+        padding: 2px;
+    }
     .input {
-        border-radius: 8px;
+        border-radius: 0;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
         border: 0;
-        padding: 4px;
+        // padding: 6px;
         border: 0;
         transition: all .2s ease-in-out;
-        // box-shadow: 0 0 40px var(--clr-bs);
+        height: 25px;
+        width: 175px;
 
         &:focus {
             outline: 0;
             border: 1px solid var(--clr4);
+            border: 0;
         }
     }
 }

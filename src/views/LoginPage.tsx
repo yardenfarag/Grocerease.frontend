@@ -19,14 +19,19 @@ export const LoginPage = () => {
   const user = useSelector<RootState, User | null>(state => state.auth.user)
   useEffect(() => {
     if (user && user._id !== undefined) {
-      dispatch(getStores())
       navigate('/store')
+      dispatch(getStores())
     }
   }, [user?._id])
   return (
-    <div className={styles['login-page']}>
-      { url === 'login' && <Login />}
-      { url === 'signup' && <Signup />}
+    <div className={styles['login-signup']}>
+      <div className={styles.hero}>
+        <img className={styles.img} src="https://res.cloudinary.com/dfz8mxb4f/image/upload/v1689103690/Untitled_design_7_onzhg2.png" alt="hero" />
+      </div>
+      <div className={styles.content}>
+        {url === 'login' && <Login />}
+        {url === 'signup' && <Signup />}
+      </div>
     </div>
   )
 }

@@ -35,9 +35,9 @@ function getEmptyStore(): Store {
   return {
     title: '',
     color: '',
-    places: [],
     shoppingList: [],
-    userIds: []
+    userIds: [],
+    items: []
   }
 }
 
