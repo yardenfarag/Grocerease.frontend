@@ -1,0 +1,111 @@
+@use '../styles/setup/variables' as variables;
+@use '../styles/setup/functions' as functions;
+
+.loading {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main {
+    display: flex;
+    justify-content: stretch;
+    align-items: stretch;
+    height: 100vh;
+    // gap: 20px;
+    overflow: hidden;
+    width: 100%;
+
+    .container {
+        width: 100%;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+
+        .h1 {
+            font-size: 1.7rem;
+            font-weight: 500;
+        }
+
+        .div {
+            display: flex;
+            // align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-direction: column;
+
+            .button {
+                width: 155px;
+                height: 34px;
+                font-size: 1.1rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 16px;
+                transition: all .2s ease-in-out;
+                gap: 8px;
+                height: 25px;
+                width: 175px;
+                padding-block-end: 20px;
+
+                &:hover {
+                    // scale: 1.1;
+                    // padding: 24px;
+                    filter: brightness(70%);
+                }
+
+                .span {
+                    font-weight: 600;
+                    font-size: 2.5rem;
+                    margin-block-end: 8px;
+                }
+            }
+        }
+
+        .form-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-block: 6px;
+
+            .view-picker {
+                padding: 8px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                flex-direction: column;
+
+                @media(min-width: variables.$tablet) {
+                    flex-direction: row;
+                }
+
+                .icon {
+                    cursor: pointer;
+                    transition: all .2s ease-in-out;
+                    font-size: 2.3rem;
+                    padding: 4px;
+                    border-radius: 4px;
+
+                    &:hover {
+                        background-color: var(--clr2);
+                    }
+
+                    &.selected {
+                        background-color: var(--clr2);
+                    }
+                }
+
+                .barrier {
+                    display: none;
+                    font-size: 1.5rem;
+                    margin-block-start: -8px;
+
+                    @media(min-width: variables.$tablet) {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}

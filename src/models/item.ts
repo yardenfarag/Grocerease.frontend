@@ -1,9 +1,9 @@
-export interface Item {
+import { Grocery } from "./grocery"
+
+export interface Item extends Grocery {
     id?:string
-    title:string
     expiry?: string
-    quantity:number
-    imgUrl?: string
-    barcode: string
     place?: string
+    price?: number
+    totalPrice?: number
 }

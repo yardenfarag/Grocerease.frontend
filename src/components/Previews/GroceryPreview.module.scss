@@ -1,0 +1,189 @@
+@use '../../styles/setup/variables' as variables;
+
+.link {
+  color: var(--clr1);
+}
+
+.grocery-item {
+    display: flex;
+    justify-content: space-between;
+    // background-color: var(--clr2);
+    min-height: 70px;
+    overflow: hidden;
+    padding-inline: 10px;
+    &:not(:last-child) {
+        // border-bottom: 1px solid var(--clr2);
+    }
+    &:hover {
+        background-color: var(--clr5);
+        border-radius: 4px;
+    }
+    .grocery-item-title {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        
+        .img {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+        }
+        .p {
+            font-weight: 600;
+            padding: 4px;
+            margin-inline-start: 5px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            width:370px;
+            font-size: .9rem;
+            transition: all .2s ease-in-out;
+
+            &.hovered {
+                width: 340px;
+            }
+        }
+
+        .delete-grocery {
+            overflow: hidden;
+            margin-inline-start: -30px;
+            transition: all .2s ease-in-out;
+
+            &.hovered {
+                cursor: pointer;
+                margin-inline-start: 0px;
+                color: red;
+            }
+
+            &:hover {
+                color: var(--clr1);
+                filter: brightness(80%);
+            }
+        }
+    }
+
+    .grocery-item-actions {
+        display: flex;
+        gap: 3px;
+        overflow: hidden;
+        align-items: center;
+        justify-content: end;
+
+        button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: none;
+            background-color: var(--clr1);
+            color: var(--clr2);
+            transition: all .2s ease-in-out;
+            border-radius: 50%;
+
+            &:hover {
+                filter: brightness(80%);
+            }
+        }
+
+        // .item-quantity {
+        //     padding-inline: 4px;
+        //     font-weight: 600;
+        // }
+
+        // .decrease-quantity {
+        //     overflow: hidden;
+        //     opacity: 0;
+        //     transition: all .2s ease-in-out;
+
+        //     &.hovered {
+        //         opacity: 1;
+        //         cursor: pointer;
+        //         margin-inline-start: 0px;
+        //     }
+        // }
+
+        // .increase-quantity {
+        //     overflow: hidden;
+        //     opacity: 0;
+        //     margin-inline-end: -28px;
+        //     transition: all .2s ease-in-out;
+
+        //     &.hovered {
+        //         opacity: 1;
+        //         cursor: pointer;
+        //         margin-inline-end: 0px;
+        //         margin-inline-start: 0px;
+        //     }
+        // }
+    }
+    .quantity {
+        display: inline-block;
+      }
+      
+      .quantity .input-text.qty {
+        width: 25px;
+        height: 39px;
+        padding: 0 5px;
+        text-align: center;
+        background-color: transparent;
+        font-weight: 500;
+        font-size: .7rem;
+        @media (min-width: variables.$tablet) {
+          font-size: 1rem;
+          width: 35px;
+        }
+      }
+    
+      .quantity.buttons_added {
+        text-align: left;
+        position: relative;
+        white-space: nowrap;
+        vertical-align: top;
+      }
+    
+      .quantity.buttons_added input {
+        display: inline-block;
+        margin: 0;
+        vertical-align: top;
+        box-shadow: none;
+      }
+    
+      .quantity.buttons_added .minus,
+      .quantity.buttons_added .plus {
+        font-size: .8rem;
+        font-weight: 600;
+        padding: 10px;
+        width: 30px;
+        background-color: var(--clr7);
+        cursor: pointer;
+        @media (min-width: variables.$tablet) {
+          font-size: 1rem;
+        }
+      }
+    
+      .quantity.buttons_added .minus {
+        border-right: 0;
+      }
+    
+      .quantity.buttons_added .plus {
+        border-left: 0;
+      }
+    
+      .quantity.buttons_added .minus:hover,
+      .quantity.buttons_added .plus:hover {
+        background: var(--clr2);
+      }
+    
+      .quantity input::-webkit-outer-spin-button,
+      .quantity input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        margin: 0;
+      }
+    
+      .quantity.buttons_added .minus:focus,
+      .quantity.buttons_added .plus:focus {
+        outline: none;
+      }
+    
+}

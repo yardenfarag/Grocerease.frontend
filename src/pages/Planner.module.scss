@@ -1,0 +1,30 @@
+@use '../styles/setup/variables' as variables;
+@use '../styles/setup/functions' as functions;
+
+.loading {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.main {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+    width: 100%;
+
+    .container{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 100%;
+        padding: 20px;
+        transition: filter .2s linear;
+        &.disable-interactions {
+            pointer-events: none;
+            filter: brightness(40%);
+            // filter: blur(3px);
+        }
+    }
+
+}

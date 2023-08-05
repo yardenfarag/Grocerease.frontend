@@ -1,10 +1,10 @@
-import { createAsyncThunk, createSlice, Draft, PayloadAction } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { Item } from '../models/item'
-import { Place } from '../models/place'
 import { Store } from '../models/store'
 import { Grocery } from '../models/grocery'
 import { storeService } from '../services/store.service'
 import { Product } from '../models/product'
+import { utilService } from '../services/util.service'
 
 export const getStores = createAsyncThunk('store', async () => {
   return await storeService.getStores()
@@ -16,21 +16,18 @@ export const getStoreById = createAsyncThunk('store/:id', async (id: string) => 
 
 const initialStoreState = {
   filterBy: { txt: '' }, curStore: null as Store | null, loading: false, error: false,
-  stores: [] as Store[], products: null as Product[] | null
+  stores: [] as Store[], products: null as Product[] | null, addToShoppingListStatus: ''
 }
 
 const storeSlice = createSlice({
   name: 'store',
   initialState: initialStoreState,
   reducers: {
-    // addPlace: (state, action: PayloadAction<string>) => {
-    //   const newPlace = { id: makeId(), title: action.payload, items: [] as Item[] }
-    //   state.curStore?.places.push(newPlace)
-    //   storeService.saveStore(state.curStore!)
-    // },
     addItem: (state, action: PayloadAction<Item>) => {
-      const { title, quantity, expiry, imgUrl, barcode, place } = action.payload
-      const newItem = { id: makeId(), title, expiry, quantity, imgUrl, barcode, place }
+      const newItem = {
+        id: utilService.makeId(),
+        ...action.payload
+      }
       state.curStore?.items.unshift(newItem)
       storeService.saveStore(state.curStore!)
     },
@@ -55,13 +52,6 @@ const storeSlice = createSlice({
         storeService.saveStore(state.curStore!)
       }
     },
-    addItemToShoppingList: (state, action: PayloadAction<{ barcode: string, title: string, quantity: number, imgUrl: string | undefined }>) => {
-      const groceryIdx = state.curStore?.shoppingList.findIndex((g: Grocery) => g.barcode === action.payload.barcode)
-      if (groceryIdx !== undefined) {
-        state.curStore?.shoppingList.push(action.payload)
-        storeService.saveStore(state.curStore!)
-      }
-    },
     setFilterBy: (state, action: PayloadAction<string>) => {
       state.filterBy.txt = action.payload
     },
@@ -70,7 +60,6 @@ const storeSlice = createSlice({
       newStore.title = action.payload.newStoreTitle
       newStore.color = action.payload.selectedColor
       storeService.saveStore(newStore)
-      getStores()
     },
     updateGrocery: (state, action: PayloadAction<Grocery>) => {
       const groceryIdx = state.curStore?.shoppingList.findIndex((g: Grocery) => g.barcode === action.payload.barcode)
@@ -79,17 +68,17 @@ const storeSlice = createSlice({
         storeService.saveStore(state.curStore!)
       }
     },
-    addGroceryToShoppingList: (state, action: PayloadAction<Grocery>) => {
+    addToShoppingList: (state, action: PayloadAction<Grocery>) => {
+      state.addToShoppingListStatus = ''
+      const groceryIdx = state.curStore?.shoppingList.findIndex((g: Grocery) => g.barcode === action.payload.barcode)
+      if (groceryIdx !== undefined && groceryIdx >= 0) {
+        state.addToShoppingListStatus = 'error'
+        return state
+      }
       state.curStore?.shoppingList.unshift(action.payload)
       storeService.saveStore(state.curStore!)
+      state.addToShoppingListStatus = 'success'
     },
-    // updatePlaceTitle: (state, action: PayloadAction<{ placeId: string, placeTitle: string }>) => {
-    //   const placeIdx = state.curStore?.places.findIndex((p: Place) => p.id === action.payload.placeId)
-    //   if (placeIdx !== undefined) {
-    //     state.curStore!.places[placeIdx].title = action.payload.placeTitle
-    //     storeService.saveStore(state.curStore!)
-    //   }
-    // },
     saveStore: (state, action: PayloadAction<Store>) => {
       state.curStore = action.payload
       storeService.saveStore(action.payload)
@@ -127,14 +116,3 @@ const storeSlice = createSlice({
 export const storeActions = storeSlice.actions
 
 export default storeSlice.reducer
-
-function makeId(length = 6) {
-  var txt = ''
-  var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
-
-  for (var i = 0; i < length; i++) {
-    txt += possible.charAt(Math.floor(Math.random() * possible.length))
-  }
-
-  return txt
-}

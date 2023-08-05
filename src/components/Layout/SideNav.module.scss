@@ -1,0 +1,95 @@
+.container {
+    display: flex;
+
+    .sidenav {
+        background-color: rgb(40 40 40);
+        color: rgb(229 229 229);
+        height: 100vh;
+        border-end-end-radius: 12px;
+        border-start-end-radius: 12px;
+        transition: all .5s;
+        position: relative;
+
+        .button-container {
+            padding: 12px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+
+            .button {
+                cursor: pointer;
+                width: 100%;
+                background-color: transparent;
+                padding: 12px;
+                color: #7c7c7c;
+                border: 1px solid #7c7c7c;
+                border-radius: 2rem;
+                transition: all .2s ease-in-out;
+                font-weight: 700;
+
+                &:hover {
+                    color: #fff;
+                    background-color: var(--clr-call-to-action);
+                }
+            }
+        }
+
+        .top-section {
+            display: flex;
+            align-items: center;
+            padding: 20px 14px;
+
+            .logo {
+                font-size: 30px;
+            }
+
+            .bars {
+                display: flex;
+                align-items: center;
+                // padding: 4px;
+                cursor: pointer;
+                border-radius: 50%;
+                // width: 30px;
+                // height: 30px;
+                transition: all .2s ease-in-out;
+                &:hover {
+                    filter: brightness(70%);
+                }
+            }
+        }
+
+        .link {
+            display: flex;
+            align-items: center;
+            color: #fff;
+            padding: 10px 14px;
+            gap: 15px;
+            // align-items: center;
+            // padding-block-end: 1px;
+            transition: all .5s ease-in-out;
+
+            &:hover {
+                background: rgb(22, 22, 22);
+                // color: #000;
+                transition: all .5s ease-in-out;
+            }
+
+            &.active {
+                background: rgb(22, 22, 22);
+                // color: #000;
+            }
+
+            .icon {
+                font-size: 1.2rem;
+                // padding-top: 4px;
+            }
+
+            .link-text {
+                height: 30px;
+                text-decoration: none;
+                font-size: 1.1rem;
+                overflow: hidden;
+            }
+        }
+    }
+}

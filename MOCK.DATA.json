@@ -1,0 +1,794 @@
+[
+    {
+        "id": "123",
+        "retail_name": "שופרסל",
+        "branch_name": "אונליין",
+        "imgUrl": "data:image/png;base64,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",
+        "items": [
+            {
+                "barcode": "5411188133490",
+                "title": "משקה סויה קפה קרמל 250מל",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798821/5411188133490_ccfrgz.jpg",
+                "quantity": "12",
+                "price": "12.9",
+                "totalPrice": "154.8",
+                "discount": ""
+            },
+            {
+                "barcode": "7290000174723",
+                "title": "שוקולית אבקת שוקו עלית - 500 גרם",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798823/110572532_ji4xwj.jpg",
+                "quantity": "1",
+                "price": "17.5",
+                "discount": "16.5",
+                "totalPrice": "16.5"
+            },
+            {
+                "barcode": "7290004124847",
+                "title": "קצפת צמחית במתיקות מעודנת השף הלבן - 500 מ\"ל",
+                "imgUrl": "string",
+                "quantity": "3",
+                "price": "8.9",
+                "discount": "7.9",
+                "totalPrice": "23.7"
+            },
+            {
+                "barcode": "7622201050757",
+                "title": "שוקולד חלב עם קרמל מילקה - 100 גרם",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798832/7622201050757_bm8ypd.jpg",
+                "quantity": "2",
+                "price": "10",
+                "discount": "",
+                "totalPrice": "20"
+            }
+        ]
+    },
+    {
+        "id": "456",
+        "retail_name": "מחסני השוק",
+        "branch_name": "אונליין",
+        "imgUrl": "https://upload.wikimedia.org/wikipedia/he/e/e9/%D7%9C%D7%95%D7%92%D7%95_%D7%9E%D7%97%D7%A1%D7%A0%D7%99_%D7%94%D7%A9%D7%95%D7%A7.png",
+        "items": [
+            {
+                "barcode": "5411188133490",
+                "title": "משקה סויה קפה קרמל 250מל",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798821/5411188133490_ccfrgz.jpg",
+                "quantity": "12",
+                "price": "12.9",
+                "totalPrice": "154.8",
+                "discount": ""
+            },
+            {
+                "barcode": "7290000174723",
+                "title": "שוקולית אבקת שוקו עלית - 500 גרם",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798823/110572532_ji4xwj.jpg",
+                "quantity": "1",
+                "price": "17.5",
+                "discount": "16.5",
+                "totalPrice": "16.5"
+            },
+            {
+                "barcode": "7290004124847",
+                "title": "קצפת צמחית במתיקות מעודנת השף הלבן - 500 מ\"ל",
+                "imgUrl": "string",
+                "quantity": "3",
+                "price": "8.9",
+                "discount": "7.9",
+                "totalPrice": "23.7"
+            },
+            {
+                "barcode": "7622201050757",
+                "title": "שוקולד חלב עם קרמל מילקה - 100 גרם",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798832/7622201050757_bm8ypd.jpg",
+                "quantity": "2",
+                "price": "10",
+                "discount": "",
+                "totalPrice": "20"
+            }
+        ]
+    },
+    {
+        "id": "789",
+        "retail_name": "רמי לוי",
+        "branch_name": "אונליין",
+        "imgUrl": "https://serviced.co.il/wp-content/uploads/2021/06/%D7%A8%D7%9E%D7%99-%D7%9C%D7%95%D7%99-%D7%A9%D7%99%D7%95%D7%95%D7%A7-%D7%94%D7%A9%D7%A7%D7%9E%D7%94-%D7%9C%D7%95%D7%92%D7%95.jpg",
+        "items": [
+            {
+                "barcode": "5411188133490",
+                "title": "משקה סויה קפה קרמל 250מל",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798821/5411188133490_ccfrgz.jpg",
+                "quantity": "12",
+                "price": "12.9",
+                "totalPrice": "154.8",
+                "discount": ""
+            },
+            {
+                "barcode": "7290000174723",
+                "title": "שוקולית אבקת שוקו עלית - 500 גרם",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798823/110572532_ji4xwj.jpg",
+                "quantity": "1",
+                "price": "17.5",
+                "discount": "16.5",
+                "totalPrice": "16.5"
+            },
+            {
+                "barcode": "7290004124847",
+                "title": "קצפת צמחית במתיקות מעודנת השף הלבן - 500 מ\"ל",
+                "imgUrl": "string",
+                "quantity": "3",
+                "price": "8.9",
+                "discount": "7.9",
+                "totalPrice": "23.7"
+            },
+            {
+                "barcode": "7622201050757",
+                "title": "שוקולד חלב עם קרמל מילקה - 100 גרם",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798832/7622201050757_bm8ypd.jpg",
+                "quantity": "2",
+                "price": "10",
+                "discount": "",
+                "totalPrice": "20"
+            }
+        ]
+    },
+    {
+        "id": "987",
+        "retail_name": "ויקטורי",
+        "branch_name": "אונליין",
+        "imgUrl": "https://serviced.co.il/wp-content/uploads/2021/06/%D7%95%D7%99%D7%A7%D7%98%D7%95%D7%A8%D7%99-%D7%A9%D7%99%D7%A8%D7%95%D7%AA-%D7%9C%D7%A7%D7%95%D7%97%D7%95%D7%AA-%D7%9C%D7%95%D7%92%D7%95.jpg",
+        "items": [
+            {
+                "barcode": "5411188133490",
+                "title": "משקה סויה קפה קרמל 250מל",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798821/5411188133490_ccfrgz.jpg",
+                "quantity": "12",
+                "price": "12.9",
+                "totalPrice": "154.8",
+                "discount": ""
+            },
+            {
+                "barcode": "7290000174723",
+                "title": "שוקולית אבקת שוקו עלית - 500 גרם",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798823/110572532_ji4xwj.jpg",
+                "quantity": "1",
+                "price": "17.5",
+                "discount": "16.5",
+                "totalPrice": "16.5"
+            },
+            {
+                "barcode": "7290004124847",
+                "title": "קצפת צמחית במתיקות מעודנת השף הלבן - 500 מ\"ל",
+                "imgUrl": "string",
+                "quantity": "3",
+                "price": "8.9",
+                "discount": "7.9",
+                "totalPrice": "23.7"
+            },
+            {
+                "barcode": "7622201050757",
+                "title": "שוקולד חלב עם קרמל מילקה - 100 גרם",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798832/7622201050757_bm8ypd.jpg",
+                "quantity": "2",
+                "price": "10",
+                "discount": "",
+                "totalPrice": "20"
+            }
+        ]
+    },
+    {
+        "id": "654",
+        "retail_name": "שופרסל",
+        "branch_name": "אונליין",
+        "imgUrl": "data:image/png;base64,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",
+        "items": [
+            {
+                "barcode": "5411188133490",
+                "title": "משקה סויה קפה קרמל 250מל",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798821/5411188133490_ccfrgz.jpg",
+                "quantity": "12",
+                "price": "12.9",
+                "totalPrice": "154.8",
+                "discount": ""
+            },
+            {
+                "barcode": "7290000174723",
+                "title": "שוקולית אבקת שוקו עלית - 500 גרם",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798823/110572532_ji4xwj.jpg",
+                "quantity": "1",
+                "price": "17.5",
+                "discount": "16.5",
+                "totalPrice": "16.5"
+            },
+            {
+                "barcode": "7290004124847",
+                "title": "קצפת צמחית במתיקות מעודנת השף הלבן - 500 מ\"ל",
+                "imgUrl": "string",
+                "quantity": "3",
+                "price": "8.9",
+                "discount": "7.9",
+                "totalPrice": "23.7"
+            },
+            {
+                "barcode": "7622201050757",
+                "title": "שוקולד חלב עם קרמל מילקה - 100 גרם",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798832/7622201050757_bm8ypd.jpg",
+                "quantity": "2",
+                "price": "10",
+                "discount": "",
+                "totalPrice": "20"
+            }
+        ]
+    },
+    {
+        "id": "321",
+        "retail_name": "שופרסל",
+        "branch_name": "אונליין",
+        "imgUrl": "data:image/png;base64,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",
+        "items": [
+            {
+                "barcode": "5411188133490",
+                "title": "משקה סויה קפה קרמל 250מל",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798821/5411188133490_ccfrgz.jpg",
+                "quantity": "12",
+                "price": "12.9",
+                "totalPrice": "154.8",
+                "discount": ""
+            },
+            {
+                "barcode": "7290000174723",
+                "title": "שוקולית אבקת שוקו עלית - 500 גרם",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798823/110572532_ji4xwj.jpg",
+                "quantity": "1",
+                "price": "17.5",
+                "discount": "16.5",
+                "totalPrice": "16.5"
+            },
+            {
+                "barcode": "7290004124847",
+                "title": "קצפת צמחית במתיקות מעודנת השף הלבן - 500 מ\"ל",
+                "imgUrl": "string",
+                "quantity": "3",
+                "price": "8.9",
+                "discount": "7.9",
+                "totalPrice": "23.7"
+            },
+            {
+                "barcode": "7622201050757",
+                "title": "שוקולד חלב עם קרמל מילקה - 100 גרם",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798832/7622201050757_bm8ypd.jpg",
+                "quantity": "2",
+                "price": "10",
+                "discount": "",
+                "totalPrice": "20"
+            }
+        ]
+    },
+    {
+        "id": "abc",
+        "retail_name": "שופרסל",
+        "branch_name": "אונליין",
+        "imgUrl": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAmVBMVEXSEkL////QADfQADXRADzPADLSDUDQADn+6e72vsrroq7torDTADv/9ffVFkb76u3tp7PPADD83OP0tcLYPFvhbYL/+/3UIUreTGr2ztb53+PyqLfhWHTQACrrm6jeOWDxwMjniZrql6XYMlfojp7gYnvieIv2ucb31NrkbITnipvmgJPdQmTbM1nXKFHbUGr6y9XfZnzPACVVqYzZAAAIpklEQVR4nO2b6WKyuhZANQkBPyYRyyRaB0QUpPa8/8PdBJGhgFO1093rX0uQLDOwsxN7PQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4dRgCBzMQQxQJoZR+d6W6oBmEI3JQBs7IPIwmvcFgszFNcyLPlkGwiMOtn+w1RTAEjETyTa4nj6MDr7zB66MQqqX718Tx/fU2DMN4sdsFwZIxk+UJk9gMBgO3woDT63/EUlVd91xzGYf+2KYYfYFnoYSwwJ6n2ekqefPfmUS8C5as5lHkeZLOURmWZTWq3UnTsIo+Gm1if6wR9tinmDEpnCnZq4Q3TDCcu9Fo5Hm6eoPEJwxzPHfma1MsPsiSsu6HWcebKnt/Hc4GB3fk6Q/yudMwY2SG+ykin20xw2BeLwt5cxipT7Oqcr0hw3J3bwq+oyWZGxaU9G0dy0zsUf3vOm4yZKjebqzc0l0pQZiunO3y4Elf02gfuNWQYc3XBF3lSEUk2k48d583yi5zhyFDCqhwwZEgQ9iHm+jB9b2dXnRkxPAk6eoxospp94CkRCDOYvDcTmlZ7L0tSZLnjTKOHm4DXiGNY9t2mq7G7K3EYoWl6XqXho0a2GJ718Sr7eQRY47HHtyA4c4HE3kZ7BZxHIbb9Xr95iTj8Wq1StPU5mQOGus6DfJQr4THSiyyEBQtdV4WwebMq9fbNqccguztQLpPiLWKqnrRwJxxlfB97ST71NYoUUQeRZ4iZx47Z9FzC9fMDmVbMFuEBEFLwtmho0XmGqrdgqaJeeusokqHzXC2i1/811SjCo9Acb4GIHdU+w4o63bGVAvNUUtjWmE5GimmC+9KLRb4zs1ZvN4TYzrNnI6Lmm9c1bCJX1uF82b/MzWS+62WF8eepXsRC+n9lW1TBWPxOdHu3fDGXL0MP2qMEj7hiNrybPdU9WgSvLyN7aPYD16CEsGODx96nIMo8s/MLiNz+Z5oxjcuOG+DisZerjekL2465CIzSOhU+Io15kOhWAuqbaa2NaDqyr7N1ui/zO0ERenizLhTveF6rOAfNpHcCMXppD0WsKLAIb/c7gg1HLdlWgkS41Pr5B8FMeJ6M6pmMr1uYfVrwK+j0k8KUvHPtF4B0czS754Ex8+H4kUmKNt/048jbHnoZvxGv2ujR7yVld83/ijBSjpeXadIHpUr/kIIdZaRpEf4uyvyLHByzJF5xnfX5EmgxSlA+aOGZN3/44bC4M8bRn/e0P0/MvxPyUCGUdsfJUoTXqa2KCS4gO/D17aRidCAP+Jj3EAJEoxsh6T4MOV4oTiIQOvPUq56M5eGlp4zOkxCpwhcxEDVG0ijw2y7KoNT8d2TTngjd7NYl5ErWXsNIvaIt9qmFkXaerFx5zbt4Ymef9RcYyXoys33W9yE34Dl0+WDdo2i0LKw5Ys/18/bEc1aCzB0c5xnwanWyAB4Szv/jshL++1WFJKiHWkvzhLMOjOsTH6Z4fj04dYbLy9sapfvNWSYx2ZEy64CjOC47yYOWq6pL9OzhryKSR5HUTuvhlQzjI6Gp2Sf6mSGZnH7Jw37XkouGfYHPGAnTvvF4fSCYd/aZoqUnnYIpLY2fJphP+LzxXnDvsmqiM2Oi0t8wbCv+rzS4uL09xcbZjW8YNgPRZp25sATcsGwL/EvAcvPNKzkXhpYrBEvGXrTMvBrMEeXDPsL1G34kHFI9681ku2ssmu2QxVDK83LOKFcyRD74sqvsF6Y5cRqsfm9Yhgfi2yDym7ISHyyYXNfGCvF8/oHsWr436mIiGm5eTFEtLbTjLBWfkexWDVc41MRp9wM2dPn9tI2Z1T0XJ3QiuG0UqZXVDFqJDXEsv4DoWZYFM1TWpyt+OWGPRQUj08pLt74VcPK/Ck10zbTIpz3lHZDSop/BujrDcWyTilF7Yblt6A2dy3KSkgabTXsTYuezN43zx2H5w33XYZiXJRpPgdPKjWuGL6XhkYxEubf24avDzX0f6Bhdxsubjd0KznZH2PYPQ5vN5RWlTnpKsOvGIePM7SGtVz5nzIMLbaoju36XuNf6qU9e7yyGwdxv9cQ7R5q2Lrr872GuFhRqfQRhm3cNQ5T+hhDVK6GeOT9JMMiprm+DU2h9xBDUlnQxtWouG5Y9uT7DIvgfN4dtdUN58cHfdqQaOWqX0W1XJtSlRgW4s1RdtmQJMWnDq8zVOP8OdOifoe7tmpFrXIena+/K43lVD6xHKsta4vLhkbxBdX7Sfs4VA9yqOUJWPJa3GneseNJDL9yTu/A+30lkeYp+TuNEqN8oRyaJ8AvGNZu58Hq2TbsUVxm4amQlumFuPXseSd85Y7W8/LJfS+bunrT8j9SqBkCFgzqV7JrAWp8Vt2Q4hqCQdaV/CrPBXW2oVi/1UDJrNIC12X1C0FnHc+kaupaTY7drxxxfX6ieTPZRHqlnNUy3GuG9G1Sw6zd3jfPZKL0mVxhNjno1ZOgx6n1aoyPOTc1yftAOVu3Irc850PUdu72LOHYZXgW9cqjFYXhhx+8jNKik+Nd+yMyvLZTKpUUR2192MKQ7+ndZfjSHB23GMrVONno3JzpS2nbjH294SGbDu8xDG/d7qwZRk59IYDCjo7qtgpeb3g4TrW3G+r+bfNozdByt+RjvVEybzlBq8q0/Z17paE1y2epWw11uf1HSucN85nGXTpCy91UeJM/nIRWJ53n28otPj3tnGn0oXO6v5yuVW54aL/hVGSwSC/9mK4NcfHv3+LFoZ1nfgk2nHB4iPhm7ygazNao+3wiCYc5S429h4ZNZqGDy2qS9+G/I6x8Twz/dTGLtwk27jx3JqLsxzrnihARiXnqXjx/+JmgHN4dKGqhvo1fK1/+1Xbb7ztVBwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPT+BzjC0u/EXmQuAAAAAElFTkSuQmCC",
+        "items": [
+            {
+                "barcode": "5411188133490",
+                "title": "משקה סויה קפה קרמל 250מל",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798821/5411188133490_ccfrgz.jpg",
+                "quantity": "12",
+                "price": "12.9",
+                "totalPrice": "154.8",
+                "discount": ""
+            },
+            {
+                "barcode": "7290000174723",
+                "title": "שוקולית אבקת שוקו עלית - 500 גרם",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798823/110572532_ji4xwj.jpg",
+                "quantity": "1",
+                "price": "17.5",
+                "discount": "16.5",
+                "totalPrice": "16.5"
+            },
+            {
+                "barcode": "7290004124847",
+                "title": "קצפת צמחית במתיקות מעודנת השף הלבן - 500 מ\"ל",
+                "imgUrl": "string",
+                "quantity": "3",
+                "price": "8.9",
+                "discount": "7.9",
+                "totalPrice": "23.7"
+            },
+            {
+                "barcode": "7622201050757",
+                "title": "שוקולד חלב עם קרמל מילקה - 100 גרם",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798832/7622201050757_bm8ypd.jpg",
+                "quantity": "2",
+                "price": "10",
+                "discount": "",
+                "totalPrice": "20"
+            }
+        ]
+    },
+    {
+        "id": "def",
+        "retail_name": "מחסני השוק",
+        "branch_name": "אונליין",
+        "imgUrl": "https://upload.wikimedia.org/wikipedia/he/e/e9/%D7%9C%D7%95%D7%92%D7%95_%D7%9E%D7%97%D7%A1%D7%A0%D7%99_%D7%94%D7%A9%D7%95%D7%A7.png",
+        "items": [
+            {
+                "barcode": "5411188133490",
+                "title": "משקה סויה קפה קרמל 250מל",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798821/5411188133490_ccfrgz.jpg",
+                "quantity": "12",
+                "price": "12.9",
+                "totalPrice": "154.8",
+                "discount": ""
+            },
+            {
+                "barcode": "7290000174723",
+                "title": "שוקולית אבקת שוקו עלית - 500 גרם",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798823/110572532_ji4xwj.jpg",
+                "quantity": "1",
+                "price": "17.5",
+                "discount": "16.5",
+                "totalPrice": "16.5"
+            },
+            {
+                "barcode": "7290004124847",
+                "title": "קצפת צמחית במתיקות מעודנת השף הלבן - 500 מ\"ל",
+                "imgUrl": "string",
+                "quantity": "3",
+                "price": "8.9",
+                "discount": "7.9",
+                "totalPrice": "23.7"
+            },
+            {
+                "barcode": "7622201050757",
+                "title": "שוקולד חלב עם קרמל מילקה - 100 גרם",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798832/7622201050757_bm8ypd.jpg",
+                "quantity": "2",
+                "price": "10",
+                "discount": "",
+                "totalPrice": "20"
+            }
+        ]
+    },
+    {
+        "id": "ghi",
+        "retail_name": "מחסני השוק",
+        "branch_name": "אונליין",
+        "imgUrl": "https://upload.wikimedia.org/wikipedia/he/e/e9/%D7%9C%D7%95%D7%92%D7%95_%D7%9E%D7%97%D7%A1%D7%A0%D7%99_%D7%94%D7%A9%D7%95%D7%A7.png",
+        "items": [
+            {
+                "barcode": "5411188133490",
+                "title": "משקה סויה קפה קרמל 250מל",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798821/5411188133490_ccfrgz.jpg",
+                "quantity": "12",
+                "price": "12.9",
+                "totalPrice": "154.8",
+                "discount": ""
+            },
+            {
+                "barcode": "7290000174723",
+                "title": "שוקולית אבקת שוקו עלית - 500 גרם",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798823/110572532_ji4xwj.jpg",
+                "quantity": "1",
+                "price": "17.5",
+                "discount": "16.5",
+                "totalPrice": "16.5"
+            },
+            {
+                "barcode": "7290004124847",
+                "title": "קצפת צמחית במתיקות מעודנת השף הלבן - 500 מ\"ל",
+                "imgUrl": "string",
+                "quantity": "3",
+                "price": "8.9",
+                "discount": "7.9",
+                "totalPrice": "23.7"
+            },
+            {
+                "barcode": "7622201050757",
+                "title": "שוקולד חלב עם קרמל מילקה - 100 גרם",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798832/7622201050757_bm8ypd.jpg",
+                "quantity": "2",
+                "price": "10",
+                "discount": "",
+                "totalPrice": "20"
+            }
+        ]
+    },
+    {
+        "id": "jkl",
+        "retail_name": "מחסני השוק",
+        "branch_name": "אונליין",
+        "imgUrl": "https://upload.wikimedia.org/wikipedia/he/e/e9/%D7%9C%D7%95%D7%92%D7%95_%D7%9E%D7%97%D7%A1%D7%A0%D7%99_%D7%94%D7%A9%D7%95%D7%A7.png",
+        "items": [
+            {
+                "barcode": "5411188133490",
+                "title": "משקה סויה קפה קרמל 250מל",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798821/5411188133490_ccfrgz.jpg",
+                "quantity": "12",
+                "price": "12.9",
+                "totalPrice": "154.8",
+                "discount": ""
+            },
+            {
+                "barcode": "7290000174723",
+                "title": "שוקולית אבקת שוקו עלית - 500 גרם",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798823/110572532_ji4xwj.jpg",
+                "quantity": "1",
+                "price": "17.5",
+                "discount": "16.5",
+                "totalPrice": "16.5"
+            },
+            {
+                "barcode": "7290004124847",
+                "title": "קצפת צמחית במתיקות מעודנת השף הלבן - 500 מ\"ל",
+                "imgUrl": "string",
+                "quantity": "3",
+                "price": "8.9",
+                "discount": "7.9",
+                "totalPrice": "23.7"
+            },
+            {
+                "barcode": "7622201050757",
+                "title": "שוקולד חלב עם קרמל מילקה - 100 גרם",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798832/7622201050757_bm8ypd.jpg",
+                "quantity": "2",
+                "price": "10",
+                "discount": "",
+                "totalPrice": "20"
+            }
+        ]
+    },
+    {
+        "id": "mno",
+        "retail_name": "רמי לוי",
+        "branch_name": "אונליין",
+        "imgUrl": "https://serviced.co.il/wp-content/uploads/2021/06/%D7%A8%D7%9E%D7%99-%D7%9C%D7%95%D7%99-%D7%A9%D7%99%D7%95%D7%95%D7%A7-%D7%94%D7%A9%D7%A7%D7%9E%D7%94-%D7%9C%D7%95%D7%92%D7%95.jpg",
+        "items": [
+            {
+                "barcode": "5411188133490",
+                "title": "משקה סויה קפה קרמל 250מל",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798821/5411188133490_ccfrgz.jpg",
+                "quantity": "12",
+                "price": "12.9",
+                "totalPrice": "154.8",
+                "discount": ""
+            },
+            {
+                "barcode": "7290000174723",
+                "title": "שוקולית אבקת שוקו עלית - 500 גרם",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798823/110572532_ji4xwj.jpg",
+                "quantity": "1",
+                "price": "17.5",
+                "discount": "16.5",
+                "totalPrice": "16.5"
+            },
+            {
+                "barcode": "7290004124847",
+                "title": "קצפת צמחית במתיקות מעודנת השף הלבן - 500 מ\"ל",
+                "imgUrl": "string",
+                "quantity": "3",
+                "price": "8.9",
+                "discount": "7.9",
+                "totalPrice": "23.7"
+            },
+            {
+                "barcode": "7622201050757",
+                "title": "שוקולד חלב עם קרמל מילקה - 100 גרם",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798832/7622201050757_bm8ypd.jpg",
+                "quantity": "2",
+                "price": "10",
+                "discount": "",
+                "totalPrice": "20"
+            }
+        ]
+    },
+    {
+        "id": "pqr",
+        "retail_name": "רמי לוי",
+        "branch_name": "אונליין",
+        "imgUrl": "https://serviced.co.il/wp-content/uploads/2021/06/%D7%A8%D7%9E%D7%99-%D7%9C%D7%95%D7%99-%D7%A9%D7%99%D7%95%D7%95%D7%A7-%D7%94%D7%A9%D7%A7%D7%9E%D7%94-%D7%9C%D7%95%D7%92%D7%95.jpg",
+        "items": [
+            {
+                "barcode": "5411188133490",
+                "title": "משקה סויה קפה קרמל 250מל",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798821/5411188133490_ccfrgz.jpg",
+                "quantity": "12",
+                "price": "12.9",
+                "totalPrice": "154.8",
+                "discount": ""
+            },
+            {
+                "barcode": "7290000174723",
+                "title": "שוקולית אבקת שוקו עלית - 500 גרם",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798823/110572532_ji4xwj.jpg",
+                "quantity": "1",
+                "price": "17.5",
+                "discount": "16.5",
+                "totalPrice": "16.5"
+            },
+            {
+                "barcode": "7290004124847",
+                "title": "קצפת צמחית במתיקות מעודנת השף הלבן - 500 מ\"ל",
+                "imgUrl": "string",
+                "quantity": "3",
+                "price": "8.9",
+                "discount": "7.9",
+                "totalPrice": "23.7"
+            },
+            {
+                "barcode": "7622201050757",
+                "title": "שוקולד חלב עם קרמל מילקה - 100 גרם",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798832/7622201050757_bm8ypd.jpg",
+                "quantity": "2",
+                "price": "10",
+                "discount": "",
+                "totalPrice": "20"
+            }
+        ]
+    },
+    {
+        "id": "stu",
+        "retail_name": "רמי לוי",
+        "branch_name": "אונליין",
+        "imgUrl": "https://serviced.co.il/wp-content/uploads/2021/06/%D7%A8%D7%9E%D7%99-%D7%9C%D7%95%D7%99-%D7%A9%D7%99%D7%95%D7%95%D7%A7-%D7%94%D7%A9%D7%A7%D7%9E%D7%94-%D7%9C%D7%95%D7%92%D7%95.jpg",
+        "items": [
+            {
+                "barcode": "5411188133490",
+                "title": "משקה סויה קפה קרמל 250מל",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798821/5411188133490_ccfrgz.jpg",
+                "quantity": "12",
+                "price": "12.9",
+                "totalPrice": "154.8",
+                "discount": ""
+            },
+            {
+                "barcode": "7290000174723",
+                "title": "שוקולית אבקת שוקו עלית - 500 גרם",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798823/110572532_ji4xwj.jpg",
+                "quantity": "1",
+                "price": "17.5",
+                "discount": "16.5",
+                "totalPrice": "16.5"
+            },
+            {
+                "barcode": "7290004124847",
+                "title": "קצפת צמחית במתיקות מעודנת השף הלבן - 500 מ\"ל",
+                "imgUrl": "string",
+                "quantity": "3",
+                "price": "8.9",
+                "discount": "7.9",
+                "totalPrice": "23.7"
+            },
+            {
+                "barcode": "7622201050757",
+                "title": "שוקולד חלב עם קרמל מילקה - 100 גרם",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798832/7622201050757_bm8ypd.jpg",
+                "quantity": "2",
+                "price": "10",
+                "discount": "",
+                "totalPrice": "20"
+            }
+        ]
+    },
+    {
+        "id": "vwx",
+        "retail_name": "רמי לוי",
+        "branch_name": "אונליין",
+        "imgUrl": "https://serviced.co.il/wp-content/uploads/2021/06/%D7%A8%D7%9E%D7%99-%D7%9C%D7%95%D7%99-%D7%A9%D7%99%D7%95%D7%95%D7%A7-%D7%94%D7%A9%D7%A7%D7%9E%D7%94-%D7%9C%D7%95%D7%92%D7%95.jpg",
+        "items": [
+            {
+                "barcode": "5411188133490",
+                "title": "משקה סויה קפה קרמל 250מל",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798821/5411188133490_ccfrgz.jpg",
+                "quantity": "12",
+                "price": "12.9",
+                "totalPrice": "154.8",
+                "discount": ""
+            },
+            {
+                "barcode": "7290000174723",
+                "title": "שוקולית אבקת שוקו עלית - 500 גרם",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798823/110572532_ji4xwj.jpg",
+                "quantity": "1",
+                "price": "17.5",
+                "discount": "16.5",
+                "totalPrice": "16.5"
+            },
+            {
+                "barcode": "7290004124847",
+                "title": "קצפת צמחית במתיקות מעודנת השף הלבן - 500 מ\"ל",
+                "imgUrl": "string",
+                "quantity": "3",
+                "price": "8.9",
+                "discount": "7.9",
+                "totalPrice": "23.7"
+            },
+            {
+                "barcode": "7622201050757",
+                "title": "שוקולד חלב עם קרמל מילקה - 100 גרם",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798832/7622201050757_bm8ypd.jpg",
+                "quantity": "2",
+                "price": "10",
+                "discount": "",
+                "totalPrice": "20"
+            }
+        ]
+    },
+    {
+        "id": "yza",
+        "retail_name": "ויקטורי",
+        "branch_name": "אונליין",
+        "imgUrl": "https://serviced.co.il/wp-content/uploads/2021/06/%D7%95%D7%99%D7%A7%D7%98%D7%95%D7%A8%D7%99-%D7%A9%D7%99%D7%A8%D7%95%D7%AA-%D7%9C%D7%A7%D7%95%D7%97%D7%95%D7%AA-%D7%9C%D7%95%D7%92%D7%95.jpg",
+        "items": [
+            {
+                "barcode": "5411188133490",
+                "title": "משקה סויה קפה קרמל 250מל",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798821/5411188133490_ccfrgz.jpg",
+                "quantity": "12",
+                "price": "12.9",
+                "totalPrice": "154.8",
+                "discount": ""
+            },
+            {
+                "barcode": "7290000174723",
+                "title": "שוקולית אבקת שוקו עלית - 500 גרם",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798823/110572532_ji4xwj.jpg",
+                "quantity": "1",
+                "price": "17.5",
+                "discount": "16.5",
+                "totalPrice": "16.5"
+            },
+            {
+                "barcode": "7290004124847",
+                "title": "קצפת צמחית במתיקות מעודנת השף הלבן - 500 מ\"ל",
+                "imgUrl": "string",
+                "quantity": "3",
+                "price": "8.9",
+                "discount": "7.9",
+                "totalPrice": "23.7"
+            },
+            {
+                "barcode": "7622201050757",
+                "title": "שוקולד חלב עם קרמל מילקה - 100 גרם",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798832/7622201050757_bm8ypd.jpg",
+                "quantity": "2",
+                "price": "10",
+                "discount": "",
+                "totalPrice": "20"
+            }
+        ]
+    },
+    {
+        "id": "bcd",
+        "retail_name": "ויקטורי",
+        "branch_name": "אונליין",
+        "imgUrl": "https://serviced.co.il/wp-content/uploads/2021/06/%D7%95%D7%99%D7%A7%D7%98%D7%95%D7%A8%D7%99-%D7%A9%D7%99%D7%A8%D7%95%D7%AA-%D7%9C%D7%A7%D7%95%D7%97%D7%95%D7%AA-%D7%9C%D7%95%D7%92%D7%95.jpg",
+        "items": [
+            {
+                "barcode": "5411188133490",
+                "title": "משקה סויה קפה קרמל 250מל",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798821/5411188133490_ccfrgz.jpg",
+                "quantity": "12",
+                "price": "12.9",
+                "totalPrice": "154.8",
+                "discount": ""
+            },
+            {
+                "barcode": "7290000174723",
+                "title": "שוקולית אבקת שוקו עלית - 500 גרם",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798823/110572532_ji4xwj.jpg",
+                "quantity": "1",
+                "price": "17.5",
+                "discount": "16.5",
+                "totalPrice": "16.5"
+            },
+            {
+                "barcode": "7290004124847",
+                "title": "קצפת צמחית במתיקות מעודנת השף הלבן - 500 מ\"ל",
+                "imgUrl": "string",
+                "quantity": "3",
+                "price": "8.9",
+                "discount": "7.9",
+                "totalPrice": "23.7"
+            },
+            {
+                "barcode": "7622201050757",
+                "title": "שוקולד חלב עם קרמל מילקה - 100 גרם",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798832/7622201050757_bm8ypd.jpg",
+                "quantity": "2",
+                "price": "10",
+                "discount": "",
+                "totalPrice": "20"
+            }
+        ]
+    },
+    {
+        "id": "efg",
+        "retail_name": "ויקטורי",
+        "branch_name": "אונליין",
+        "imgUrl": "https://serviced.co.il/wp-content/uploads/2021/06/%D7%95%D7%99%D7%A7%D7%98%D7%95%D7%A8%D7%99-%D7%A9%D7%99%D7%A8%D7%95%D7%AA-%D7%9C%D7%A7%D7%95%D7%97%D7%95%D7%AA-%D7%9C%D7%95%D7%92%D7%95.jpg",
+        "items": [
+            {
+                "barcode": "5411188133490",
+                "title": "משקה סויה קפה קרמל 250מל",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798821/5411188133490_ccfrgz.jpg",
+                "quantity": "12",
+                "price": "12.9",
+                "totalPrice": "154.8",
+                "discount": ""
+            },
+            {
+                "barcode": "7290000174723",
+                "title": "שוקולית אבקת שוקו עלית - 500 גרם",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798823/110572532_ji4xwj.jpg",
+                "quantity": "1",
+                "price": "17.5",
+                "discount": "16.5",
+                "totalPrice": "16.5"
+            },
+            {
+                "barcode": "7290004124847",
+                "title": "קצפת צמחית במתיקות מעודנת השף הלבן - 500 מ\"ל",
+                "imgUrl": "string",
+                "quantity": "3",
+                "price": "8.9",
+                "discount": "7.9",
+                "totalPrice": "23.7"
+            },
+            {
+                "barcode": "7622201050757",
+                "title": "שוקולד חלב עם קרמל מילקה - 100 גרם",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798832/7622201050757_bm8ypd.jpg",
+                "quantity": "2",
+                "price": "10",
+                "discount": "",
+                "totalPrice": "20"
+            }
+        ]
+    },
+    {
+        "id": "hij",
+        "retail_name": "שופרסל",
+        "branch_name": "אונליין",
+        "imgUrl": "data:image/png;base64,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",
+        "items": [
+            {
+                "barcode": "5411188133490",
+                "title": "משקה סויה קפה קרמל 250מל",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798821/5411188133490_ccfrgz.jpg",
+                "quantity": "12",
+                "price": "12.9",
+                "totalPrice": "154.8",
+                "discount": ""
+            },
+            {
+                "barcode": "7290000174723",
+                "title": "שוקולית אבקת שוקו עלית - 500 גרם",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798823/110572532_ji4xwj.jpg",
+                "quantity": "1",
+                "price": "17.5",
+                "discount": "16.5",
+                "totalPrice": "16.5"
+            },
+            {
+                "barcode": "7290004124847",
+                "title": "קצפת צמחית במתיקות מעודנת השף הלבן - 500 מ\"ל",
+                "imgUrl": "string",
+                "quantity": "3",
+                "price": "8.9",
+                "discount": "7.9",
+                "totalPrice": "23.7"
+            },
+            {
+                "barcode": "7622201050757",
+                "title": "שוקולד חלב עם קרמל מילקה - 100 גרם",
+                "imgUrl": "https://res.cloudinary.com/dfz8mxb4f/image/upload/v1685798832/7622201050757_bm8ypd.jpg",
+                "quantity": "2",
+                "price": "10",
+                "discount": "",
+                "totalPrice": "20"
+            }
+        ]
+    }
+]
