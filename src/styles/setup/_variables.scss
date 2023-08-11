@@ -1,17 +1,49 @@
 // COLORS
 
 
-:root {
-    --clr1: #ffffff; // font color nad button background color
-    --clr2: #2e2e2e; // homepage image background color and input background color
-    --clr3: #868686; // input font placeholder color
-    --clr4: #6f6f6f; // button font color
-    --clr5: #252525; // border color
-    --clr6: #161616; // background color
-    --clr7: #ffffff22; // glass color
-    --clr-call-to-action: #ff2d06;
+// :root {
+//     --clr1: #ffffff; 
+//     --clr2: #2e2e2e; 
+//     --clr3: #868686; 
+//     --clr4: #6f6f6f; 
+//     --clr5: #252525; 
+//     --clr6: #161616; 
+//     --clr7: #ffffff22; 
+//     --clr-call-to-action: #ff2d06;
 
-    // breakpoints
+//     // breakpoints
+// }
+
+:root {
+    --clr1: #212529; 
+    --clr2: #495057; 
+    --clr3: #adb5bd; 
+    --clr4: #ced4da; 
+    --clr5: #dee2e6; 
+    --clr6: #e9ecef; 
+    --clr7: #f8f9fa; 
+    --clr8: rgb(226, 242, 205);
+    --clr-call-to-action: #9dcc61;
+
+    --clr-input: #fff;
+    --clr-bs: #d4d4d4;
+    --clr-btn: #fff
+}
+
+.dark {
+    --clr1: #f8f9fa;
+    --clr2: #e9ecef;
+    --clr3: #dee2e6;
+    --clr4: #ced4da;
+    --clr5: #adb5bd;
+    --clr6: #323537;
+    --clr7: #212529;
+    --clr8: rgb(29, 29, 29);
+    --clr-call-to-action: #9dcc61;
+
+    --clr-input: #363636;
+    --clr-bs: #1d1d1d;
+    --clr-btn: #fff
 }
 
 $mobile: 520px;

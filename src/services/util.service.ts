@@ -45,11 +45,11 @@ function getColorForDate(dateString: string | undefined): string {
     const givenDateOnly = new Date(givenYear, givenMonth, givenDay)
 
     if (givenDateOnly.getTime() === currentDateOnly.getTime()) {
-        return '#ff8000'
+        return '#e85d04'
     } else if (givenDateOnly.getTime() < currentDateOnly.getTime()) {
-        return '#ff2a00'
+        return '#d00000'
     } else if (givenDateOnly.getTime() - currentDateOnly.getTime() <= 2 * 24 * 60 * 60 * 1000) {
-        return '#ffe600'
+        return '#ffc300'
     } else {
         return ''
     }
@@ -171,6 +171,31 @@ function formatDateDescription(dateString: string): string {
     return 'לא ידוע'
 }
 
+function isToday(date: Date): boolean {
+    const today = new Date();
+    return date.getDate() === today.getDate() &&
+           date.getMonth() === today.getMonth() &&
+           date.getFullYear() === today.getFullYear();
+}
+
+// Returns true if the given date is expiring in the specified number of days.
+// If 'orMore' is true, returns true if the expiration is after the specified days.
+function isExpiringInDays(date: Date, days: number, orMore = false): boolean {
+    const today = new Date();
+    const diffTime = date.getTime() - today.getTime();
+    const diffDays = diffTime / (1000 * 3600 * 24);
+    return orMore ? diffDays >= days : diffDays <= days;
+}
+
+function calculateDays(dateString: string): number {
+    const targetDate: Date = new Date(dateString);
+    const currentDate: Date = new Date();
+    const timeDifference: number = targetDate.getTime() - currentDate.getTime();
+    const daysDifference: number = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+
+    return daysDifference;
+}
+
 
 
 export const utilService = {
@@ -179,5 +204,8 @@ export const utilService = {
     getColorForDate,
     generateRandomColor,
     isColorDark,
-    formatDateDescription
+    formatDateDescription,
+    isToday,
+    isExpiringInDays,
+    calculateDays
 }

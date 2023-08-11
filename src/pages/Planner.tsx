@@ -10,6 +10,8 @@ import { RootState } from '../store'
 import { MarketList } from '../components/Lists/MarketList'
 import { Loader } from '../components/UI/Loader'
 import { GroceryDetails } from '../components/Details/GroceryDetails'
+import { MarketDetails } from '../components/Details/MarketDetails'
+import { Market } from '../models/Market'
 
 type AppDispatch = ThunkDispatch<RootState, undefined, AnyAction>;
 
@@ -17,6 +19,9 @@ export const Planner = () => {
     const dispatch: AppDispatch = useDispatch()
     const loading = useSelector((state: RootState) => state.store.loading)
     const [isProductModal, setIsProductModal] = useState<boolean>(false)
+    const [isMarketModal, setIsMarketModal] = useState<boolean>(false)
+    const [market, setMarket] = useState<Market>({} as Market)
+    const [coords, setCoords] = useState({top: 0, left: 0})
 
     const { id } = useParams()
     useEffect(() => {
@@ -24,8 +29,16 @@ export const Planner = () => {
         dispatch(getStoreById(id))
     }, [id])
 
-    const toggleProductModal = () => {
+    const toggleProductModalHandler = () => {
         setIsProductModal(!isProductModal)
+    }
+    const toggleMarketModalHandler = (market:Market) => {
+        setMarket({...market})
+        setIsMarketModal(!isMarketModal)
+    }
+
+    const setSuggestionsCoords = (top?:number, left?: number) => {
+        // props.onSetSuggestionsCoords(top, left)
     }
     return (
         <>
@@ -35,11 +48,13 @@ export const Planner = () => {
                 </div>}
             {!loading && <main className={`${styles.main}`}>
                 <SideNav />
-                <div className={`${styles.container} ${isProductModal ? styles['disable-interactions'] : styles['']}`}>
-                    <ShoppingList onOpenProductModal={toggleProductModal} />
-                    <MarketList />
+                <div className={`${styles.container} ${isProductModal || isMarketModal ? styles['disable-interactions'] : styles['']}`}>
+                    <ShoppingList onSetSuggestionsCoords={setSuggestionsCoords} onOpenProductModal={toggleProductModalHandler} />
+                    {/* <GroceryDetails onToggleModal={toggleProductModal} /> */}
+                    <MarketList onOpenMarketModal={toggleMarketModalHandler}/>
                 </div>
-                    {isProductModal && <GroceryDetails onToggleModal={toggleProductModal} />}
+                    {isProductModal && <GroceryDetails onToggleModal={toggleProductModalHandler} />}
+                    {isMarketModal && <MarketDetails market={market} onToggleModal={() => setIsMarketModal(!isMarketModal)} />}
             </main>}
         </>
     )

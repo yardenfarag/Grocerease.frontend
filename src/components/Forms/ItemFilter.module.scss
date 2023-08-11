@@ -1,21 +1,23 @@
-@use '../../styles/setup/variables' as variables;
-@use '../../styles/setup/functions' as functions;
+
 
 .item-filter {
     display: flex;
     align-items: center;
+
     .icon {
         height: 25px;
-        background-color: var(--clr2);
-        border-top-right-radius: 8px;
-        border-bottom-right-radius: 8px;
+        background-color: var(--clr-input);
+        box-shadow: 0px 1px 2px 0px var(--clr-bs);
+        border-top-right-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
         color: var(--clr3);
-        padding: 2px;
+        padding: 0.125rem;
     }
+
     .input {
         border-radius: 0;
-        border-top-left-radius: 8px;
-        border-bottom-left-radius: 8px;
+        border-top-left-radius: 0.5rem;
+        border-bottom-left-radius: 0.5rem;
         border: 0;
         // padding: 6px;
         border: 0;
@@ -27,6 +29,50 @@
             outline: 0;
             border: 1px solid var(--clr4);
             border: 0;
+        }
+    }
+
+    .colors {
+        padding-inline: 0.625rem;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        gap: 0.625rem;
+
+        .color {
+            cursor: pointer;
+            border-radius: 0.625rem;
+            width: 25px;
+            height: 25px;
+            background-color: var(--clr1);
+
+            transition: all .2s ease-in-out;
+
+            &.red {
+                background-color: #d00000;
+            }
+
+            &.orange {
+                background-color: #e85d04;
+            }
+
+            &.yellow {
+                background-color: #ffc300;
+            }
+
+            &.transparent {
+                width: 27px;
+                height: 27px;
+                border: 1px solid var(--clr2);
+                background-color: transparent;
+            }
+
+            &:hover {
+                scale: 1.2;
+            }
+            &.selected {
+                scale: 1.2;
+            }
         }
     }
 }

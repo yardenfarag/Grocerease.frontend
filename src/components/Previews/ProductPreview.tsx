@@ -1,24 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Product } from '../../models/product'
 import styles from './ProductPreview.module.scss'
+import { AddBoxOutlined, PlaylistAddOutlined, SearchOutlined, VisibilityOutlined } from '@mui/icons-material'
 
 interface Props {
   product: Product
-  onChooseProduct: (title: string, imgUrl: string, barcode: string) => void
 }
 
-export const ProductPreview: React.FC<Props> = (props) => {
-  const { product_name, product_image, product_description, product_barcode, manufacturer_name } = props.product
-  const chooseProductHandler = () => {
-    props.onChooseProduct(product_name, product_image, product_barcode)
-  }
+export const ProductPreview: React.FC<Props> = ({ product }) => {
+  const { product_name, product_image, product_description, brand_name } = product
+
   return (
-    <div onClick={chooseProductHandler} className={styles['product-preview']}>
-      <div className={styles['product-info']}>
-        <p className={styles['product-title']}>{product_name}</p>
-        <span className={styles['product-manufacturer']}>יצרן: {manufacturer_name}</span>
+    <li className={styles.li}>
+      <h3 title={product_name} className={styles.h3}>{product_name}</h3>
+      <img className={styles.img} src={product_image} alt="מוצר" />
+      <hr className={styles.hr} />
+      <div className={styles.buttons}>
+        <button className={styles.button} title='הוספה למלאי'><AddBoxOutlined /></button>
+        <button className={styles.button} title='פרטי מוצר'><SearchOutlined /></button>
+        <button className={styles.button} title='הוספה לרשימת קניות'><PlaylistAddOutlined /></button>
       </div>
-      <img className={styles.img} src={product_image} />
-    </div>
+    </li>
   )
 }

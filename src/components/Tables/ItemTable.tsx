@@ -6,6 +6,7 @@ import { RootState } from '../../store'
 import { ItemTr } from './ItemTr'
 import { useReactTable, getCoreRowModel, flexRender, ColumnDef, getSortedRowModel, ColumnSort, getFilteredRowModel } from '@tanstack/react-table'
 import { ItemFilter } from '../Forms/ItemFilter'
+import { utilService } from '../../services/util.service'
 
 interface Props {
     items: Item[]
@@ -13,7 +14,7 @@ interface Props {
 
 export const ItemTable: React.FC<Props> = (props) => {
     let itemsView = useSelector((state: RootState) => state.settings.view)
-    let filterBy: { txt: string } = useSelector((state: RootState) => state.store.filterBy)
+    let filterBy: { txt: string, expiry: string } = useSelector((state: RootState) => state.store.filterBy)
     const [sorting, setSorting] = useState<ColumnSort[]>([])
     const [filtering, setFiltering] = useState('')
 
@@ -55,12 +56,22 @@ export const ItemTable: React.FC<Props> = (props) => {
         onSortingChange: (value) => setSorting(value),
         onGlobalFilterChange: (value) => setFiltering(value),
     })
-
-    const filteredItems = !filterBy.txt
+    let filteredItems = !filterBy.txt && filterBy.expiry === 'none'
         ? props.items
-        : props.items?.filter(
-            (item: Item) => item.title.includes(filterBy.txt) || item.place?.includes(filterBy.txt)
+        : props.items?.filter((item: Item) =>
+            (item.title.includes(filterBy.txt) || item.place?.includes(filterBy.txt))
         )
+
+    if (filterBy.expiry !== 'none') {
+        filteredItems = filteredItems.filter((item: Item) => {
+            return (
+                filterBy.expiry === 'red' && utilService.calculateDays(item.expiry!) < -1 ||
+                filterBy.expiry === 'orange' && utilService.calculateDays(item.expiry!) === -1 ||
+                filterBy.expiry === 'yellow' && utilService.calculateDays(item.expiry!) > 0 && utilService.calculateDays(item.expiry!) < 3 ||
+                filterBy.expiry === 'white' && utilService.calculateDays(item.expiry!) > 2
+            )
+        })
+    }
 
     return (
         <>

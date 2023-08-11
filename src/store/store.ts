@@ -15,7 +15,7 @@ export const getStoreById = createAsyncThunk('store/:id', async (id: string) => 
 })
 
 const initialStoreState = {
-  filterBy: { txt: '' }, curStore: null as Store | null, loading: false, error: false,
+  filterBy: { txt: '', expiry: 'none' }, curStore: null as Store | null, loading: false, error: false,
   stores: [] as Store[], products: null as Product[] | null, addToShoppingListStatus: ''
 }
 
@@ -54,6 +54,9 @@ const storeSlice = createSlice({
     },
     setFilterBy: (state, action: PayloadAction<string>) => {
       state.filterBy.txt = action.payload
+    },
+    setFilterByExpiry: (state, action: PayloadAction<string>) => {
+      state.filterBy.expiry = action.payload
     },
     addStore: (state, action: PayloadAction<{ newStoreTitle: string, selectedColor: string }>) => {
       const newStore = storeService.getEmptyStore()

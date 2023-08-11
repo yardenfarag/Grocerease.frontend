@@ -1,19 +1,18 @@
 import { createAsyncThunk, createSlice, Draft, PayloadAction } from '@reduxjs/toolkit'
-import { Product } from '../models/product'
+import { Gs1Product, Product } from '../models/product'
 import { productService } from '../services/product.service'
 
 const initialProductState = {
     products: null as Product[] | null,
-    loading: false, 
+    count: 0,
+    pageCount: 0,
+    loading: false,
     error: false,
-    curProduct: null as Product | null
+    curProduct: null as Gs1Product | null
 }
 
-export const getProducts = createAsyncThunk('product', async (filterBy: { txt: string }) => {
-    if (filterBy.txt.length >= 2) {
-        return productService.getProducts(filterBy)
-    }
-    else return null
+export const getProducts = createAsyncThunk('product', async ({ txt, page }: { txt: string; page?: number }) => {
+    return productService.getProducts({txt}, page)
 })
 
 export const getProductByBarcode = createAsyncThunk('product/:barcode', async (barcode: string) => {
@@ -31,16 +30,22 @@ const productSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(getProducts.fulfilled, (state, action) => {
-                state.products = action.payload
+                state.products = action.payload.products
+                state.count = action.payload.pagination.count
+                state.pageCount = action.payload.pagination.pageCount
                 state.loading = false
                 state.error = false
             })
             .addCase(getProducts.pending, (state, action) => {
                 state.products = null
+                state.count = 0
+                state.pageCount = 0
                 state.loading = true
                 state.error = false
             })
             .addCase(getProducts.rejected, (state, action) => {
+                state.count = 0
+                state.pageCount = 0
                 state.products = null
                 state.loading = false
                 state.error = true

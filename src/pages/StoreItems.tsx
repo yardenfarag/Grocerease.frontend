@@ -45,14 +45,15 @@ export const StoreItems = () => {
             <h1 className={styles.h1}>{store?.title}</h1>
             <div className={styles['form-container']}>
               <div className={styles.div}>
-                {!isAddItemForm && <button onClick={() => setIsAddItemForm(!isAddItemForm)} className={styles.button}><span className={styles.span}>+</span>הוסף מוצר</button>}
+                {!isAddItemForm && <button onClick={() => setIsAddItemForm(!isAddItemForm)} className={styles.button}><span className={styles.span}>+</span>הוספה</button>}
                 {isAddItemForm && <AddItem onSetIsAddItemForm={() => setIsAddItemForm(!isAddItemForm)} />}
               </div>
-              <div className={styles['view-picker']}>
+              {/* <div className={styles['view-picker']}>
                 <Reorder onClick={() => setItemsViewHandler('list')} className={`${styles.icon} ${itemsView === 'list' ? styles.selected : ''}`} />
                 <span className={styles.barrier}>|</span>
                 <Apps onClick={() => setItemsViewHandler('cards')} className={`${styles.icon} ${itemsView === 'cards' ? styles.selected : ''}`} />
-              </div>
+              </div> */} 
+              {/* TODO: allow users to choose table view or cards view  */}
             </div>
             {store?.items && <ItemTable items={store!.items!} />}
           </div>

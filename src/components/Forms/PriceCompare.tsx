@@ -33,8 +33,8 @@ export const PriceCompare = () => {
         <>
             <form onSubmit={submitHandler} className={styles.form}>
                 <AutoComplete onPlaceChange={placeChangeHandler} />
-                <select onChange={(ev) => setRadius(+ev.target.value)}>
-                    <option disabled selected>רדיוס</option>
+                <select className={styles.select} onChange={(ev) => setRadius(+ev.target.value)}>
+                    <option disabled defaultValue='10'>רדיוס</option>
                     <option value="5">5 ק"מ</option>
                     <option value="10">10 ק"מ</option>
                     <option value="15">15 ק"מ</option>

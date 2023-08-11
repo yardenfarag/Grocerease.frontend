@@ -42,7 +42,7 @@ export const Login: React.FC<Props> = (props) => {
                 <input className={styles.input} onChange={setPasswordHandler} type="password" placeholder='*************' />
             </label>
             <button disabled={(!email || !password)} type='submit' className={styles.button}>{loading ? <Loader height='23px' width='23px' /> : 'כניסה'}</button>
-            <span className={styles.span}>אין לך חשבון? <Link className={styles.link} to='/signup'>לחץ כאן כדי להירשם</Link></span>
+            <span className={styles.span}>אין לך חשבון? <br /><Link className={styles.link} to='/signup'>הרשמה</Link></span>
         </form>
     )
 }

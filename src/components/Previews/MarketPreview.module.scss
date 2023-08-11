@@ -2,45 +2,63 @@
 @use '../../styles/setup/functions' as functions;
 
 .li {
+    cursor: pointer;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    // background-color: var(--clr2);
-    min-height: 70px;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100px;
+    width: 100%;
+    height: fit-content;
     overflow: hidden;
-    padding-inline: 6px;
+    border-bottom: 1px solid var(--clr8);
 
-    &:not(:last-child) {
-        border-bottom: 1px solid var(--clr2);
+    .market-info {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        display:grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-items: center
     }
 
     &:hover {
-        background-color: var(--clr5);
-        border-radius: 4px;
+        background-color: var(--clr8);
+        border-radius: 0.25rem;
+    }
+
+    .item-count {
+        width: 100%;
+        text-align: center;
+        font-weight: 500;
+        color: var(--clr3);
     }
 
     .details {
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        gap: 12px;
+        gap: 0.75rem;
+
         .div {
             display: flex;
-            // align-items: center;
             flex-direction: column;
-            
+            width: 120px;
+
             .h3 {
                 font-weight: 600;
 
             }
 
-            .p {}
+            .p {
+                font-weight: 500;
+                color: var(--clr3);
+            }
         }
 
         .img {
             width: 50px;
             height: 50px;
-            border-radius: 12px;
+            border-radius: 0.75rem;
         }
     }
 
@@ -49,10 +67,14 @@
         flex-direction: column;
         align-items: center;
 
-        .h3 {}
+
+        .h3 {
+    
+        }
 
         .h1 {
             font-weight: 600;
+    
         }
     }
 }

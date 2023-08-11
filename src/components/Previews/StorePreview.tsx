@@ -9,11 +9,12 @@ interface Props {
 }
 
 export const StorePreview: React.FC<Props> = (props) => {
+
   return (
-    <Link to={props.id} className={styles['store-preview']}>
-      <div style={{backgroundColor: props.color, filter: 'brightness(110%)'}} className={styles['store-back']}></div>
-      <div className={styles['store-front']}></div>
+    <Link to={props.id + '/items'}>
+      <div style={{border: '2px solid ' + props.color}} className={styles['store-preview']}>
         <h3 className={styles.h3}>{props.title}</h3>
+      </div>
     </Link>
   )
 }

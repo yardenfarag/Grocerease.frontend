@@ -4,6 +4,10 @@ import { Provider } from 'react-redux';
 import store from './store';
 import App from './App'
 
+// const isDarkMode = store.getState().settings.isDarkMode
+
+// const darkModeClass = isDarkMode ? 'dark' : ''
+
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <Provider store={store}>
     <App />

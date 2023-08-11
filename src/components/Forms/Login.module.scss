@@ -4,7 +4,7 @@
     // align-items: center;
     justify-content: center;
     height: 100vh;
-    gap: 20px;
+    gap: 1.25rem;
 
     .h1 {
         text-align: center;
@@ -14,35 +14,36 @@
 
     .label {
         font-size: .9rem;
-        padding: 4px;
+        padding: 0.25rem;
         display: flex;
         flex-direction: column;
-        gap:5px;
+        gap: 0.313rem;
         color: var(--clr3);
     }
     .input {
         width: 300px;
         height: 40px;
-        padding: 6px;
+        padding: 0.375rem;
     }
     .button {
         display: flex;
         justify-content: center;
-        margin-block-start: 25px;
+        margin-block-start: 1.563rem;
         font-size: 1.1rem;
         font-weight: 500;
         border-radius: 2rem;
         cursor: pointer;
-        padding: 15px 50px;
+        padding: 0.938rem 3.125rem;
         background-color: var(--clr-call-to-action);
-        color: var(--clr1);
+        color: var(--clr7);
         transition: all .2s ease-in-out;
         &:hover {
-            filter: brightness(80%);
+            scale: 1.2;
         }
         &:disabled {
             cursor: not-allowed;
             filter: brightness(100%);
+            scale: 1;
         }
     }
 
@@ -51,6 +52,7 @@
         font-size: .9rem;
         .link { 
             color: var(--clr1);
+            font-weight: 400;
             text-decoration: underline;
             transition: all .2s ease-in-out;
             &:hover {

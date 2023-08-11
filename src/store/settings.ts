@@ -4,7 +4,7 @@ import { storageService } from '../services/storage.service'
 const VIEW_SETTINGS_KEY = 'viewSettings'
 const THEME_SETTINGS_KEY = 'themeSettings'
 
-const initialSettingsState = { view: storageService.load(VIEW_SETTINGS_KEY) || 'list', theme: storageService.load(THEME_SETTINGS_KEY) ||  'dark' }
+const initialSettingsState = { view: storageService.load(VIEW_SETTINGS_KEY) || 'list', isDarkMode: storageService.load(THEME_SETTINGS_KEY) ||  true }
 
 
 const settingsSlice = createSlice({
@@ -15,9 +15,13 @@ const settingsSlice = createSlice({
             state.view = action.payload
             storageService.store(VIEW_SETTINGS_KEY, action.payload)
         },
-        toggleTheme: (state, action: PayloadAction<string>) => {
-            state.theme = action.payload
-            storageService.store(THEME_SETTINGS_KEY, action.payload)
+        toggleTheme: (state) => {
+            state.isDarkMode = !state.isDarkMode
+            if (state.isDarkMode) {
+                storageService.store(THEME_SETTINGS_KEY, true)
+            } else {
+                storageService.store(THEME_SETTINGS_KEY, false)
+            }
         }
     },
 })

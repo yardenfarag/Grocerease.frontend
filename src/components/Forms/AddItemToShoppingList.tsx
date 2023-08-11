@@ -13,11 +13,16 @@ import toast from 'react-hot-toast'
 
 type AppDispatch = ThunkDispatch<RootState, undefined, AnyAction>;
 
-export const AddItemToShoppingList = () => {
+interface Props {
+
+}
+
+export const AddItemToShoppingList: React.FC<Props> = (props) => {
     const dispatch: AppDispatch = useDispatch()
     const [groceryToAdd, setGroceryToAdd] = useState({ title: '', quantity: 1, imgUrl: '', barcode: '' })
     const addToShoppingListStatus = useSelector((state: RootState) => state.store.addToShoppingListStatus);
     const products: Product[] | null = useSelector((state: RootState) => state.product.products)
+    const [coords, setCoords] = useState({top: 0, left: 0, width: 0})
 
     const debouncedGetProducts = utilService.debounce((title: string) => {
         dispatch(getProducts({ txt: title }))
@@ -25,7 +30,7 @@ export const AddItemToShoppingList = () => {
 
     const chooseProductHandler = (title: string, imgUrl: string, barcode: string) => {
         setGroceryToAdd({ ...groceryToAdd, title, imgUrl, barcode })
-        debouncedGetProducts('')
+        debouncedGetProducts('&')
     }
 
     const addItemToShoppingListHandler = (ev: FormEvent) => {
@@ -37,9 +42,19 @@ export const AddItemToShoppingList = () => {
     }
 
     const setGroceryTitleHandler = (ev: React.ChangeEvent<HTMLInputElement>) => {
+        var element = document.getElementById("title");
+        var rect = element?.getBoundingClientRect()
+        let top = rect?.top
+        let left = rect?.left
+        let width = rect?.width
+        setCoords({top: top || 0, left: left || 0, width: width || 0})
         setGroceryToAdd({ ...groceryToAdd, title: ev.target.value })
-        // dispatch(getProducts({ txt: ev.target.value }))
-        debouncedGetProducts(ev.target.value)
+        if (ev.target.value.length >= 2) {
+            debouncedGetProducts(ev.target.value)
+        }else {
+            debouncedGetProducts('&')
+        }
+  
     }
 
     const setItemQuantityHandler = (ev: React.ChangeEvent<HTMLInputElement>) => {
@@ -58,6 +73,7 @@ export const AddItemToShoppingList = () => {
                     value={groceryToAdd.title}
                     onChange={setGroceryTitleHandler}
                     type="text"
+                    id='title'
                     placeholder='לדוגמה: קמח חיטה מלא' />
                 <input
                     onChange={setItemQuantityHandler}
@@ -68,7 +84,7 @@ export const AddItemToShoppingList = () => {
                 />
                 <button disabled={!groceryToAdd.barcode} className={styles.button} type='submit'><span className={styles.icon}>+</span></button>
             </form>
-            {groceryToAdd.title && products && <ProductSuggestions onChooseProduct={chooseProductHandler} products={products} />}
+            {groceryToAdd.title && products && <ProductSuggestions width={coords.width} top={coords.top} left={coords.left} onChooseProduct={chooseProductHandler} products={products} />}
         </>
     )
 }

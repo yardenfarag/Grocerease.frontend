@@ -7,19 +7,32 @@ import { RootState } from '../../store'
 import { Market } from '../../models/Market'
 import { Loader } from '../UI/Loader'
 
-export const MarketList = () => {
+interface Props {
+    onOpenMarketModal: (market: Market) => void
+}
+
+export const MarketList: React.FC<Props> = (props) => {
     const markets = useSelector((state: RootState) => state.price.markets)
     const loading = useSelector((state: RootState) => state.price.loading)
+
+    const openMarketModalHandler = (market:Market) => {
+        props.onOpenMarketModal(market)
+    }
+
+    let sortedMarkets = markets ? [...markets].sort((a, b) => a.branch_name.localeCompare(b.branch_name)) : []
+
     return (
         <main className={styles.main}>
             <div className={styles.container}>
-                <h1>השוואת מחירים</h1>
+                <h1 className={styles.h1}>השוואת מחירים</h1>
                 <PriceCompare />
                 <ul className={styles.ul}>
-                    {markets && markets.map((market: Market) => (
-                        <MarketPreview key={market._id} market={market} />
+                    {sortedMarkets && sortedMarkets.map((market: Market) => (
+                        <MarketPreview onOpenMarketModal={openMarketModalHandler} key={market._id} market={market} />
                     ))}
+                    <div className={styles.loading}>
                     {loading && <Loader height='50px' width='50px' />}
+                    </div>
                 </ul>
             </div>
         </main>

@@ -1,46 +1,63 @@
-@use '../../styles/setup/variables' as variables;
-@use '../../styles/setup/functions' as functions;
-
-.product-preview {
+.li {
+    background-color: var(--clr7);
+    box-shadow: 0px 1px 2px 1px var(--clr-bs);
+    border-radius: 1rem;
+    overflow: hidden;
     position: relative;
-    height: 40px;
-    background-color: var(--clr1);
-    color: var(--clr2);
-    z-index: 900;
-    border-bottom: 1px solid var(--clr2);
-    transition: all .2s ease-in-out;
-    overflow: visible;
-    display: flex;
-    justify-content: space-between;
-    
-    &:hover {
-        cursor: pointer;
-        filter: brightness(90%);
-    }
-    
-    .product-info {
-        display: flex;
-        flex-direction: column;
-        
-        .product-title {
-            font-weight: 500;   
-            width: 200px;
-            font-size: 12px;
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-        }
+    transition: .15s ease-in;
 
-        .product-manufacturer {
-            font-weight: 400;
-            font-size: 10px;
-        }
-    }
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    width: 185px;
+    gap:0.5rem;
+    position: relative;
 
     .img {
-        position: absolute;
-        width: 35px;
-        border-radius: 4px;
-        right: 80%;
+        align-self: center;
+        border-radius: 1rem;
+        width: 140px;
+        height: 140px;
+    }
+
+
+    .hr {
+        border: 1px solid var(--clr8);
+    }
+
+    .h3 {
+        font-weight: 500;
+        font-size: .8rem;
+        padding-inline: 0.25rem;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .h5 {
+        padding: 0.25rem;
+    }
+
+    .buttons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        gap: 1rem;
+        padding-block-start: 0.4rem;
+
+        .button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+
+            transition: all .2s ease-in-out;
+            &:hover {
+                scale: 1.2;
+            }
+        }
     }
 }
+
+  

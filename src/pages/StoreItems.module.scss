@@ -13,13 +13,12 @@
     justify-content: stretch;
     align-items: stretch;
     height: 100vh;
-    // gap: 20px;
     overflow: hidden;
     width: 100%;
 
     .container {
         width: 100%;
-        padding: 30px;
+        padding: 1.875rem;
         display: flex;
         flex-direction: column;
 
@@ -32,33 +31,33 @@
             display: flex;
             // align-items: center;
             justify-content: center;
-            gap: 20px;
+            gap: 1.25;
             flex-direction: column;
 
             .button {
                 width: 155px;
-                height: 34px;
+                height: 32px;
                 font-size: 1.1rem;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                padding: 16px;
+                padding: 1rem;
                 transition: all .2s ease-in-out;
-                gap: 8px;
-                height: 25px;
+                gap: 0.5rem;
+                height: 1.563rem;
                 width: 175px;
                 padding-block-end: 20px;
 
                 &:hover {
                     // scale: 1.1;
-                    // padding: 24px;
+                    // padding: 20.25rem;
                     filter: brightness(70%);
                 }
 
                 .span {
                     font-weight: 600;
                     font-size: 2.5rem;
-                    margin-block-end: 8px;
+                    margin-block-end: 0.5rem;
                 }
             }
         }
@@ -84,8 +83,8 @@
                     cursor: pointer;
                     transition: all .2s ease-in-out;
                     font-size: 2.3rem;
-                    padding: 4px;
-                    border-radius: 4px;
+                    padding: 0.25rem;
+                    border-radius: 0.25rem;
 
                     &:hover {
                         background-color: var(--clr2);

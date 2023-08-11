@@ -1,0 +1,32 @@
+.product-filter {
+    display: flex;
+    align-items: center;
+
+    .icon {
+        height: 25px;
+        background-color: var(--clr-input);
+        box-shadow: 0px 1px 2px 0px var(--clr-bs);
+        border-top-right-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
+        color: var(--clr3);
+        padding: 0.125rem;
+    }
+
+    .input {
+        border-radius: 0;
+        border-top-left-radius: 0.5rem;
+        border-bottom-left-radius: 0.5rem;
+        border: 0;
+        // padding: 6px;
+        border: 0;
+        transition: all .2s ease-in-out;
+        height: 25px;
+        width: 175px;
+
+        &:focus {
+            outline: 0;
+            border: 1px solid var(--clr4);
+            border: 0;
+        }
+    }
+}

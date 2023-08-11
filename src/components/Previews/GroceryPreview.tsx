@@ -1,4 +1,4 @@
-import { ArrowDownward, ArrowUpward, Delete, DeleteOutline, Remove, RemoveCircleOutline } from '@mui/icons-material'
+import { AddBoxOutlined, ArrowDownward, ArrowUpward, Delete, DeleteOutline, Remove, RemoveCircleOutline } from '@mui/icons-material'
 import React, { MouseEventHandler, useState } from 'react'
 import { Grocery } from '../../models/grocery'
 import { AnyAction, ThunkDispatch } from '@reduxjs/toolkit'
@@ -9,6 +9,7 @@ import styles from './GroceryPreview.module.scss'
 import toast from 'react-hot-toast'
 import { Toast } from '../UI/Toast'
 import { Link, useParams } from 'react-router-dom'
+import { getProductByBarcode } from '../../store/product'
 
 type AppDispatch = ThunkDispatch<RootState, undefined, AnyAction>;
 
@@ -24,8 +25,7 @@ export const GroceryPreview: React.FC<Props> = (props) => {
     const { barcode, title, quantity } = item
     const [isHovered, setIsHovered] = useState(false)
 
-    const deleteGroceryHandler: MouseEventHandler<SVGSVGElement> = (ev) => {
-        ev.stopPropagation()
+    const deleteGroceryHandler = () => {
         dispatch(storeActions.deleteGroceryFromShoppingList(barcode))
         toast.success(`${item.title} - הוסר מהרשימה`)
     }
@@ -46,13 +46,11 @@ export const GroceryPreview: React.FC<Props> = (props) => {
         dispatch(storeActions.updateGrocery(updatedItem))
     }
 
-    const decreaseQuantityHandler: MouseEventHandler<HTMLInputElement> = (ev) => {
-        ev.stopPropagation()
+    const decreaseQuantityHandler = () => {
         updateQuantityHandler('decrease')
     }
 
-    const increaseQuantityHandler: MouseEventHandler<HTMLInputElement> = (ev) => {
-        ev.stopPropagation()
+    const increaseQuantityHandler = () => {
         updateQuantityHandler('increase')
     }
 
@@ -66,23 +64,41 @@ export const GroceryPreview: React.FC<Props> = (props) => {
 
     const openProductModal = () => {
         props.onOpenProductModal()
+        if (barcode) {
+            dispatch(getProductByBarcode(barcode))
+        }
+    }
+
+    const getProductDetailsHandler = () => {
+        if (barcode) {
+            dispatch(getProductByBarcode(barcode))
+        }
+    }
+
+    const addItemToStore = () => {
+        dispatch(storeActions.addItem(item))
+        dispatch(storeActions.deleteGroceryFromShoppingList(barcode))
+        toast.success(`${item.title} - הועבר למלאי`)
     }
 
     return (
         <>
             <Toast />
-            {/* <Link to={`store/${id}/planner/${barcode}`}> */}
-            <li onClick={openProductModal} className={styles['grocery-item']} key={barcode} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-                <Link className={styles.link} to={`${barcode}`}>
-                    <div className={styles['grocery-item-title']}>
-                        <DeleteOutline
-                            className={`${styles['delete-grocery']} ${isHovered ? styles['hovered'] : ''}`}
-                            onClick={deleteGroceryHandler}
-                        />
-                        <img className={styles.img} src={item.imgUrl} alt="" />
-                        <p className={`${styles.p} ${isHovered ? styles['hovered'] : ''}`}>{title}</p>
-                    </div>
-                </Link>
+            <li className={styles['grocery-item']} key={barcode} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                <div className={styles['grocery-item-title']}>
+                    <DeleteOutline
+                        titleAccess='מחק'
+                        className={`${styles['delete-grocery']} ${isHovered ? styles['hovered'] : ''}`}
+                        onClick={deleteGroceryHandler}
+                    />
+                    <AddBoxOutlined
+                        titleAccess='העבר למלאי הביתי'
+                        className={`${styles['move-grocery']} ${isHovered ? styles['hovered'] : ''}`}
+                        onClick={addItemToStore}
+                    />
+                    <img className={styles.img} src={item.imgUrl} alt="" />
+                    <p title='לחצו עליי כדי לקבל מידע נוסף אודות המוצר' onClick={openProductModal} className={`${styles.p} ${isHovered ? styles['hovered'] : ''}`}>{title}</p>
+                </div>
                 <div className={styles['grocery-item-actions']}>
                     <div className={`${styles["quantity"]} ${styles['buttons_added']}`}>
                         <input readOnly onClick={decreaseQuantityHandler} type="button" value="-" className={styles.minus} />

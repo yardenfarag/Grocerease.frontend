@@ -1,7 +1,7 @@
 import { Store } from "../models/store";
 import { User } from "../models/user";
 
-function store(key:string, value:User | Store[] | string) {
+function store(key:string, value:User | Store[] | string | boolean) {
     localStorage[key] = JSON.stringify(value);
 }
 

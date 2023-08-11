@@ -20,6 +20,7 @@ export const AddItem: React.FC<Props> = (props) => {
     const dispatch: AppDispatch = useDispatch()
     const [itemToAdd, setItemToAdd] = useState({ title: '', quantity: 1, expiry: '', imgUrl: '', barcode: '', place: '' })
     const products: Product[] | null = useSelector((state: RootState) => state.product.products)
+    const [coords, setCoords] = useState({ top: 0, left: 0, width: 0 })
 
     const debouncedGetProducts = utilService.debounce((title: string) => {
         dispatch(getProducts({ txt: title }))
@@ -27,7 +28,19 @@ export const AddItem: React.FC<Props> = (props) => {
 
     const setItemTitleHandler = (ev: React.ChangeEvent<HTMLInputElement>) => {
         setItemToAdd({ ...itemToAdd, title: ev.target.value })
-        debouncedGetProducts(ev.target.value)
+
+        if (ev.target.value.length >= 2) {
+            debouncedGetProducts(ev.target.value)
+        } else {
+            debouncedGetProducts('&')
+        }
+
+        var element = document.getElementById("title");
+        var rect = element?.getBoundingClientRect()
+        let top = rect?.top
+        let left = rect?.left
+        let width = rect?.width
+        setCoords({ top: top || 0, left: left || 0, width: width || 0 })
     }
 
     const setItemPlaceHandler = (ev: React.ChangeEvent<HTMLInputElement>) => {
@@ -36,7 +49,7 @@ export const AddItem: React.FC<Props> = (props) => {
 
     const chooseProductHandler = (title: string, imgUrl: string, barcode: string) => {
         setItemToAdd({ ...itemToAdd, title, imgUrl, barcode })
-        debouncedGetProducts('')
+        debouncedGetProducts('&')
     }
 
     const setItemQuantityHandler = (ev: React.ChangeEvent<HTMLInputElement>) => {
@@ -64,6 +77,7 @@ export const AddItem: React.FC<Props> = (props) => {
                 <input
                     onChange={setItemTitleHandler}
                     value={itemToAdd.title}
+                    id='title'
                     className={styles['item-title']}
                     type="text" placeholder='לדוגמה: קולה זירו 1 ליטר'
                 />
@@ -90,7 +104,7 @@ export const AddItem: React.FC<Props> = (props) => {
 
                 <button title='יש לבחור מוצר מן הרשימה' disabled={!itemToAdd.barcode} className={styles.button} type='submit'><span className={styles.span}>+</span></button>
             </form>
-            {itemToAdd.title && products && <ProductSuggestions onChooseProduct={chooseProductHandler} products={products} />}
+            {itemToAdd.title && products && <ProductSuggestions width={coords.width} top={coords.top} left={coords.left} onChooseProduct={chooseProductHandler} products={products} />}
         </>
     )
 }

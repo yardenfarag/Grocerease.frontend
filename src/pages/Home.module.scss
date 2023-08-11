@@ -9,18 +9,18 @@
     justify-content: center;
     flex-direction: column;
     @media (min-width: 960px) {
-        padding: 10px;
+        padding: 0.625rem;
         flex-direction: row;
     }
     @media (min-width: 1500px) {
-        padding:20px;
+        padding: 1.25rem;
     }
     
     .hero {
         display: none;
         width: 90%;
-        background-color: var(--clr2);
-        border-radius: 25px;
+        background-color: var(--clr8);
+        border-radius: 1.563rem;
         height: 40vh;
         align-items: center;
         justify-content: center;
@@ -46,8 +46,8 @@
         flex-direction: column;
         justify-content: center;
         width: 90vw;
-        gap: 5px;
-        padding: 20px;
+        gap: 0.313rem;
+        padding: 1.25rem;
         @media (min-width: 960px) {
             width: 50%;
         }
@@ -62,20 +62,24 @@
                 width: 10%;
             }
         }
-        .title-img {
-            width: 60%;
-            margin-block-end: 15px;
+        .h1 {
+            font-family: josefinSlab-semibold;
+            color: var(--clr-call-to-action);
+            align-self: center;
+            font-size: 4rem;
             @media (min-width: 768px) {
-                width: 50%;
+                // width: 50%;
             }
             @media (min-width: 1500px) {
-                width: 50%;
+                // width: 50%;
             }
         }
         .h2 {
             width: 100%;
             text-align: center;
-            margin-block-end: 50px;
+            font-weight: 500;
+            color: var(--clr2);
+            margin-block-end: 3.125rem;
             font-size: 1.2rem;
             @media (min-width: 1500px) {
                 width: 70%;
@@ -86,9 +90,9 @@
             font-weight: 500;
             border-radius: 2rem;
             cursor: pointer;
-            padding: 15px 50px;
+            padding: 0.938rem 3.125rem;
             background-color: var(--clr-call-to-action);
-            color: var(--clr1);
+            color: var(--clr7);
             transition: all .2s ease-in-out;
             &:hover {
                 scale: 1.2;

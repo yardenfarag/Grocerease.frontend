@@ -88,8 +88,8 @@ export const Signup: React.FC<Props> = (props) => {
             </label>
             {error && <p className={styles.p}>{error}</p>}
             <button disabled={(!fullName || !email || !password || !!error)} type='submit' className={styles.button}>{loading ? <Loader height='23px' width='23px' /> : 'כניסה'}</button>
-            <span className={styles.span}>כבר יש לך חשבון?
-                <Link className={styles.link} to='/login'>לחץ כאן כדי להתחבר</Link>
+            <span className={styles.span}>כבר יש לך חשבון? <br />
+                <Link className={styles.link} to='/login'>התחברות</Link>
             </span>
         </form>
     )

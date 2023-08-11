@@ -13,7 +13,7 @@ interface Props {
 
 export const AddStore: React.FC<Props> = ({ onAddStore }) => {
   const dispatch: AppDispatch = useDispatch()
-  const colors = ['#a2d2ff', '#9ae3b7', '#e6cda3', '#f2eac4', '#f98a8a', '#eab0e3', '#95dbda', '#9baadd']
+  const colors = ['#007aff', '#5cdb5c', '#ffa500', '#ffff00', '#ff0021', '#f95573', '#5ac8fa', '#5856d6']
   const [selectedColor, setSelectedColor] = useState(colors[0])
   const [newStoreTitle, setNewStoreTitle] = useState('')
   const setSelectedColorHandler = (color: string) => {
@@ -39,29 +39,29 @@ export const AddStore: React.FC<Props> = ({ onAddStore }) => {
   }
 
   return (
-    <div className={styles['add-store']}>
-      <div style={{ backgroundColor: selectedColor }} className={styles['add-store-back']}></div>
-      <div className={styles['add-store-front']}>
-        <input className={styles.input}
-          onChange={setNewStoreTitleHandler}
-          type="text"
-          required
-          maxLength={20}
-          value={newStoreTitle}
-          placeholder='לדוגמה: המטבח שלי' />
-        <div className={styles.colors}>
-          {colors.map((c: string, index) => {
-            return <div
-              onClick={() => setSelectedColorHandler(c)}
-              className={`${styles.div} ${selectedColor === c ? styles.selected : ''}`}
-              style={{ backgroundColor: c }}
-              key={c}>
-            </div>
-          })}
-        </div>
-        <button disabled={!newStoreTitle} className={styles.button} onClick={addStoreHandler}>+</button>
+    <div style={{ border: '2px solid ' + selectedColor }} className={styles['add-store']}>
+      <input className={styles.input}
+        onChange={setNewStoreTitleHandler}
+        type="text"
+        required
+        maxLength={20}
+        value={newStoreTitle}
+        placeholder='המטבח שלי' />
+      <div className={styles.colors}>
+        {colors.map((c: string) => {
+          return <div
+            onClick={() => setSelectedColorHandler(c)}
+            className={`${styles.div} ${selectedColor === c ? styles.selected : ''}`}
+            style={{ backgroundColor: c }}
+            key={c}>
+          </div>
+        })}
       </div>
+      <button 
+      style={{ backgroundColor: selectedColor}} 
+      disabled={!newStoreTitle} 
+      className={styles.button} 
+      onClick={addStoreHandler}>הוספה</button>
     </div>
-
   )
 }
