@@ -27,11 +27,7 @@ async function signup(credentials: signupCreds): Promise<{_id:string, fullName: 
 }
 
 async function login(credentials: loginCreds): Promise<{_id:string, fullName: string}> {
-    console.log('hi');
-    
-    const user = await httpService.post('auth/login', credentials)
-    console.log('user', user);
-    
+    const user = await httpService.post('auth/login', credentials)  
     _saveUser(user)
     return user
 }

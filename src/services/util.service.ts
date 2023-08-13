@@ -56,17 +56,17 @@ function getColorForDate(dateString: string | undefined): string {
 }
 
 function generateRandomColor(input?: string): string {
-    let hash = 0;
+    let hash = 0
     if (input) {
 
         for (let i = 0; i < input.length; i++) {
-            const charCode = input.charCodeAt(i);
-            hash = (hash << 5) - hash + charCode;
-            hash &= hash; // Convert to 32-bit integer
+            const charCode = input.charCodeAt(i)
+            hash = (hash << 5) - hash + charCode
+            hash &= hash
         }
 
-        const color = '#' + ((hash >>> 0) % 0xFFFFFF).toString(16).padStart(6, '0');
-        return color;
+        const color = '#' + ((hash >>> 0) % 0xFFFFFF).toString(16).padStart(6, '0')
+        return color
     }
     else return 'transparent'
 }
@@ -166,8 +166,6 @@ function formatDateDescription(dateString: string): string {
             return `לפני ${absoluteDiffDays} ימים`
         }
     }
-
-    // If the date is invalid or something went wrong
     return 'לא ידוע'
 }
 
@@ -178,22 +176,20 @@ function isToday(date: Date): boolean {
            date.getFullYear() === today.getFullYear();
 }
 
-// Returns true if the given date is expiring in the specified number of days.
-// If 'orMore' is true, returns true if the expiration is after the specified days.
 function isExpiringInDays(date: Date, days: number, orMore = false): boolean {
-    const today = new Date();
-    const diffTime = date.getTime() - today.getTime();
-    const diffDays = diffTime / (1000 * 3600 * 24);
-    return orMore ? diffDays >= days : diffDays <= days;
+    const today = new Date()
+    const diffTime = date.getTime() - today.getTime()
+    const diffDays = diffTime / (1000 * 3600 * 24)
+    return orMore ? diffDays >= days : diffDays <= days
 }
 
 function calculateDays(dateString: string): number {
-    const targetDate: Date = new Date(dateString);
-    const currentDate: Date = new Date();
-    const timeDifference: number = targetDate.getTime() - currentDate.getTime();
-    const daysDifference: number = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+    const targetDate: Date = new Date(dateString)
+    const currentDate: Date = new Date()
+    const timeDifference: number = targetDate.getTime() - currentDate.getTime()
+    const daysDifference: number = Math.floor(timeDifference / (1000 * 60 * 60 * 24))
 
-    return daysDifference;
+    return daysDifference
 }
 
 

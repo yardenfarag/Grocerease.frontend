@@ -50,11 +50,8 @@
             .bars {
                 display: flex;
                 align-items: center;
-                // padding: 0.25rem;
                 cursor: pointer;
                 border-radius: 50%;
-                // width: 30px;
-                // height: 30px;
                 transition: all .2s ease-in-out;
                 &:hover {
                     filter: brightness(70%);
@@ -84,7 +81,6 @@
 
             .icon {
                 font-size: 1.2rem;
-                // padding-top: 0.25rem;
             }
             
             .link-text {

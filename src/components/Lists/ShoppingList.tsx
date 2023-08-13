@@ -12,7 +12,6 @@ import { toast } from 'react-hot-toast'
 
 interface Props {
     onOpenProductModal: () => void
-    onSetSuggestionsCoords: (top?:number, left?:number) => void
 }
 
 export const ShoppingList: React.FC<Props> = (props) => {

@@ -5,17 +5,12 @@
     height: 100%;
     border: 1px solid var(--clr8);
     border-radius: 0.75rem;
-    // width: 90%;
     height: 100%;
     margin-block-end: 1rem;
 
     @media (min-width: variables.$laptop) {
         width: 47%;
     }
-
-    // @media ( min-width: variables.$smallDesktop) {
-    //     width: 40%;
-    // }
 
 
 
@@ -57,7 +52,6 @@
 
             &:hover {
                 filter: brightness(80%);
-                // scale: 1.1;
             }
         }
     }

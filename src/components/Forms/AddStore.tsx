@@ -8,7 +8,7 @@ import { getStores, storeActions } from '../../store/store'
 type AppDispatch = ThunkDispatch<RootState, undefined, AnyAction>
 
 interface Props {
-  onAddStore: () => void; // Add a prop to handle adding a new store
+  onAddStore: () => void
 }
 
 export const AddStore: React.FC<Props> = ({ onAddStore }) => {

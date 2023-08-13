@@ -60,7 +60,6 @@ export const SideNav = () => {
                         to={item.path} 
                         key={index} 
                         className={({ isActive, isPending}) => isPending ? styles.link : isActive ? `${styles.link} ${styles.active}` : styles.link}
-                        // className={`${styles.link} ${({ isActive, isPending}) => isPending ? styles.pending : isActive ? styles.active : ''}`}
                         >
                             <div className={styles.icon}>{item.icon}</div>
                             <div style={{ display: isMenuOpen ? 'block' : 'none' }} className={styles['link-text']}>{item.name}</div>

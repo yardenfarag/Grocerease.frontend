@@ -36,10 +36,6 @@ export const Planner = () => {
         setMarket({...market})
         setIsMarketModal(!isMarketModal)
     }
-
-    const setSuggestionsCoords = (top?:number, left?: number) => {
-        // props.onSetSuggestionsCoords(top, left)
-    }
     return (
         <>
             {loading &&
@@ -49,8 +45,7 @@ export const Planner = () => {
             {!loading && <main className={`${styles.main} ${isProductModal || isMarketModal ? styles['disable-interactions'] : styles['']}`}>
                 <SideNav />
                 <div className={`${styles.container} `}>
-                    <ShoppingList onSetSuggestionsCoords={setSuggestionsCoords} onOpenProductModal={toggleProductModalHandler} />
-                    {/* <GroceryDetails onToggleModal={toggleProductModal} /> */}
+                    <ShoppingList onOpenProductModal={toggleProductModalHandler} />
                     <MarketList onOpenMarketModal={toggleMarketModalHandler}/>
                 </div>
             </main>}

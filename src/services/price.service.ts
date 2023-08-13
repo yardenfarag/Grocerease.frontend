@@ -7,8 +7,6 @@ export const priceService = {
 }
 
 async function getPrices(args: { pos: { lat: number, lng: number }, rad: number, items?: Grocery[] }): Promise<Market[]> {
-    let res = await httpService.get('price', args)
-    console.log(res)
-    
+    let res = await httpService.get('price', args)    
     return res
 }

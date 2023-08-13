@@ -17,7 +17,7 @@ export const GroceryDetails: React.FC<Props> = (props) => {
     const closeModal = () => {
         props.onToggleModal()
     }
-    // console.log(product?.product_info.Product_Components_and_Instructions_General.Allergen_Type_Code_and_Containment[0].value)
+
     return (
         <>
             <main className={styles.main}>

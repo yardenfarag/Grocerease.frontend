@@ -29,7 +29,6 @@
 
         .div {
             display: flex;
-            // align-items: center;
             width: 100%;
             justify-content: center;
             gap: 1.25;
@@ -51,7 +50,6 @@
 
                 &:hover {
                     scale: 1.1;
-                    // filter: brightness(70%);
                 }
 
                 .span {

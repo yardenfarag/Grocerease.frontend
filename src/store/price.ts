@@ -20,7 +20,6 @@ const priceSlice = createSlice({
                 state.markets = action.payload
                 state.loading = false
                 state.error = false
-                console.log(action.payload)
             })
             .addCase(getPrices.pending, (state, action) => {
                 state.markets = null

@@ -14,7 +14,7 @@ export const Loader: React.FC<Props> = (props) => {
                 height={height}
                 width={width}
                 color="lightgreen"
-                ariaLabel="tail-spin-loading"
+                ariaLabel="#9dcc61"
                 radius="1"
                 wrapperStyle={{}}
                 wrapperClass=""
