@@ -1,8 +1,9 @@
 import React, { useRef } from 'react'
 import { LoadScript, Autocomplete, Libraries } from '@react-google-maps/api'
 import styles from './AutoComplete.module.scss'
+import GOOGLE_API_KEY from '../../../googleApiKey'
 
-const KEY = 'AIzaSyDGbop50pu2C3SsShMUI5e07C8ZCXQ958g'
+const KEY = GOOGLE_API_KEY
 const libraries: Libraries = ["drawing", "places"]
 
 interface Props {

@@ -11,13 +11,8 @@ import useAuthentication from './customHooks/useAuthentication'
 import { Planner } from './pages/Planner'
 import {Products} from './pages/Products'
 
-enum Color {
-  Red, Green, Blue, Yellow
-}
-
 function App() {
   useAuthentication()
-  // const isDarkMode = useSelector((state:RootState) => state.settings.isDarkMode)
   function PrivateRoute({ children }: { children: React.ReactNode }) {
     const loggedInUser = useSelector<RootState, User | null>(state => state.auth.user)
     return loggedInUser ? (
