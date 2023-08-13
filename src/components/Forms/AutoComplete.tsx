@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { LoadScript, Autocomplete, Libraries } from '@react-google-maps/api'
+import { LoadScript, Autocomplete, Libraries, useJsApiLoader } from '@react-google-maps/api'
 import styles from './AutoComplete.module.scss'
 import GOOGLE_API_KEY from '../../../googleApiKey'
 
@@ -26,6 +26,12 @@ export const AutoComplete: React.FC<Props> = (props) => {
   const options = {
     strictBounds: true,
   }
+
+  const { isLoaded } = useJsApiLoader({
+    id: 'google-map-script',
+    googleMapsApiKey: KEY,
+    libraries: libraries,
+  });
   
   const onPlaceChanged = () => {
     if (autocompleteRef.current) {
@@ -39,11 +45,11 @@ export const AutoComplete: React.FC<Props> = (props) => {
   }
   return (
     <div className={styles.address}>
-      <LoadScript googleMapsApiKey={KEY} libraries={libraries}>
+      {isLoaded && <LoadScript googleMapsApiKey={KEY} libraries={libraries}>
         <Autocomplete onLoad={onLoad} onPlaceChanged={onPlaceChanged} restrictions={restrictions} options={options}>
           <input className={styles.input} type="text" placeholder="הזן כתובת" />
         </Autocomplete>
-      </LoadScript>
+      </LoadScript>}
     </div>
   )
 }
