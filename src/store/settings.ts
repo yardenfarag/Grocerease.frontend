@@ -4,7 +4,7 @@ import { storageService } from '../services/storage.service'
 const VIEW_SETTINGS_KEY = 'viewSettings'
 const THEME_SETTINGS_KEY = 'themeSettings'
 
-const initialSettingsState = { view: storageService.load(VIEW_SETTINGS_KEY) || 'list', isDarkMode: storageService.load(THEME_SETTINGS_KEY) ||  true }
+const initialSettingsState = { view: storageService.load(VIEW_SETTINGS_KEY) || 'list', isDarkMode: false }
 
 
 const settingsSlice = createSlice({

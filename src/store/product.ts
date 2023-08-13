@@ -8,7 +8,8 @@ const initialProductState = {
     pageCount: 0,
     loading: false,
     error: false,
-    curProduct: null as Gs1Product | null
+    curProduct: null as Gs1Product | null,
+    filterBy: { txt: '' }
 }
 
 export const getProducts = createAsyncThunk('product', async ({ txt, page }: { txt: string; page?: number }) => {
@@ -26,7 +27,11 @@ export const getProductByBarcode = createAsyncThunk('product/:barcode', async (b
 const productSlice = createSlice({
     name: 'product',
     initialState: initialProductState,
-    reducers: {},
+    reducers: {
+        setFilterBy: (state, action: PayloadAction<string>) => {
+            state.filterBy.txt = action.payload
+          },
+    },
     extraReducers: (builder) => {
         builder
             .addCase(getProducts.fulfilled, (state, action) => {
@@ -68,6 +73,6 @@ const productSlice = createSlice({
     }
 })
 
-export const userActions = productSlice.actions
+export const productActions = productSlice.actions
 
 export default productSlice.reducer

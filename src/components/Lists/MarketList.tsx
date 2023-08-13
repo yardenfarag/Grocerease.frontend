@@ -31,7 +31,7 @@ export const MarketList: React.FC<Props> = (props) => {
                         <MarketPreview onOpenMarketModal={openMarketModalHandler} key={market._id} market={market} />
                     ))}
                     <div className={styles.loading}>
-                    {loading && <Loader height='50px' width='50px' />}
+                    {loading && <Loader height='120px' width='120px' />}
                     </div>
                 </ul>
             </div>

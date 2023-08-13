@@ -44,18 +44,18 @@ export const Planner = () => {
         <>
             {loading &&
                 <div className={styles.loading}>
-                    <Loader height='80px' width='80px' />
+                    <Loader height='120px' width='120px' />
                 </div>}
-            {!loading && <main className={`${styles.main}`}>
+            {!loading && <main className={`${styles.main} ${isProductModal || isMarketModal ? styles['disable-interactions'] : styles['']}`}>
                 <SideNav />
-                <div className={`${styles.container} ${isProductModal || isMarketModal ? styles['disable-interactions'] : styles['']}`}>
+                <div className={`${styles.container} `}>
                     <ShoppingList onSetSuggestionsCoords={setSuggestionsCoords} onOpenProductModal={toggleProductModalHandler} />
                     {/* <GroceryDetails onToggleModal={toggleProductModal} /> */}
                     <MarketList onOpenMarketModal={toggleMarketModalHandler}/>
                 </div>
+            </main>}
                     {isProductModal && <GroceryDetails onToggleModal={toggleProductModalHandler} />}
                     {isMarketModal && <MarketDetails market={market} onToggleModal={() => setIsMarketModal(!isMarketModal)} />}
-            </main>}
         </>
     )
 }

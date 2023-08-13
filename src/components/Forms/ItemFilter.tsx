@@ -11,7 +11,7 @@ interface Props {
 
 export const ItemFilter: React.FC<Props> = (props) => {
     const dispatch = useDispatch()
-    const filterByExpiry = useSelector((state:RootState) => state.store.filterBy.expiry)
+    const filterByExpiry = useSelector((state: RootState) => state.store.filterBy.expiry)
     const filterByHandler = (ev: React.ChangeEvent<HTMLInputElement>) => {
         dispatch(storeActions.setFilterBy(ev.target.value))
     }
@@ -22,8 +22,10 @@ export const ItemFilter: React.FC<Props> = (props) => {
     }
     return (
         <div className={styles['item-filter']}>
-            <Search className={styles.icon} />
-            <input className={styles.input} onChange={filterByHandler} type="text" placeholder='חפש פריט' />
+            <div className={styles.txt}>
+                <Search className={styles.icon} />
+                <input className={styles.input} onChange={filterByHandler} type="text" placeholder='חפש פריט' />
+            </div>
             <div className={styles.colors}>
                 <div onClick={filterByExpiryHandler('red')} className={`${styles.color} ${styles.red} ${filterByExpiry === 'red' ? styles.selected : ''}`}></div>
                 <div onClick={filterByExpiryHandler('orange')} className={`${styles.color} ${styles.orange} ${filterByExpiry === 'orange' ? styles.selected : ''}`}></div>

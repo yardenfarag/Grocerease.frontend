@@ -7,19 +7,22 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    min-height: 100px;
     width: 100%;
-    height: fit-content;
+    height: 160px;
     overflow: hidden;
     border-bottom: 1px solid var(--clr8);
+    padding: .5rem;
+
+    @media (min-width: variables.$tablet) {
+        height: 200px;
+    }
 
     .market-info {
         display: flex;
         align-items: center;
+        justify-content: center;
+        flex-direction: column;
         width: 100%;
-        display:grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        justify-items: center
     }
 
     &:hover {
@@ -32,49 +35,85 @@
         text-align: center;
         font-weight: 500;
         color: var(--clr3);
+        font-size: .8rem;
+
+        @media (min-width: variables.$tablet) {
+            font-size: 1rem;
+        }
     }
 
     .details {
         display: flex;
         align-items: center;
-        gap: 0.75rem;
+        width: 100%;
+        @media (min-width: variables.$tablet) {
+            gap: 0.5rem;
+        }
 
         .div {
+            width: 100%;
             display: flex;
-            flex-direction: column;
-            width: 120px;
+            align-items: center;
+            justify-content: space-between;
 
             .h3 {
                 font-weight: 600;
+                font-size: .9rem;
+
+                @media (min-width: variables.$tablet) {
+                    font-size: 1.3rem;
+                }
 
             }
 
             .p {
                 font-weight: 500;
-                color: var(--clr3);
+                color: var(--clr2);
+                font-size: .8rem;
+
+                @media (min-width: variables.$tablet) {
+                    font-size: 1.2rem;
+                }
             }
         }
 
         .img {
-            width: 50px;
-            height: 50px;
+            width: 0px;
+            height: 0px;
             border-radius: 0.75rem;
+
+            @media (min-width: variables.$tablet) {
+                width: 50px;
+                height: 50px;
+            }
         }
     }
 
     .price {
+        width: 100%;
         display: flex;
-        flex-direction: column;
         align-items: center;
+        justify-content: space-between;
 
 
         .h3 {
-    
+            font-weight: 500;
+            color: var(--clr2);
+            font-size: .8rem;
+
+            @media (min-width: variables.$tablet) {
+                font-size: 1rem;
+            }
         }
 
         .h1 {
             font-weight: 600;
-    
+            font-size: 1.4rem;
+
+            @media (min-width: variables.$tablet) {
+                font-size: 1.5rem;
+            }
+
         }
     }
 }

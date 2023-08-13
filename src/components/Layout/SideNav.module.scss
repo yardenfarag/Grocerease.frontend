@@ -1,5 +1,6 @@
 .container {
     display: flex;
+    position: sticky;
 
     .sidenav {
         background-color: var(--clr-call-to-action);

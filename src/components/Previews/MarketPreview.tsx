@@ -44,7 +44,7 @@ export const MarketPreview: React.FC<Props> = (props) => {
                 </div>
                 <p className={styles['item-count']}>נמצא מידע על {getItemCount()} מוצרים</p>
                 <div className={styles.price}>
-                    <h3 className={styles.h3}>מחיר הסל</h3>
+                    <h3 className={styles.h3}>מחיר הסל:</h3>
                     <h1 className={styles.h1}>{formatPriceILS(totalPrice || 0)}</h1>
                 </div>
             </div>

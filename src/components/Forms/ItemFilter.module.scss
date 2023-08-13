@@ -1,9 +1,18 @@
-
+@use '../../styles/setup/variables' as variables;
 
 .item-filter {
     display: flex;
     align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    @media(min-width: variables.$mobile) {
+        flex-direction: row;
+    }
 
+    .txt {
+        display: flex;
+        align-items: center;
+    }
     .icon {
         height: 25px;
         background-color: var(--clr-input);

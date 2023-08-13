@@ -26,7 +26,7 @@ export const Stores = () => {
   return (
     <main className={styles.main}>
       <div className={styles.stores}>
-        {loading  && <Loader height='50px' width='50px'/>}
+        {loading  && <Loader height='120px' width='120px'/>}
         {!loading && Array.isArray(stores) && stores.map((store: any) => {
           return <StorePreview key={store._id} id={store._id} color={store.color} title={store.title} />
         })}

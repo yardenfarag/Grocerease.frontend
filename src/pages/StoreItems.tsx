@@ -9,7 +9,6 @@ import { ThunkDispatch } from '@reduxjs/toolkit'
 import styles from './StoreItems.module.scss'
 import { SideNav } from '../components/Layout/SideNav'
 import { AddItem } from '../components/Forms/AddItem'
-import { Reorder, Apps } from '@mui/icons-material'
 import { settingsActions } from '../store/settings'
 import { ItemTable } from '../components/Tables/ItemTable'
 import { Loader } from '../components/UI/Loader'
@@ -36,7 +35,7 @@ export const StoreItems = () => {
     <>
       {loading &&
         <div className={styles.loading}>
-          <Loader height='80px' width='80px' />
+          <Loader height='120px' width='120px' />
         </div>}
       {!loading && <div>
         <main className={styles.main}>

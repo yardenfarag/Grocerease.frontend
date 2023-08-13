@@ -10,21 +10,31 @@
 .main {
     display: flex;
     height: 100vh;
-    overflow: hidden;
+    overflow: auto;
     width: 100%;
+    transition: all .2s linear;
+    &.disable-interactions {
+        pointer-events: none;
+        filter: opacity(.20);
+    }
 
     .container{
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
         width: 100%;
         padding: 1.25rem;
-        transition: filter .2s linear;
-        &.disable-interactions {
-            pointer-events: none;
-            // filter: brightness(40%);
-            filter: blur(3px);
+        height: 100vh;
+        overflow: auto;
+        
+        @media ( max-width: variables.$mobile) {
+            padding: 0.5rem;
         }
+        
+        @media ( min-width: variables.$laptop) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
     }
 
 }

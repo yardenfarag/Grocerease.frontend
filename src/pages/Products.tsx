@@ -31,15 +31,15 @@ export const Products = () => {
         <>
             {loading &&
                 <div className={styles.loading}>
-                    <Loader height='80px' width='80px' />
+                    <Loader height='120px' width='120px' />
                 </div>}
-            {!loading && <main className={`${styles.main}`}>
+            {!loading && <main className={`${styles.main} ${isProductModal ? styles['disable-interactions'] : styles['']}`}>
                 <SideNav />
-                <div className={`${styles.container} ${isProductModal ? styles['disable-interactions'] : styles['']}`}>
-                    <ProductList />
+                <div className={`${styles.container} `}>
+                    <ProductList onOpenProductModal={toggleProductModalHandler} />
                 </div>
-                {isProductModal && <GroceryDetails onToggleModal={toggleProductModalHandler} />}
             </main>}
+                {isProductModal && <GroceryDetails onToggleModal={toggleProductModalHandler} />}
         </>
     )
 }

@@ -83,13 +83,13 @@ export const ItemTr: React.FC<Props> = (props) => {
     <>
       <Toast />
       <tr className={styles.tr}>
-        <td className={styles.td}>
+        <td headers='שם' className={styles.td}>
           <div className={styles['title-img']}>
             <img src={item.imgUrl} alt="Item" />
             <span className={styles.title}>{item.title}</span>
           </div>
         </td>
-        <td className={styles.td}>
+        <td headers='מיקום' className={styles.td}>
           <span
             suppressContentEditableWarning={true}
             contentEditable={true}
@@ -101,14 +101,14 @@ export const ItemTr: React.FC<Props> = (props) => {
             {item.place ? item.place : 'הזן מיקום'}
           </span>
         </td>
-        <td className={styles.td}>
+        <td headers='כמות' className={styles.td}>
           <div className={`${styles["quantity"]} ${styles['buttons_added']}`}>
             <input readOnly onClick={decreaseQuantityHandler} type="button" value="-" className={styles.minus} />
             <input readOnly type="number" step="1" min="1" max="" name="quantity" value={item.quantity} title="Qty" className={`${styles["input-text"]} ${styles.qty} ${styles.text}`} size={4} pattern="" />
             <input readOnly onClick={increaseQuantityHandler} type="button" value="+" className={styles.plus} />
           </div>
         </td>
-        <td className={styles.td}>
+        <td headers='ת.תפוגה' className={styles.td}>
           {/* <span style={getColorForDate(item.expiry)}> */}
           <span>
             <span className={styles['item-expiry']} style={{ color: item.expiry ? utilService.getColorForDate(item.expiry) : '#686868' }}>
@@ -117,7 +117,7 @@ export const ItemTr: React.FC<Props> = (props) => {
             </span>
           </span>
         </td>
-        <td className={styles.td}>
+        <td headers='פעולות' className={styles.td}>
           <div className={styles.actions}>
             <button onClick={addItemToShoppingListHandler} className={styles.add} title='הוסף לרשימת הקניות'><PlaylistAddOutlined /></button>
             <button onClick={deleteItemHandler} className={styles.remove} title='מחק'><DeleteOutline /></button>

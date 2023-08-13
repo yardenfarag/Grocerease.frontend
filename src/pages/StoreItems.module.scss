@@ -30,6 +30,7 @@
         .div {
             display: flex;
             // align-items: center;
+            width: 100%;
             justify-content: center;
             gap: 1.25;
             flex-direction: column;
@@ -49,9 +50,8 @@
                 padding-block-end: 20px;
 
                 &:hover {
-                    // scale: 1.1;
-                    // padding: 20.25rem;
-                    filter: brightness(70%);
+                    scale: 1.1;
+                    // filter: brightness(70%);
                 }
 
                 .span {

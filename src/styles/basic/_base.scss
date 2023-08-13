@@ -9,11 +9,11 @@
 }
 
 html {
-  color: var(--clr1);
   scroll-behavior: smooth;
 }
 
 body {
+  color: var(--clr1);
   min-height: 100vh;
   direction: rtl;
   background: var(--clr7);

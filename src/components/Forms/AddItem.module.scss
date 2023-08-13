@@ -1,9 +1,9 @@
-@use '../../styles/setup/functions' as functions;
+@use '../../styles/setup/variables' as variables;
 
 @-webkit-keyframes scale-up-right {
     0% {
-        -webkit-transform: scale(0.5);
-        transform: scale(0.5);
+        -webkit-transform: scale(0.8);
+        transform: scale(0.8);
         -webkit-transform-origin: 100% 50%;
         transform-origin: 100% 50%;
     }
@@ -18,8 +18,8 @@
 
 @keyframes scale-up-right {
     0% {
-        -webkit-transform: scale(0.5);
-        transform: scale(0.5);
+        -webkit-transform: scale(0.8);
+        transform: scale(0.8);
         -webkit-transform-origin: 100% 50%;
         transform-origin: 100% 50%;
     }
@@ -36,22 +36,22 @@
 .form {
     border: 1px solid var(--clr8);
     border-radius: 0.75rem;
-    gap: 0.313rem;
     padding: 0.5rem;
     position: relative;
     transition: all .2s ease-in-out;
-    display: flex;
-    // flex-direction: column;
-    align-items: center;
     flex-wrap: wrap;
+    // justify-content: space-between;
     gap: 0.313rem;
-    width: 175px;
     -webkit-animation: scale-up-right 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
     animation: scale-up-right 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-
-    @media (min-width: 768px) {
-        width: 700px;
-        flex-direction: row;
+    width: 270px;
+    display: flex;
+    // align-items: center;
+    // flex-direction: column;
+    @media (min-width: variables.$tablet) {
+        width: 100%;
+        display: grid;
+        grid-template-columns: .1fr 6fr 2fr 50px 105px 40px;
     }
 
     .close {
@@ -67,34 +67,47 @@
     }
 
     .item-date {
-        width: 110px;
+        // width: 8%;
         color-scheme: dark;
         color: var(--clr3);
+        @media (max-width: variables.$tablet) {
+            width: calc(202px - 0.313rem)
+        }
     }
     ::-webkit-calendar-picker-indicator {
         color-scheme: light;
       }
 
     .item-place {
-        width: 105px;
+        @media (max-width: variables.$tablet) {
+            width: calc(202px - 0.313rem)
+        }
     }
 
     .item-quantity {
-        width: 50px;
         color: var(--clr3);
+        @media (max-width: variables.$tablet) {
+            width: 50px;
+        }
     }
 
     .item-title {
-        width: 320px;
+        @media (max-width: variables.$tablet) {
+            width: calc(270px - 0.313rem);
+        }
     }
 
     .button {
-        width: 40px;
+        // width: 3%;
         text-align: center;
         display: flex;
         align-items: center;
         justify-content: center;
         height: 30px;
+        @media (max-width: variables.$tablet) {
+            width: 50px;
+        }
+    
 
         .span {
             text-align: center;

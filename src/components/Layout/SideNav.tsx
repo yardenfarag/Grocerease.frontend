@@ -1,21 +1,13 @@
-import { DarkMode, GridOn, Kitchen, LightMode, ListAlt, Logout, Menu } from '@mui/icons-material'
+import { Category, DarkMode, Kitchen, LightMode, ListAlt, Logout, Menu } from '@mui/icons-material'
 import React, { useState } from 'react'
 import styles from './SideNav.module.scss'
 import { OverridableComponent } from '@mui/material/OverridableComponent'
 import { SvgIconTypeMap } from '@mui/material'
-import { NavLink, useNavigate, useParams, RouteMatch, Route } from 'react-router-dom'
+import { NavLink, useNavigate, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { authActions } from '../../store/auth'
 import { RootState } from '../../store'
 import { settingsActions } from '../../store/settings'
-
-interface MenuItem {
-    path: string
-    name: string
-    icon: OverridableComponent<SvgIconTypeMap<{}, "svg">> & {
-        muiName: string;
-    }
-}
 
 export const SideNav = () => {
     const dispatch = useDispatch()
@@ -48,7 +40,7 @@ export const SideNav = () => {
         {
             path: `/store/${id}/products`,
             name: 'מוצרים',
-            icon: <GridOn />
+            icon: <Category />
         }
     ]
 

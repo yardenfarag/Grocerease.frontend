@@ -17,7 +17,7 @@ enum Color {
 
 function App() {
   useAuthentication()
-  const isDarkMode = useSelector((state:RootState) => state.settings.isDarkMode)
+  // const isDarkMode = useSelector((state:RootState) => state.settings.isDarkMode)
   function PrivateRoute({ children }: { children: React.ReactNode }) {
     const loggedInUser = useSelector<RootState, User | null>(state => state.auth.user)
     return loggedInUser ? (
@@ -27,7 +27,7 @@ function App() {
     )
   }
   return (
-    <div className={`${isDarkMode ? 'dark' : ''}`}>
+    <div>
       <Router>
         <Routes>
           <Route path='/' element={<Home />} />

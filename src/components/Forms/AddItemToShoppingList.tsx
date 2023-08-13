@@ -74,7 +74,7 @@ export const AddItemToShoppingList: React.FC<Props> = (props) => {
                     onChange={setGroceryTitleHandler}
                     type="text"
                     id='title'
-                    placeholder='לדוגמה: קמח חיטה מלא' />
+                    placeholder='חפש מוצר להוספה' />
                 <input
                     onChange={setItemQuantityHandler}
                     value={groceryToAdd.quantity}

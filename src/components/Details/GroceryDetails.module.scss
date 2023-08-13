@@ -1,3 +1,5 @@
+@use '../../styles//setup/variables' as variables;
+
 .loading {
 	height: 80vh;
 	display: flex;
@@ -32,7 +34,7 @@
 	position: absolute;
 	border: 1px solid var(--clr8);
 	border-radius: 0.75rem;
-	width: 40%;
+	width: 90%;
 	height: 90vh;
 	overflow: auto;
 	background-color: var(--clr7);
@@ -45,6 +47,15 @@
 	overflow: auto;
 	-webkit-animation: scale-up-ver-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 	animation: scale-up-ver-center 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+
+	box-shadow: 0px 1px 2px 0px var(--clr-bs);
+	box-shadow: 0 3px 8px 1px var(--clr8);
+	@media ( min-width: variables.$mobile) {
+		width: 500px;
+	}
+	@media ( min-width: variables.$tablet) {
+		width: 700px;
+	}
 
 	.container {
 		display: flex;
@@ -64,8 +75,14 @@
 			width: 100%;
 
 			.h1 {
-				font-size: 1.1rem;
+				font-size: .8rem;
 				font-weight: 500;
+				@media ( min-width: variables.$mobile) {
+					font-size: 1rem;
+				}
+				@media ( min-width: variables.$tablet) {
+					font-size: 1.1rem;
+				}
 			}
 
 			.icon {
@@ -76,7 +93,7 @@
 				transition: all .2s ease-in-out;
 
 				&:hover {
-					background-color: var(--clr5);
+					background-color: var(--clr6);
 				}
 			}
 		}
@@ -110,12 +127,23 @@
 				background-color: var(--clr7);
 				font-weight: 500;
 				color: var(--clr3);
+				font-size: .7rem;
+				@media ( min-width: variables.$mobile) {
+					font-size: .9rem;
+				}
 				
 			}
 			
 			.span {
 				font-weight: 600;
-				color: var(--clr2);
+				color: var(--clr1);
+				font-size: .7rem;
+				@media ( min-width: variables.$mobile) {
+					font-size: .9rem;
+				}
+				@media ( min-width: variables.$tablet) {
+					font-size: 1rem;
+				}
 			}
 		}
 	}

@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom/client'
 import { Provider } from 'react-redux';
 import store from './store';
 import App from './App'
+import DarkModeProvider from './DarkModeProvider';
 
-// const isDarkMode = store.getState().settings.isDarkMode
-
-// const darkModeClass = isDarkMode ? 'dark' : ''
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <Provider store={store}>
-    <App />
+    <DarkModeProvider>
+      <App />
+    </DarkModeProvider>
   </Provider>
 )

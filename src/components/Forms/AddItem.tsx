@@ -79,13 +79,13 @@ export const AddItem: React.FC<Props> = (props) => {
                     value={itemToAdd.title}
                     id='title'
                     className={styles['item-title']}
-                    type="text" placeholder='לדוגמה: קולה זירו 1 ליטר'
+                    type="text" placeholder='תה שחור ארל גריי'
                 />
                 <input
                     onChange={setItemPlaceHandler}
                     value={itemToAdd.place}
                     className={styles['item-place']}
-                    type="text" placeholder='לדוגמה: מקרר'
+                    type="text" placeholder='ארון קפה'
                 />
                 <input
                     onChange={setItemQuantityHandler}

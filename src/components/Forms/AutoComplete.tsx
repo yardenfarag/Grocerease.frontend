@@ -24,9 +24,8 @@ export const AutoComplete: React.FC<Props> = (props) => {
 
   const options = {
     strictBounds: true,
-  };
-
-
+  }
+  
   const onPlaceChanged = () => {
     if (autocompleteRef.current) {
       const selectedPlace = autocompleteRef.current.getPlace()

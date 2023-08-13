@@ -15,32 +15,32 @@
 // }
 
 :root {
-    --clr1: #212529; 
-    --clr2: #495057; 
-    --clr3: #adb5bd; 
-    --clr4: #ced4da; 
-    --clr5: #dee2e6; 
-    --clr6: #e9ecef; 
-    --clr7: #f8f9fa; 
+    --clr1: #212529;
+    --clr2: #495057;
+    --clr3: #adb5bd;
+    --clr4: #ced4da;
+    --clr5: #dee2e6;
+    --clr6: #e9ecef;
+    --clr7: #f8f9fa;
     --clr8: rgb(226, 242, 205);
     --clr-call-to-action: #9dcc61;
 
     --clr-input: #fff;
     --clr-bs: #d4d4d4;
-    --clr-btn: #fff
+    --clr-btn: #fff 
 }
 
 .dark {
     --clr1: #f8f9fa;
     --clr2: #e9ecef;
-    --clr3: #dee2e6;
+    --clr3: #cdcfd1;
     --clr4: #ced4da;
     --clr5: #adb5bd;
     --clr6: #323537;
     --clr7: #212529;
     --clr8: rgb(29, 29, 29);
     --clr-call-to-action: #9dcc61;
-
+    
     --clr-input: #363636;
     --clr-bs: #1d1d1d;
     --clr-btn: #fff
@@ -48,9 +48,11 @@
 
 $mobile: 520px;
 $tablet: 768px;
-$laptop: 960px;
+$laptop: 958px;
 $smallDesktop: 1300px;
 $desktop: 1500px;
+
+
 // LAYOUT BREAKPOINTS
 $break-mobile: 580px;
 $break-small: 620px;

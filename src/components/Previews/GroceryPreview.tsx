@@ -11,7 +11,7 @@ import { Toast } from '../UI/Toast'
 import { Link, useParams } from 'react-router-dom'
 import { getProductByBarcode } from '../../store/product'
 
-type AppDispatch = ThunkDispatch<RootState, undefined, AnyAction>;
+type AppDispatch = ThunkDispatch<RootState, undefined, AnyAction>
 
 interface Props {
     item: Grocery
@@ -84,7 +84,7 @@ export const GroceryPreview: React.FC<Props> = (props) => {
     return (
         <>
             <Toast />
-            <li className={styles['grocery-item']} key={barcode} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+            <li className={styles.li} key={barcode} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                 <div className={styles['grocery-item-title']}>
                     <DeleteOutline
                         titleAccess='מחק'
