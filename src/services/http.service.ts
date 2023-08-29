@@ -38,7 +38,7 @@ async function ajax(endpoint: string, method: string = 'GET', data: any = null):
     console.dir(err);
     if (err.response && err.response.status === 401) {
       sessionStorage.clear();
-      // window.location.assign('/');
+      window.location.assign('/');
       // Depends on routing startegy - hash or history
       // window.location.assign('/#/login')
       // window.location.assign('/login')
