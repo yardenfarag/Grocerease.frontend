@@ -7,13 +7,14 @@ const initialProductState = {
     count: 0,
     pageCount: 0,
     loading: false,
+    loadingProduct: false,
     error: false,
     curProduct: null as Gs1Product | null,
     filterBy: { txt: '' }
 }
 
 export const getProducts = createAsyncThunk('product', async ({ txt, page }: { txt: string; page?: number }) => {
-    return productService.getProducts({txt}, page)
+    return productService.getProducts({ txt }, page)
 })
 
 export const getProductByBarcode = createAsyncThunk('product/:barcode', async (barcode: string) => {
@@ -30,7 +31,7 @@ const productSlice = createSlice({
     reducers: {
         setFilterBy: (state, action: PayloadAction<string>) => {
             state.filterBy.txt = action.payload
-          },
+        },
     },
     extraReducers: (builder) => {
         builder
@@ -57,17 +58,17 @@ const productSlice = createSlice({
             })
             .addCase(getProductByBarcode.fulfilled, (state, action) => {
                 state.curProduct = action.payload
-                state.loading = false
+                state.loadingProduct = false
                 state.error = false
             })
             .addCase(getProductByBarcode.pending, (state, action) => {
                 state.curProduct = null
-                state.loading = true
+                state.loadingProduct = true
                 state.error = false
             })
             .addCase(getProductByBarcode.rejected, (state, action) => {
                 state.curProduct = null
-                state.loading = false
+                state.loadingProduct = false
                 state.error = true
             })
     }

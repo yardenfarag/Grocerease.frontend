@@ -4,9 +4,8 @@ import { httpService } from './http.service'
 
 export const productService = {
     getProducts,
-    getProductByBarcode
+    getProductByBarcode,
 }
-
 
 
 async function getProducts(filterBy: { txt: string }, page?: number): Promise<{pagination: Pagination, products: Product[]}> {
@@ -16,3 +15,4 @@ async function getProducts(filterBy: { txt: string }, page?: number): Promise<{p
 async function getProductByBarcode(barcode: string): Promise<Gs1Product> {
     return await httpService.get('product/' + barcode)
 }
+

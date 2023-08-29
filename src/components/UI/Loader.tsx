@@ -13,8 +13,7 @@ export const Loader: React.FC<Props> = (props) => {
             <TailSpin
                 height={height}
                 width={width}
-                color="lightgreen"
-                ariaLabel="#9dcc61"
+                color="#9dcc61"
                 radius="1"
                 wrapperStyle={{}}
                 wrapperClass=""

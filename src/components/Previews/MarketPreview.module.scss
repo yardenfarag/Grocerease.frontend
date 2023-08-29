@@ -8,13 +8,13 @@
     justify-content: center;
     flex-direction: column;
     width: 100%;
-    height: 160px;
-    overflow: hidden;
+    // height: 160px;
+    // overflow: hidden;
     border-bottom: 1px solid var(--clr8);
     padding: .5rem;
 
     @media (min-width: variables.$tablet) {
-        height: 200px;
+        // height: 400px;
     }
 
     .market-info {

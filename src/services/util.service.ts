@@ -1,3 +1,5 @@
+import { httpService } from "./http.service";
+
 function makeId(length = 10) {
     var txt = ''
     var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
@@ -192,6 +194,10 @@ function calculateDays(dateString: string): number {
     return daysDifference
 }
 
+async function getKey(keyName: string): Promise<string> {
+    return await httpService.get('price/key', {keyName})
+}
+
 
 
 export const utilService = {
@@ -203,5 +209,6 @@ export const utilService = {
     formatDateDescription,
     isToday,
     isExpiringInDays,
-    calculateDays
+    calculateDays,
+    getKey
 }

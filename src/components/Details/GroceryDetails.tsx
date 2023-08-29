@@ -11,8 +11,17 @@ interface Props {
 }
 
 export const GroceryDetails: React.FC<Props> = (props) => {
-    const product = useSelector((state: RootState) => state.product.curProduct)
-    const loading = useSelector((state: RootState) => state.product.loading)
+    const { curProduct, loadingProduct } = useSelector((state: RootState) => state.product)
+
+    const listItems = [
+        { label: 'מותג', value: curProduct?.product_info.Main_Fields.BrandName },
+        { label: 'תכולה', value: curProduct?.product_info.Main_Fields.Net_Content.text },
+        { label: 'יצרן', value: curProduct?.product_info.General_Information.Manufacturer_Name },
+        { label: 'מרכיבים', value: curProduct?.product_info.Product_Components_and_Instructions_General.Ingredient_Sequence_and_Name },
+        { label: 'אלרגנים', value: curProduct?.product_info.Product_Components_and_Instructions_General.Allergen_Type_Code_and_Containment[0].value },
+        { label: 'עלול להכיל', value: curProduct?.product_info.Product_Components_and_Instructions_General.Allergen_Type_Code_and_Containment_May_Contain[0].value },
+        { label: 'כשרות', value: curProduct?.product_info.Kashrut.Rabbinate[0].value },
+    ]
 
     const closeModal = () => {
         props.onToggleModal()
@@ -21,25 +30,22 @@ export const GroceryDetails: React.FC<Props> = (props) => {
     return (
         <>
             <main className={styles.main}>
-                {loading && <div className={styles.loading}><Loader height='50px' width='50px' /></div>}
-                {!loading && !product && <h1 className={styles.loading}>בחר מוצר להצגה</h1>}
-                {product && <article className={styles.container}>
+                {loadingProduct && <div className={styles.loading}><Loader height='100px' width='100px' /></div>}
+                {!loadingProduct && !curProduct && <h1 className={styles.loading}>בחר מוצר להצגה</h1>}
+                {curProduct && <article className={styles.container}>
                     <header className={styles.header}>
-                        <h1 className={styles.h1}>{product.product_info.Main_Fields.Trade_Item_Description}</h1>
+                        <h1 className={styles.h1}>{curProduct.product_info.Main_Fields.Trade_Item_Description}</h1>
                         <Close onClick={closeModal} className={styles.icon} />
                     </header>
-                    <hr className={styles.hr}/>
-                    <img className={styles.img} src={product.imgUrl} alt="" />
+                    <hr className={styles.hr} />
+                    <img className={styles.img} src={curProduct.imgUrl} alt="" />
                     <ul className={styles.ul}>
-                        {product.product_info.Main_Fields.BrandName && <li className={styles.li}>מותג <span className={styles.span}>{product.product_info.Main_Fields.BrandName}</span></li>}
-                        {product.product_info.Main_Fields.Country_of_Origin[0].value && <li className={styles.li}>ארץ ייצור <span className={styles.span}>{product.product_info.Main_Fields.Country_of_Origin[0].value}</span></li>}
-                        {product.product_info.General_Information.Manufacturer_Name && <li className={styles.li}>יצרן <span className={styles.span}>{product.product_info.General_Information.Manufacturer_Name}</span></li>}
-                        {product.product_info.Product_Components_and_Instructions_General.Ingredient_Sequence_and_Name && <li className={styles.li}>מרכיבים <span className={styles.span}>{product.product_info.Product_Components_and_Instructions_General.Ingredient_Sequence_and_Name}</span></li>}
-                        {product.product_info.Product_Components_and_Instructions_General.Allergen_Type_Code_and_Containment[0].value && <li className={styles.li}>אלרגנים <span className={styles.span}>{product.product_info.Product_Components_and_Instructions_General.Allergen_Type_Code_and_Containment[0].value}</span></li>}
-                        {product.product_info.Product_Components_and_Instructions_General.Allergen_Type_Code_and_Containment_May_Contain[0].value && <li className={styles.li}>עלול להכיל <span className={styles.span}>{product.product_info.Product_Components_and_Instructions_General.Allergen_Type_Code_and_Containment_May_Contain[0].value}</span></li>}
-                        {product.product_info.Kashrut.Rabbinate[0].value && <li className={styles.li}>כשרות <span className={styles.span}>{product.product_info.Kashrut.Rabbinate[0].value}</span></li>}
+                        {listItems.map((item, index) => (
+                            item.value && <li className={styles.li} key={index}>
+                                {item.label} <span className={styles.span}>{item.value}</span>
+                            </li>
+                        ))}
                     </ul>
-
                 </article>}
             </main>
         </>

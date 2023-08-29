@@ -1,26 +1,20 @@
-import React, { useEffect } from 'react'
-import { useSelector } from 'react-redux'
-import { RootState } from '../../store'
-import { useDispatch } from 'react-redux'
+import React from 'react'
 import styles from './MarketDetails.module.scss'
 import { Close } from '@mui/icons-material'
 import { Market } from '../../models/Market'
 import { Item } from '../../models/item'
+import { MarketItem } from '../Previews/MarketItem'
 
 interface Props {
     onToggleModal: () => void
     market: Market
 }
 
-export const MarketDetails: React.FC<Props> = (props) => {
-    const market = props.market
+export const MarketDetails: React.FC<Props> = ({ onToggleModal, market }) => {
     const closeModalHandler = () => {
-        props.onToggleModal()
+        onToggleModal()
     }
-    const formatPriceILS = (price: number) => {
-        const formattedNumber = Number(price).toFixed(2)
-        return `₪${formattedNumber}`
-    }
+    
     return (
         <>
             <main className={styles.main}>
@@ -34,14 +28,7 @@ export const MarketDetails: React.FC<Props> = (props) => {
                     </header>
                     <hr className={styles.hr}/>
                     <ul className={styles.ul}>
-                        {market.items?.map((item: Item) => <li className={styles.li} key={item.barcode}>
-                            <h4 className={styles.h4}>{item.title}</h4>
-                            <h3 
-                            style={{fontStyle: item.price! > 0 ? '' : 'italic', 
-                            fontWeight: item.price! > 0 ? '500' : '300', 
-                            fontSize: item.price! > 0 ? '1.1rem' : '.7rem'}} 
-                            className={styles.h3}>{item.price! > 0 ? formatPriceILS(item.price!) : 'לא נמצא מידע'}</h3>
-                        </li>)}
+                        {market.items?.map((item: Item) => <MarketItem key={item.barcode} item={item}/>)}
                     </ul>
                 </article>}
             </main>

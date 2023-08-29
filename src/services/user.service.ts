@@ -15,32 +15,23 @@ export const USER_KEY = 'loggedInUser'
 
 async function getLoggedInUser(): Promise<{_id:string, fullName: string}> {
     const loginToken = Cookies.get('loginToken')
-    const user = await httpService.get('auth/loggedinuser', loginToken)
-    _saveUser(user)
+    const user = await httpService.get('auth/loggedInUser', {loginToken})
     return user
 }
 
 async function signup(credentials: signupCreds): Promise<{_id:string, fullName: string}> {
     const user = await httpService.post('auth/signup', credentials)
-    _saveUser(user)
     return user
 }
 
 async function login(credentials: loginCreds): Promise<{_id:string, fullName: string}> {
     const user = await httpService.post('auth/login', credentials)  
-    _saveUser(user)
     return user
 }
 
 async function logout(): Promise<void> {
-    localStorage.removeItem(USER_KEY)
     return await httpService.post('auth/logout')
 }
-
-function _saveUser(user:User) {
-    localStorage.setItem(USER_KEY, JSON.stringify(user))
-}
-
 
 
 

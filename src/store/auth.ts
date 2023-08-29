@@ -1,10 +1,12 @@
 import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit'
 import { loginCreds, signupCreds } from '../models/auth'
 import { USER_KEY, userService } from '../services/user.service'
-import { User } from '../models/user';
+import { User } from '../models/user'
 
-const storedUser = localStorage.getItem(USER_KEY);
-const parsedUser = storedUser ? JSON.parse(storedUser) : null;
+
+
+const persistedUser = JSON.parse(sessionStorage.getItem('user') || 'null')
+
 
 export const signup = createAsyncThunk(
   'auth/signup',
@@ -54,7 +56,7 @@ interface AuthState {
 }
 
 const initialState: AuthState = {
-  user: parsedUser as User | null,
+  user: persistedUser,
   isLoggedIn: false,
   loading: false,
   error: false,
@@ -70,6 +72,7 @@ export const authSlice = createSlice({
       state.loading = false
       state.isLoggedIn = false
       state.error = false
+      sessionStorage.removeItem('user')
     },
   },
   extraReducers: (builder) => {
@@ -79,6 +82,7 @@ export const authSlice = createSlice({
         state.isLoggedIn = true
         state.loading = false
         state.error = false
+        sessionStorage.setItem('user', JSON.stringify(action.payload))
       })
       .addCase(signup.pending, (state) => {
         state.loading = true
@@ -93,6 +97,7 @@ export const authSlice = createSlice({
         state.isLoggedIn = true
         state.loading = false
         state.error = false
+        sessionStorage.setItem('user', JSON.stringify(action.payload))
       })
       .addCase(login.pending, (state) => {
         state.loading = true
@@ -107,6 +112,7 @@ export const authSlice = createSlice({
         state.isLoggedIn = true
         state.loading = false
         state.error = false
+        sessionStorage.setItem('user', JSON.stringify(action.payload))
       })
       .addCase(getLoggedInUser.pending, (state) => {
         state.loading = true

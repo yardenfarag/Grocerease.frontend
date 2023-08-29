@@ -1,0 +1,60 @@
+@use '../../styles//setup/variables' as variables;
+
+.li {
+    padding: 0.375rem;
+    height: fit-content;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0.75rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--clr6);
+    box-shadow: 0px 1px 2px 0px var(--clr-bs);
+    background-color: var(--clr7);
+    font-weight: 500;
+
+    .h4 {
+        font-weight: 500;
+        color: var(--clr2);
+        font-size: .7rem;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        width: 78%;
+        @media (min-width: variables.$mobile) {
+            font-size: .8rem;
+        }
+
+        @media (min-width: variables.$tablet) {
+            font-size: 1rem;
+        }
+    }
+
+    .not-found {
+        color: var(--clr-call-to-action);
+        font-weight: 400;
+        font-size: .6rem;
+        @media (min-width: variables.$mobile) {
+            font-size: .7rem;
+        }
+
+        @media (min-width: variables.$tablet) {
+            font-size: .8rem;
+        }
+    }
+    .h3 {
+        color: var(--clr1);
+        font-weight: 600;
+        font-size: .8rem;
+
+
+        @media (min-width: variables.$mobile) {
+            font-size: 1rem;
+        }
+
+        @media (min-width: variables.$tablet) {
+            font-size: 1.1rem;
+        }
+    }
+
+}
