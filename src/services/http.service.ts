@@ -1,7 +1,7 @@
 import Axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 
 const BASE_URL = process.env.NODE_ENV === 'production'
-  ? '/api/'
+  ? 'https://grocerease-api.onrender.com/api/'
   : '//localhost:5555/api/';
 
 const axios = Axios.create({
